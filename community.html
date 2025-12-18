@@ -212,10 +212,10 @@
         }
         
         .story-logo {
-            width: 60px;
-            height: 60px;
-            background: var(--light-bg);
-            border-radius: 12px;
+            width: 76px;
+            height: 76px;
+	    background: transparent;	/* added to remove light blue */
+	    border-radius: 0;		/* optional: remove rounded box feel */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -229,7 +229,7 @@
 	    width: 100%;
 	    height: 100%;
 	    object-fit: contain;
-	    padding: 8px;
+	    padding: 2px;
 	}
 
         .story-card h3 {
