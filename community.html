@@ -224,6 +224,14 @@
             color: var(--primary-teal);
         }
         
+	/* Add this new rule */
+	.story-logo img {
+	    width: 100%;
+	    height: 100%;
+	    object-fit: contain;
+	    padding: 8px;
+	}
+
         .story-card h3 {
             font-size: 1.5rem;
             color: var(--deep-navy);
@@ -652,7 +660,9 @@
         <div class="stories-grid">
             <div class="story-card">
                 <div class="story-header">
-                    <div class="story-logo">MC</div>
+                    <div class="story-logo">
+    			<img src="mayo-clinic.png" alt="Mayo Clinic">
+		    </div>
                     <div>
                         <h3>Mayo Clinic</h3>
                         <h4>Clinical AI Integration</h4>
@@ -669,7 +679,9 @@
 
             <div class="story-card">
                 <div class="story-header">
-                    <div class="story-logo">SU</div>
+		    <div class="story-logo">
+		        <img src="stanford-neuro.png" alt="Stanford">
+		    </div>
                     <div>
                         <h3>Stanford Neuroscience</h3>
                         <h4>Research Innovation</h4>
@@ -685,7 +697,9 @@
 
             <div class="story-card">
                 <div class="story-header">
-                    <div class="story-logo">FM</div>
+		    <div class="story-logo">
+   			 <img src="freemocap.png" alt="FreeMoCap">
+		    </div>
                     <div>
                         <h3>FreeMoCap Foundation</h3>
                         <h4>Technical Integration</h4>
@@ -701,7 +715,9 @@
 
             <div class="story-card">
                 <div class="story-header">
-                    <div class="story-logo">JH</div>
+		    <div class="story-logo">
+		        <img src="johns-hopkins.jpg" alt="Johns Hopkins">
+		    </div>
                     <div>
                         <h3>Johns Hopkins University</h3>
                         <h4>Neuroimaging Research</h4>
