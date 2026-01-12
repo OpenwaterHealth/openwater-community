@@ -316,7 +316,7 @@
             padding: 1rem;
             border-bottom: 1px solid var(--border-color);
             display: flex;
-            align-items: flex-start;
+            align-items: flex-t;
             gap: 1rem;
         }
         
@@ -546,7 +546,7 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="developers.html">Developers</a></li>
-                <li><a href="get-started.html" class="active">Get Started</a></li>
+                <li><a href="get-ted.html" class="active">Get ted</a></li>
                 <li><a href="community.html">Community</a></li>
                 <li><a href="model-commons.html">Model Commons</a></li>
             </ul>
@@ -556,7 +556,7 @@
     <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Start Your Openwater Journey</h1>
+            <h1>t Your Openwater Journey</h1>
             <p>From first contribution to core team member in 5 simple steps</p>
             
             <div class="hero-stats">
@@ -595,7 +595,7 @@
                     <li>Fix bugs & add features</li>
                     <li>Earn bounties ($100-$2K)</li>
                 </ul>
-                <a href="#quickstart" class="btn btn-card">Get Started →</a>
+                <a href="#quickt" class="btn btn-card">Get ted →</a>
             </div>
 
             <!-- Design Hardware (NEW) -->
@@ -651,15 +651,15 @@
                     <li>Fix errors & typos</li>
                     <li>Translate content</li>
                 </ul>
-                <a href="#" class="btn btn-card">Start Writing →</a>
+                <a href="#" class="btn btn-card">t Writing →</a>
             </div>
         </div>
     </section>
 
-    <!-- 5-Minute Quickstart -->
-    <section class="section" id="quickstart" style="background: var(--light-bg);">
+    <!-- 5-Minute Quickt -->
+    <section class="section" id="quickt" style="background: var(--light-bg);">
         <div class="section-header">
-            <h2 class="section-title">5-Minute Quickstart Guide</h2>
+            <h2 class="section-title">5-Minute Quickt Guide</h2>
             <p class="section-subtitle">Make your first contribution in just 5 minutes</p>
         </div>
 
@@ -684,15 +684,45 @@
             <div class="step">
                 <h3>Star & Fork the Repository</h3>
                 <p>Get the code and set up your development environment. We have 48 repositories to explore.</p>
-                
-                <div class="code-block">
+
+                <!-- Fork vs Clone explainer (INSERTED HERE) -->
+                <div style="
+                   background:#F0F9FF;
+                   border:1px solid #E0F2FE;
+                   border-radius:12px;
+                   padding:20px;
+                   margin-top:1.5rem;
+                   color:#0F172A;
+                ">
+           <strong>Fork vs Clone (1-minute explanation)</strong>
+           <p style="margin-top:0.5rem;">
+              <strong>Fork</strong> creates your own copy of the repository on GitHub.
+              You need this if you want to make changes or contribute back.
+           </p>
+        <p>
+            <strong>Clone</strong> downloads a repository to your computer.
+            You usually clone <em>after</em> you fork.
+        </p>
+        <p style="margin-bottom:0;">
+            👉 <strong>New here?</strong> Fork first → then clone your fork.
+        </p>
+    </div>
+
+    <!-- Existing code block stays exactly as-is -->
+    <div class="code-block">
 # Clone OpenLIFU Python repository<br>
 git clone https://github.com/OpenwaterHealth/OpenLIFU-python.git<br>
 cd OpenLIFU-python<br>
 <br>
 # Add upstream remote<br>
 git remote add upstream https://github.com/OpenwaterHealth/OpenLIFU-python.git
-                </div>
+    </div>
+    
+    <a href="https://github.com/OpenwaterHealth" class="btn btn-primary" style="margin-top: 1rem;">
+        View on GitHub →
+    </a>
+</div>
+
                 
                 <a href="https://github.com/OpenwaterHealth" class="btn btn-primary" style="margin-top: 1rem;">View on GitHub →</a>
             </div>
