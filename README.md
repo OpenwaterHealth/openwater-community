@@ -4,7 +4,7 @@ Demo of Openwater community pages featuring comprehensive onboarding and develop
 
 ## 🔗 Live Demo
 
-**GitHub Pages URL:** `https://YOUR-USERNAME.github.io/openwater-community/`
+**GitHub Pages URL:** `https://dblizinski.github.io/openwater-community/`
 
 ## 📄 Pages
 
