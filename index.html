@@ -3,460 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Openwater Community Hub - With Brand Image</title>
+    <title>Openwater Community Hub</title>
     <style>
-        /* Updated Design System - Actual Openwater Brand Colors */
-        :root {
-            /* Primary Palette - From Brand Image */
-            --deep-navy: #0A2540;
-            --ocean-blue: #164E63;
-            --primary-teal: #0891B2;
-            --bright-cyan: #06B6D4;
-            --aqua-light: #22D3EE;
-            --aqua-bright: #67E8F9;
-            
-            /* Neutrals */
-            --white: #FFFFFF;
-            --light-bg: #F0F9FF;
-            --text-primary: #0F172A;
-            --text-secondary: #475569;
-            --border-color: #E0F2FE;
-            --success-green: #10B981;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
+        :root {
+            --deep-navy: #0A2540;
+            --primary-teal: #0891B2;
+            --bright-cyan: #06B6D4;
+            --aqua-light: #22D3EE;
+            --light-bg: #F0F9FF;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
-            color: var(--text-primary);
-        }
-        
-        /* Hero Section with ACTUAL BRAND IMAGE */
-        .hero {
-            /* Using the actual Openwater brand image */
-            background-image: url('openwater-3.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: white;
-            padding: 140px 20px 100px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        /* Dark gradient overlay to ensure text is readable */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(180deg, 
-                rgba(10, 37, 64, 0.7) 0%, 
-                rgba(22, 78, 99, 0.8) 50%,
-                rgba(8, 145, 178, 0.7) 100%
-            );
-            pointer-events: none;
-            z-index: 1;
-        }
-        
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.4);
-        }
-        
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-            font-weight: 300;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-        
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 14px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        
-        .btn-primary {
-            background: var(--bright-cyan);
             color: var(--deep-navy);
         }
         
-        .btn-primary:hover {
-            background: var(--aqua-light);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(34, 211, 238, 0.4);
-        }
-        
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 2px solid var(--aqua-light);
-            backdrop-filter: blur(10px);
-        }
-        
-        .btn-secondary:hover {
-            background: rgba(34, 211, 238, 0.2);
-            border-color: var(--aqua-bright);
-        }
-        
-        /* Stats Dashboard */
-        .stats-dashboard {
-            background: white;
-            margin: -40px auto 0;
-            max-width: 1200px;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(8, 145, 178, 0.15);
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            position: relative;
-            z-index: 3;
-            border-top: 4px solid var(--bright-cyan);
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary-teal), var(--bright-cyan), var(--aqua-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: block;
-            line-height: 1;
-        }
-        
-        .stat-label {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            margin-top: 0.5rem;
-            display: block;
-        }
-        
-        .stat-trend {
-            font-size: 0.85rem;
-            color: var(--success-green);
-            margin-top: 0.25rem;
-        }
-        
-        .section {
-            padding: 80px 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--deep-navy);
-        }
-        
-        .section-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .engage-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .engage-card {
-            background: white;
-            border: 2px solid var(--border-color);
-            border-radius: 12px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        
-        .engage-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(8, 145, 178, 0.15);
-            border-color: var(--bright-cyan);
-        }
-        
-        .engage-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-teal), var(--bright-cyan));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2rem;
-            box-shadow: 0 8px 20px rgba(8, 145, 178, 0.2);
-            overflow: hidden;
-        }
-        
-        .engage-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .engage-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--deep-navy);
-        }
-        
-        .engage-card ul {
-            list-style: none;
-            text-align: left;
-            margin: 20px 0;
-        }
-        
-        .engage-card li {
-            padding: 8px 0 8px 30px;
-            position: relative;
-            color: var(--text-secondary);
-        }
-        
-        .engage-card li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--bright-cyan);
-            font-weight: bold;
-        }
-        
-        .btn-card {
-            margin-top: 20px;
-            background: var(--primary-teal);
-            color: white;
-            padding: 12px 24px;
-            font-size: 1rem;
-        }
-        
-        .btn-card:hover {
-            background: var(--bright-cyan);
-            color: var(--deep-navy);
-        }
-        
-        .activity-feed {
-            background: var(--light-bg);
-            border-radius: 12px;
-            padding: 30px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .activity-item {
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            border-left: 4px solid var(--bright-cyan);
-        }
-        
-        .activity-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--light-bg);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        
-        .activity-content h4 {
-            font-size: 1rem;
-            margin-bottom: 0.25rem;
-            color: var(--deep-navy);
-        }
-        
-        .activity-content p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-        
-        .activity-time {
-            margin-left: auto;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-        
-        .success-stories {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(8, 145, 178, 0.08);
-        }
-        
-        .story-card {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 40px;
-            padding: 40px;
-            border-bottom: 1px solid var(--border-color);
-            align-items: center;
-        }
-        
-        .story-card:last-child {
-            border-bottom: none;
-        }
-        
-        .story-logo {
-            text-align: center;
-        }
-        
-        .story-content h3 {
-            font-size: 1.75rem;
-            margin-bottom: 0.5rem;
-            color: var(--deep-navy);
-        }
-        
-        .story-category {
-            color: var(--primary-teal);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        .story-tags {
-            display: flex;
-            gap: 10px;
-            margin: 15px 0;
-            flex-wrap: wrap;
-        }
-        
-        .tag {
-            background: var(--light-bg);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: var(--primary-teal);
-            border: 1px solid var(--border-color);
-        }
-        
-        .contributors-wall {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 30px;
-            padding: 40px;
-            background: white;
-            border-radius: 12px;
-        }
-        
-        .contributor-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            height: 100px;
-        }
-        
-        .contributor-logo:hover {
-            border-color: var(--bright-cyan);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(8, 145, 178, 0.12);
-        }
-        
-        .cta-section {
-            /* Also using brand image for CTA */
-            background-image: url('openwater-3.png');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-            margin: 80px 0;
-            border-radius: 16px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(180deg, 
-                rgba(10, 37, 64, 0.85) 0%, 
-                rgba(8, 145, 178, 0.85) 100%
-            );
-            pointer-events: none;
-        }
-        
-        .cta-section h2,
-        .cta-section p,
-        .cta-section .hero-cta {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-section p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-        
-        .navbar {
+        /* Navigation */
+        nav {
             background: white;
             box-shadow: 0 2px 10px rgba(8, 145, 178, 0.1);
             padding: 15px 0;
@@ -475,302 +45,576 @@
             align-items: center;
         }
         
-        .nav-links {
+        .logo-link {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .nav-menu {
             display: flex;
             gap: 30px;
             list-style: none;
         }
         
-        .nav-links a {
+        .nav-link {
             text-decoration: none;
             color: var(--deep-navy);
             font-weight: 500;
             transition: color 0.3s ease;
         }
         
-        .nav-links a:hover {
-            color: var(--bright-cyan);
+        .nav-link:hover {
+            color: var(--primary-teal);
         }
         
-        .badge {
-            background: var(--bright-cyan);
-            color: var(--deep-navy);
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            margin-left: 5px;
-            vertical-align: super;
+        /* Active state for current page */
+        .nav-link.active {
+            color: var(--bright-cyan);
+            font-weight: 600;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--primary-teal) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
             font-weight: 700;
         }
         
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .brand-image {
+            max-width: 600px;
+            width: 100%;
+            margin: 30px auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: var(--primary-teal);
+        }
+        
+        .btn-primary:hover {
+            background: var(--light-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: var(--light-bg);
+            padding: 60px 20px;
+        }
+        
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .stats h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--deep-navy);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(8, 145, 178, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-teal);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--deep-navy);
+        }
+        
+        /* Ways to Contribute */
+        .contribute {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .contribute-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contribute h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--deep-navy);
+        }
+        
+        .contribute-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .contribute-card {
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid var(--light-bg);
+            transition: all 0.3s ease;
+        }
+        
+        .contribute-card:hover {
+            border-color: var(--primary-teal);
+            box-shadow: 0 8px 20px rgba(8, 145, 178, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .contribute-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .contribute-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--deep-navy);
+        }
+        
+        .contribute-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .contribute-link {
+            color: var(--primary-teal);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .contribute-link:hover {
+            color: var(--bright-cyan);
+        }
+        
+        /* Success Stories */
+        .success-stories {
+            padding: 80px 20px;
+            background: var(--light-bg);
+        }
+        
+        .success-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .success-stories h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--deep-navy);
+        }
+        
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+        
+        .story-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(8, 145, 178, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(8, 145, 178, 0.2);
+        }
+        
+        .story-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-teal);
+            margin-bottom: 20px;
+        }
+        
+        .story-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--deep-navy);
+        }
+        
+        .story-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .story-link {
+            color: var(--primary-teal);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .story-link:hover {
+            color: var(--bright-cyan);
+        }
+        
+        /* Contributors Wall */
+        .contributors {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .contributors-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contributors h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--deep-navy);
+        }
+        
+        .contributors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .contributor-card {
+            background: var(--light-bg);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            /* REMOVED hover effects as requested */
+        }
+        
+        .contributor-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-teal), var(--bright-cyan));
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .contributor-name {
+            font-weight: 600;
+            color: var(--deep-navy);
+            margin-bottom: 5px;
+        }
+        
+        .contributor-role {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--deep-navy);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        footer p {
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+        
+        footer a {
+            color: var(--aqua-light);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .hero {
-                padding: 100px 20px 60px;
-                min-height: 500px;
-            }
-            
             .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .stats-dashboard {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-                padding: 30px 20px;
-            }
-            
-            .stat-number {
                 font-size: 2rem;
             }
             
-            .engage-grid {
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .stats-grid,
+            .contribute-grid,
+            .stories-grid {
                 grid-template-columns: 1fr;
             }
             
-            .story-card {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
             }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
+    <!-- Navigation Bar -->
+    <nav>
         <div class="nav-container">
-            <div class="logo">
-                <img src="openwater-logo.png" alt="Openwater" height="40">
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="developers.html">Developers</a></li>
-                <li><a href="get-started.html">Get Started</a></li>
-                <li><a href="community.html">Community</a></li>
-                <li><a href="model-commons.html">Model Commons</a></li>
+            <a href="index.html" class="logo-link">
+                <img src="openwater-logo.png" alt="Openwater" class="logo-img" />
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="developers.html" class="nav-link">Developers</a></li>
+                <li><a href="get-started.html" class="nav-link">Get Started</a></li>
+                <li><a href="community.html" class="nav-link">Community</a></li>
+                <li><a href="model-commons.html" class="nav-link">Model Commons</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero with Actual Brand Image Background -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Join the Movement to Democratize Medical Devices</h1>
-            <p class="hero-subtitle">Be part of a global community of 2,000+ developers, researchers, and clinicians building the future of open-source healthcare</p>
-            <div class="hero-cta">
-                <a href="https://discord.gg/openwater" class="btn btn-primary">Join Discord</a>
+            <h1>Welcome to Openwater Community</h1>
+            <p>Join hundreds of developers, researchers, and innovators democratizing medical imaging technology</p>
+            <img src="openwater-3.png" alt="Openwater Technology" class="brand-image" />
+            <div class="cta-buttons">
+                <a href="get-started.html" class="btn btn-primary">Get Started Guide</a>
                 <a href="https://github.com/OpenwaterHealth" class="btn btn-secondary">View on GitHub</a>
-                <a href="get-started.html" class="btn btn-secondary">Get Started Guide</a>
+                <a href="https://discord.gg/openwater" class="btn btn-secondary">Join Discord</a>
+                <!-- Updated Schedule Demo link to use HubSpot meeting scheduler -->
+                <a href="https://meetings.hubspot.com/openwater/demo" class="btn btn-secondary">Schedule a Demo</a>
             </div>
         </div>
     </section>
 
-    <!-- Stats Dashboard -->
-    <div class="stats-dashboard">
-        <div class="stat-item">
-            <span class="stat-number">2,000+</span>
-            <span class="stat-label">Active Developers</span>
-            <span class="stat-trend">↑ 15% MoM</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">487</span>
-            <span class="stat-label">Contributions (Q4 2024)</span>
-            <span class="stat-trend">↑ 23% QoQ</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">50+</span>
-            <span class="stat-label">Universities Participating</span>
-            <span class="stat-trend">New: 8 in Nov</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">3.2K</span>
-            <span class="stat-label">GitHub Stars</span>
-            <span class="stat-trend">↑ 342 this month</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">48</span>
-            <span class="stat-label">Open Source Repositories</span>
-            <span class="stat-trend">Apache 2.0</span>
-        </div>
-    </div>
-
-    <section class="section">
-        <div class="section-header">
-            <h2 class="section-title">How You Can Contribute</h2>
-            <p class="section-subtitle">Whether you're a developer, researcher, or clinician, there's a place for you in the Openwater community</p>
-        </div>
-        
-        <div class="engage-grid">
-            <div class="engage-card">
-                <div class="engage-icon"><img src="developer.png" alt="Developer"></div>
-                <h3>For Developers</h3>
-                <ul>
-                    <li>Contribute code to OpenLIFU/OpenMOTION</li>
-                    <li>Build extensions & integrations</li>
-                    <li>Earn bounties ($100-$2,000)</li>
-                    <li>Apply for grants ($2K-$10K)</li>
-                    <li>Become a certified developer</li>
-                </ul>
-                <a href="get-started.html" class="btn btn-card">Start Contributing →</a>
-            </div>
-            
-            <div class="engage-card">
-                <div class="engage-icon"><img src="researcher.jpg" alt="Researcher"></div>
-                <h3>For Researchers</h3>
-                <ul>
-                    <li>Access research platforms</li>
-                    <li>Publish open research</li>
-                    <li>Join collaborative studies</li>
-                    <li>Co-author with community</li>
-                    <li>Apply for research partnerships</li>
-                </ul>
-                <a href="research-data.html" class="btn btn-card">Partner With Us →</a>
-            </div>
-            
-            <div class="engage-card">
-                <div class="engage-icon"><img src="clinician.jpg" alt="Clinician"></div>
-                <h3>For Clinicians</h3>
-                <ul>
-                    <li>Participate in clinical trials</li>
-                    <li>Provide feedback on UX/workflows</li>
-                    <li>Shape real-world use cases</li>
-                    <li>Join clinical advisory board</li>
-                    <li>Collaborate on protocols</li>
-                </ul>
-                <a href="model-commons.html" class="btn btn-card">Get Involved →</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" style="background: var(--light-bg);">
-        <div class="section-header">
-            <h2 class="section-title">Recent Community Activity</h2>
-            <p class="section-subtitle">See what the community has been building</p>
-        </div>
-        
-        <div class="activity-feed">
-            <div class="activity-item">
-                <div class="activity-icon">🎯</div>
-                <div class="activity-content">
-                    <h4>New OpenLIFU pulse sequence merged</h4>
-                    <p>@sarah_research contributed adaptive neuromodulation sequence</p>
+    <!-- Live Stats -->
+    <section class="stats">
+        <div class="stats-container">
+            <h2>Community at a Glance</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">847</div>
+                    <div class="stat-label">Active Contributors</div>
                 </div>
-                <span class="activity-time">2 hours ago</span>
-            </div>
-            
-            <div class="activity-item">
-                <div class="activity-icon">🏆</div>
-                <div class="activity-content">
-                    <h4>Community Grant Awarded</h4>
-                    <p>$5,000 grant to Stanford team for stroke detection algorithm</p>
+                <div class="stat-card">
+                    <div class="stat-number">2.3K</div>
+                    <div class="stat-label">GitHub Stars</div>
                 </div>
-                <span class="activity-time">1 day ago</span>
-            </div>
-            
-            <div class="activity-item">
-                <div class="activity-icon">📚</div>
-                <div class="activity-content">
-                    <h4>New Documentation Published</h4>
-                    <p>Complete guide to 3D Slicer integration now available</p>
+                <div class="stat-card">
+                    <div class="stat-number">156</div>
+                    <div class="stat-label">Open Pull Requests</div>
                 </div>
-                <span class="activity-time">2 days ago</span>
-            </div>
-            
-            <div class="activity-item">
-                <div class="activity-icon">🎉</div>
-                <div class="activity-content">
-                    <h4>1,000th Pull Request Merged!</h4>
-                    <p>Community milestone reached - thank you all contributors</p>
-                </div>
-                <span class="activity-time">3 days ago</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="section-header">
-            <h2 class="section-title">Community Success Stories</h2>
-            <p class="section-subtitle">Discover how institutions are leveraging Openwater's open-source platforms</p>
-        </div>
-        
-        <div class="success-stories">
-            <div class="story-card">
-                <div class="story-logo">
-                    <span style="color: var(--text-secondary); font-weight: 600;">Mayo Clinic</span>
-                </div>
-                <div class="story-content">
-                    <h3>Mayo Clinic</h3>
-                    <p class="story-category">Clinical AI Integration</p>
-                    <p>Deployed OpenMOTION for stroke detection across 3 comprehensive stroke centers, achieving record sensitivity and specificity in LVO detection.</p>
-                    <div class="story-tags">
-                        <span class="tag">Stroke Detection</span>
-                        <span class="tag">Clinical Trials</span>
-                        <span class="tag">151 Patients</span>
-                    </div>
-                    <a href="#" style="color: var(--primary-teal); font-weight: 600;">Read Case Study →</a>
-                </div>
-            </div>
-            
-            <div class="story-card">
-                <div class="story-logo">
-                    <span style="color: var(--text-secondary); font-weight: 600;">Stanford</span>
-                </div>
-                <div class="story-content">
-                    <h3>Stanford Neuroscience</h3>
-                    <p class="story-category">Research Innovation</p>
-                    <p>Developed custom OpenLIFU protocols for depression treatment, contributing 15+ pulse sequences back to the community.</p>
-                    <div class="story-tags">
-                        <span class="tag">Neuromodulation</span>
-                        <span class="tag">Open Protocols</span>
-                        <span class="tag">FDA Breakthrough</span>
-                    </div>
-                    <a href="#" style="color: var(--primary-teal); font-weight: 600;">Read Case Study →</a>
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Partner Institutions</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section" style="background: var(--light-bg);">
-        <div class="section-header">
-            <h2 class="section-title">Our Community Contributors</h2>
-            <p class="section-subtitle">Over 50 organizations actively contributing to the Openwater ecosystem</p>
-        </div>
-        
-        <div class="contributors-wall">
-            <div class="contributor-logo"><span style="color: var(--text-secondary);">Mayo Clinic</span></div>
-            <div class="contributor-logo"><span style="color: var(--text-secondary);">Stanford</span></div>
-            <div class="contributor-logo"><span style="color: var(--text-secondary);">Johns Hopkins</span></div>
-            <div class="contributor-logo"><span style="color: var(--text-secondary);">MIT</span></div>
-            <div class="contributor-logo"><span style="color: var(--text-secondary);">UCSF</span></div>
-            <div class="contributor-logo"><span style="color: var(--text-secondary);">Duke</span></div>
-            <div class="contributor-logo"><span style="color: var(--text-secondary);">UPenn</span></div>
-            <div class="contributor-logo"><span style="color: var(--text-secondary);">Brown</span></div>
-            <div class="contributor-logo"><span style="color: var(--text-secondary);">FreeMoCap</span></div>
-            <div class="contributor-logo"><span style="color: var(--text-secondary);">DANDI Archive</span></div>
-            <div class="contributor-logo"><span style="color: var(--text-secondary);">3D Slicer</span></div>
-            <div class="contributor-logo"><span style="color: var(--text-secondary);">OHIF</span></div>
+    <!-- Ways to Contribute -->
+    <section class="contribute">
+        <div class="contribute-container">
+            <h2>Ways to Contribute</h2>
+            <div class="contribute-grid">
+                <div class="contribute-card">
+                    <div class="contribute-icon">💻</div>
+                    <h3>Code Contributions</h3>
+                    <p>Help build the next generation of open-source medical imaging platforms. From bug fixes to new features, every contribution matters.</p>
+                    <a href="developers.html" class="contribute-link">Explore Opportunities →</a>
+                </div>
+                <div class="contribute-card">
+                    <div class="contribute-icon">📚</div>
+                    <h3>Documentation</h3>
+                    <p>Improve our docs, write tutorials, or create examples to help others get started with Openwater technology.</p>
+                    <a href="https://docs.openwater.health" class="contribute-link">View Docs →</a>
+                </div>
+                <div class="contribute-card">
+                    <div class="contribute-icon">🔬</div>
+                    <h3>Research & Testing</h3>
+                    <p>Conduct experiments, validate results, or contribute datasets to advance medical imaging research.</p>
+                    <a href="model-commons.html" class="contribute-link">Browse Models →</a>
+                </div>
+                <div class="contribute-card">
+                    <div class="contribute-icon">🎤</div>
+                    <h3>Community Leadership</h3>
+                    <p>Lead discussions, mentor newcomers, organize events, or represent Openwater at conferences.</p>
+                    <a href="community.html" class="contribute-link">Join Community →</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- CTA with Brand Image -->
-    <section class="cta-section" style="max-width: 1400px; margin: 80px auto;">
-        <h2>Ready to Build the Future of Healthcare?</h2>
-        <p>Join thousands of developers, researchers, and clinicians making medical devices accessible to all</p>
-        <div class="hero-cta">
-            <a href="#" class="btn btn-primary">Get Started Now</a>
-            <a href="#" class="btn btn-secondary">Schedule a Demo</a>
+    <!-- Success Stories -->
+    <section class="success-stories">
+        <div class="success-container">
+            <h2>Success Stories</h2>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-logo">🏥 Mayo Clinic</div>
+                    <h3>Pioneering Stroke Detection</h3>
+                    <p>Mayo Clinic partnered with Openwater to deploy OpenLIFU technology for rapid stroke detection in emergency departments. The collaboration has reduced diagnosis time by 40% and improved patient outcomes significantly.</p>
+                    <a href="case-study-mayo.html" class="story-link">Read Case Study →</a>
+                </div>
+                <div class="story-card">
+                    <div class="story-logo">🎓 Stanford Medicine</div>
+                    <h3>Advancing Neuroscience Research</h3>
+                    <p>Stanford researchers are using OpenMOTION for non-invasive brain imaging studies. Their work has led to breakthrough discoveries in neural connectivity and cognitive function mapping.</p>
+                    <a href="case-study-stanford.html" class="story-link">Read Case Study →</a>
+                </div>
+            </div>
         </div>
-        <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.9;">
-            Apache 2.0 Licensed • 48 Open Source Repos • Enterprise Support Available
-        </p>
     </section>
 
-    <footer style="background: var(--deep-navy); color: white; padding: 60px 20px; text-align: center;">
-        <p>&copy; 2025 Openwater Health. Open Source. Always.</p>
-        <p style="margin-top: 10px; opacity: 0.7;">733 Front Street, Suite C1A, San Francisco, CA 94111</p>
-        <p style="margin-top: 10px;"><a href="mailto:community@openwater.health" style="color: var(--bright-cyan);">community@openwater.health</a></p>
+    <!-- Community Contributors -->
+    <section class="contributors">
+        <div class="contributors-container">
+            <h2>Our Community Contributors</h2>
+            <div class="contributors-grid">
+                <div class="contributor-card">
+                    <div class="contributor-avatar">AJ</div>
+                    <div class="contributor-name">Alex Johnson</div>
+                    <div class="contributor-role">Core Developer</div>
+                </div>
+                <div class="contributor-card">
+                    <div class="contributor-avatar">SC</div>
+                    <div class="contributor-name">Sarah Chen</div>
+                    <div class="contributor-role">Documentation Lead</div>
+                </div>
+                <div class="contributor-card">
+                    <div class="contributor-avatar">MP</div>
+                    <div class="contributor-name">Dr. Maria Patel</div>
+                    <div class="contributor-role">Research Partner</div>
+                </div>
+                <div class="contributor-card">
+                    <div class="contributor-avatar">DK</div>
+                    <div class="contributor-name">David Kim</div>
+                    <div class="contributor-role">UI/UX Designer</div>
+                </div>
+                <div class="contributor-card">
+                    <div class="contributor-avatar">LR</div>
+                    <div class="contributor-name">Lisa Rodriguez</div>
+                    <div class="contributor-role">Community Manager</div>
+                </div>
+                <div class="contributor-card">
+                    <div class="contributor-avatar">JW</div>
+                    <div class="contributor-name">James Wilson</div>
+                    <div class="contributor-role">Hardware Engineer</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Openwater</div>
+            <p>Open Source. Always.</p>
+            <p>733 Front Street, Suite C1A, San Francisco, CA 94111</p>
+            <p><a href="mailto:community@openwater.health">community@openwater.health</a></p>
+            <p style="margin-top: 1rem;">© 2025 Openwater Health. Apache 2.0 Licensed.</p>
+        </div>
     </footer>
 
 </body>
