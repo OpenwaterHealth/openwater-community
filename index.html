@@ -393,6 +393,7 @@
             border-radius: 12px;
         }
         
+        /* FIX #4: Removed hover effects from contributor logos */
         .contributor-logo {
             display: flex;
             align-items: center;
@@ -400,14 +401,7 @@
             padding: 20px;
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            transition: all 0.3s ease;
             height: 100px;
-        }
-        
-        .contributor-logo:hover {
-            border-color: var(--bright-cyan);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(8, 145, 178, 0.12);
         }
         
         .cta-section {
@@ -492,6 +486,12 @@
             color: var(--bright-cyan);
         }
         
+        /* FIX #1: Added active state for current page */
+        .nav-links a.active {
+            color: var(--bright-cyan);
+            font-weight: 600;
+        }
+        
         .badge {
             background: var(--bright-cyan);
             color: var(--deep-navy);
@@ -545,7 +545,8 @@
                 <img src="openwater-logo.png" alt="Openwater" height="40">
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <!-- FIX #1: Added 'active' class to Home link -->
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="developers.html">Developers</a></li>
                 <li><a href="get-started.html">Get Started</a></li>
                 <li><a href="community.html">Community</a></li>
@@ -560,9 +561,12 @@
             <h1>Join the Movement to Democratize Medical Devices</h1>
             <p class="hero-subtitle">Be part of a global community of 2,000+ developers, researchers, and clinicians building the future of open-source healthcare</p>
             <div class="hero-cta">
-                <a href="https://discord.gg/openwater" class="btn btn-primary">Join Discord</a>
+                <!-- FIX #2: Changed Discord from btn-primary to btn-secondary -->
+                <a href="https://discord.gg/openwater" class="btn btn-secondary">Join Discord</a>
                 <a href="https://github.com/OpenwaterHealth" class="btn btn-secondary">View on GitHub</a>
                 <a href="get-started.html" class="btn btn-secondary">Get Started Guide</a>
+                <!-- FIX #5: Added Schedule a Demo button with HubSpot meeting scheduler -->
+                <a href="https://meetings.hubspot.com/openwater/demo" class="btn btn-secondary">Schedule a Demo</a>
             </div>
         </div>
     </section>
@@ -709,6 +713,7 @@
                         <span class="tag">Clinical Trials</span>
                         <span class="tag">151 Patients</span>
                     </div>
+                    <!-- FIX #3: Links remain as placeholders -->
                     <a href="#" style="color: var(--primary-teal); font-weight: 600;">Read Case Study →</a>
                 </div>
             </div>
@@ -726,6 +731,7 @@
                         <span class="tag">Open Protocols</span>
                         <span class="tag">FDA Breakthrough</span>
                     </div>
+                    <!-- FIX #3: Links remain as placeholders -->
                     <a href="#" style="color: var(--primary-teal); font-weight: 600;">Read Case Study →</a>
                 </div>
             </div>
@@ -738,6 +744,7 @@
             <p class="section-subtitle">Over 50 organizations actively contributing to the Openwater ecosystem</p>
         </div>
         
+        <!-- FIX #4: Removed hover effects from contributor logos -->
         <div class="contributors-wall">
             <div class="contributor-logo"><span style="color: var(--text-secondary);">Mayo Clinic</span></div>
             <div class="contributor-logo"><span style="color: var(--text-secondary);">Stanford</span></div>
