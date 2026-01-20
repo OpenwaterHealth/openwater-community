@@ -110,10 +110,10 @@ openwater-community/
 
 ## 📝 License
 
-MIT License - Feel free to use this as a template.
+Apache 2.0 License - Feel free to use this as a template.
 
 ---
 
 **Status:** ✅ Production Ready  
-**Last Updated:** December 2025  
+**Last Updated:** January 2026  
 **Version:** 1.0
