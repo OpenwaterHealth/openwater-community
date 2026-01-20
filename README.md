@@ -110,7 +110,7 @@ openwater-community/
 
 ## 📝 License
 
-Apache 2.0 License - Feel free to use this as a template.
+AGPL 3.0 License - Feel free to use this as a template.
 
 ---
 
