@@ -450,16 +450,16 @@
             opacity: 0.95;
         }
         
-        /* ===== PHASE 1: Updated Nav - Matches openwater.health exactly ===== */
         .navbar {
-            background: #073763;
-            box-shadow: 0 2px 10px rgba(7, 55, 99, 0.3);
+            background: white;
+            box-shadow: 0 2px 10px rgba(8, 145, 178, 0.1);
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 2px solid var(--light-bg);
         }
-
+        
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -468,31 +468,27 @@
             justify-content: space-between;
             align-items: center;
         }
-
-        /* White logo on dark background */
-        .logo img {
-            filter: brightness(0) invert(1);
-        }
-
+        
         .nav-links {
             display: flex;
             gap: 30px;
             list-style: none;
         }
-
+        
         .nav-links a {
             text-decoration: none;
-            color: #ffffff;
+            color: var(--deep-navy);
             font-weight: 500;
             transition: color 0.3s ease;
         }
-
+        
         .nav-links a:hover {
-            color: var(--aqua-light);
+            color: var(--bright-cyan);
         }
-
+        
+        /* FIX #1: Added active state for current page */
         .nav-links a.active {
-            color: var(--aqua-light);
+            color: var(--bright-cyan);
             font-weight: 600;
         }
 
@@ -547,7 +543,7 @@
         <div class="nav-container">
             <div class="logo">
                 <a href="https://www.openwater.health">
-                    <img src="OpenwaterLogo.png" alt="Openwater" height="40">
+                    <img src="openwater-logo.png" alt="Openwater" height="40">
                 </a>
             </div>
             <ul class="nav-links">
