@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community - Openwater</title>
+    <title>Community - Openwater Health</title>
     <style>
-        /* Matching Exact Design System */
+        /* ==========================================================================
+           CSS Variables (preserved from existing site)
+           ========================================================================== */
         :root {
             --deep-navy: #0A2540;
             --ocean-blue: #164E63;
@@ -13,27 +15,35 @@
             --bright-cyan: #06B6D4;
             --aqua-light: #22D3EE;
             --aqua-bright: #67E8F9;
-            --white: #FFFFFF;
             --light-bg: #F0F9FF;
+            --white: #ffffff;
+            --gray-100: #F3F4F6;
+            --gray-600: #4B5563;
             --text-primary: #0F172A;
             --text-secondary: #475569;
             --border-color: #E0F2FE;
             --success-green: #10B981;
         }
-        
+
+        /* ==========================================================================
+           Base Styles (preserved)
+           ========================================================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
         }
 
-        /* Navigation */
+        /* ==========================================================================
+           Navigation - Original White Background Style
+           PHASE 1 - ITEM 0.2: Logo links to main corporate site
+           ========================================================================== */
         nav {
             background: white;
             box-shadow: 0 2px 10px rgba(10, 37, 64, 0.1);
@@ -41,7 +51,7 @@
             top: 0;
             z-index: 100;
         }
-        
+
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -50,42 +60,45 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            text-decoration: none;
         }
-        
+
         .logo img {
             height: 40px;
         }
-        
-        .nav-links {
+
+        nav ul {
             display: flex;
-            gap: 2rem;
             list-style: none;
+            gap: 2rem;
         }
-        
-        .nav-links a {
+
+        nav a {
             text-decoration: none;
             color: var(--text-primary);
             font-weight: 500;
             transition: color 0.3s ease;
         }
-        
-        .nav-links a:hover,
-        .nav-links a.active {
+
+        nav a:hover {
             color: var(--primary-teal);
         }
 
-        /* Hero */
+        nav a.active {
+            color: var(--primary-teal);
+        }
+
+        /* ==========================================================================
+           Hero Section
+           ========================================================================== */
         .hero {
             background-image: url('openwater-3.png');
             background-size: cover;
             background-position: center;
-            color: white;
+            color: var(--white);
             padding: 100px 20px 80px;
             text-align: center;
             position: relative;
@@ -94,7 +107,7 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .hero::before {
             content: '';
             position: absolute;
@@ -107,88 +120,108 @@
                 rgba(8, 145, 178, 0.85) 100%);
             z-index: 1;
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 1200px;
+            max-width: 800px;
         }
-        
+
         .hero h1 {
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 1rem;
         }
-        
+
         .hero p {
             font-size: 1.3rem;
             opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* Section */
+        /* ==========================================================================
+           Section Styles
+           ========================================================================== */
         .section {
+            padding: 5rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 5rem 2rem;
         }
-        
+
         .section-header {
             text-align: center;
             margin-bottom: 3rem;
         }
-        
+
         .section-title {
             font-size: 2.5rem;
             color: var(--deep-navy);
             margin-bottom: 1rem;
             font-weight: 700;
         }
-        
+
         .section-subtitle {
             font-size: 1.2rem;
             color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        /* About Cards */
+        .alt-bg {
+            background: var(--light-bg);
+        }
+
+        /* ==========================================================================
+           About Cards
+           ========================================================================== */
         .about-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
-        
+
         .about-card {
             background: white;
             border-radius: 16px;
             padding: 2rem;
             box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
             text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
+        .about-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(10, 37, 64, 0.12);
+        }
+
         .about-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
-        
+
         .about-card h3 {
             font-size: 1.5rem;
             color: var(--deep-navy);
             margin-bottom: 1rem;
         }
-        
+
         .about-card p {
             color: var(--text-secondary);
             line-height: 1.7;
         }
 
-        /* Success Stories */
+        /* ==========================================================================
+           Success Stories
+           ========================================================================== */
         .stories-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
-        
+
         .story-card {
             background: white;
             border-radius: 16px;
@@ -197,25 +230,25 @@
             transition: all 0.3s ease;
             border: 2px solid transparent;
         }
-        
+
         .story-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 40px rgba(10, 37, 64, 0.15);
             border-color: var(--bright-cyan);
         }
-        
+
         .story-header {
             display: flex;
             align-items: center;
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .story-logo {
             width: 76px;
             height: 76px;
-	    background: transparent;	/* added to remove light blue */
-	    border-radius: 0;		/* optional: remove rounded box feel */
+            background: transparent;
+            border-radius: 0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -223,39 +256,38 @@
             font-weight: 700;
             color: var(--primary-teal);
         }
-        
-	/* Add this new rule */
-	.story-logo img {
-	    width: 100%;
-	    height: 100%;
-	    object-fit: contain;
-	    padding: 2px;
-	}
+
+        .story-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 2px;
+        }
 
         .story-card h3 {
             font-size: 1.5rem;
             color: var(--deep-navy);
             margin-bottom: 0.5rem;
         }
-        
+
         .story-card h4 {
             font-size: 1rem;
             color: var(--text-secondary);
             font-weight: 500;
         }
-        
+
         .story-card p {
             color: var(--text-secondary);
             line-height: 1.7;
             margin-bottom: 1rem;
         }
-        
+
         .story-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
         }
-        
+
         .tag {
             background: var(--light-bg);
             color: var(--primary-teal);
@@ -265,234 +297,168 @@
             font-weight: 600;
         }
 
-        /* GitHub Section */
+        /* ==========================================================================
+           GitHub Section
+           ========================================================================== */
         .github-section {
             background: var(--light-bg);
             border-radius: 16px;
             padding: 3rem 2rem;
             text-align: center;
         }
-        
+
         .github-icon {
             font-size: 4rem;
             margin-bottom: 1rem;
         }
-        
+
         .github-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
-        
+
         .github-stat {
             text-align: center;
         }
-        
+
         .github-stat-number {
             display: block;
             font-size: 2rem;
             font-weight: 700;
             color: var(--deep-navy);
         }
-        
+
         .github-stat-label {
             display: block;
             font-size: 0.9rem;
             color: var(--text-secondary);
         }
 
-        /* Slack Section */
+        /* ==========================================================================
+           Discord/Slack Section
+           ========================================================================== */
         .slack-section {
             background: white;
             border-radius: 16px;
             padding: 3rem 2rem;
             box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
         }
-        
+
         .slack-icon {
             font-size: 4rem;
             margin-bottom: 1rem;
             text-align: center;
         }
-        
+
         .slack-features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
-        
+
         .slack-feature {
             text-align: center;
         }
-        
+
         .slack-feature-icon {
             font-size: 2rem;
             margin-bottom: 0.5rem;
         }
-        
+
         .slack-feature h4 {
             color: var(--deep-navy);
             margin-bottom: 0.5rem;
         }
-        
+
         .slack-feature p {
             color: var(--text-secondary);
             font-size: 0.9rem;
         }
 
-        /* Social Links */
+        /* ==========================================================================
+           Social Media Grid
+           ========================================================================== */
         .social-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
-        
+
         .social-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
             text-align: center;
+            box-shadow: 0 2px 10px rgba(10, 37, 64, 0.06);
+            border: 2px solid transparent;
             transition: all 0.3s ease;
             text-decoration: none;
             color: inherit;
-            border: 2px solid transparent;
         }
-        
+
         .social-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(10, 37, 64, 0.15);
-            border-color: var(--bright-cyan);
+            transform: translateY(-4px);
+            border-color: var(--primary-teal);
+            box-shadow: 0 8px 30px rgba(10, 37, 64, 0.12);
         }
-        
+
         .social-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
         }
-        
+
         .social-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             color: var(--deep-navy);
             margin-bottom: 0.5rem;
         }
-        
+
         .social-card p {
+            font-size: 0.85rem;
             color: var(--text-secondary);
-            font-size: 0.9rem;
         }
 
-        /* Engage Cards (for Research & Safety section) */
-        .engage-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .engage-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            text-align: center;
-        }
-        
-        .engage-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(10, 37, 64, 0.15);
-            border-color: var(--bright-cyan);
-        }
-        
-        .engage-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-teal), var(--bright-cyan));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2rem;
-            box-shadow: 0 8px 20px rgba(8, 145, 178, 0.2);
-        }
-        
-        .engage-card h3 {
-            font-size: 1.5rem;
-            color: var(--deep-navy);
-            margin-bottom: 1rem;
-        }
-        
-        .engage-card p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-        
-        .engage-card ul {
-            list-style: none;
-            text-align: left;
-            margin: 1.5rem 0;
-        }
-        
-        .engage-card li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--text-secondary);
-        }
-        
-        .engage-card li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--bright-cyan);
-            font-weight: 700;
-        }
-
-        /* Buttons */
+        /* ==========================================================================
+           Buttons
+           ========================================================================== */
         .btn {
-            padding: 0.75rem 1.5rem;
+            padding: 0.875rem 2rem;
             border-radius: 8px;
-            font-weight: 600;
             text-decoration: none;
+            font-weight: 600;
             transition: all 0.3s ease;
             display: inline-block;
             border: 2px solid transparent;
         }
-        
+
         .btn-primary {
             background: linear-gradient(135deg, var(--primary-teal), var(--bright-cyan));
             color: white;
         }
-        
+
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(8, 145, 178, 0.3);
         }
-        
+
         .btn-secondary {
             background: transparent;
             color: var(--primary-teal);
             border: 2px solid var(--primary-teal);
         }
-        
+
         .btn-secondary:hover {
             background: var(--primary-teal);
             color: white;
         }
-        
-        .btn-card {
-            background: linear-gradient(135deg, var(--primary-teal), var(--bright-cyan));
-            color: white;
-            width: 100%;
-        }
 
-        /* CTA Section */
+        /* ==========================================================================
+           CTA Section
+           ========================================================================== */
         .cta-section {
             background-image: url('openwater-3.png');
             background-size: cover;
@@ -500,12 +466,13 @@
             color: white;
             padding: 5rem 2rem;
             text-align: center;
-            margin: 5rem 0;
+            margin: 5rem auto;
             border-radius: 16px;
             position: relative;
             overflow: hidden;
+            max-width: 1200px;
         }
-        
+
         .cta-section::before {
             content: '';
             position: absolute;
@@ -518,22 +485,25 @@
                 rgba(8, 145, 178, 0.9) 100%);
             z-index: 1;
         }
-        
+
         .cta-section > * {
             position: relative;
             z-index: 2;
         }
-        
+
         .cta-section h2 {
             font-size: 2.5rem;
+            color: var(--white);
             margin-bottom: 1rem;
         }
-        
+
         .cta-section p {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 2rem;
         }
-        
+
         .cta-buttons {
             display: flex;
             gap: 1rem;
@@ -541,67 +511,112 @@
             flex-wrap: wrap;
         }
 
-        /* Footer */
+        .cta-buttons .btn-primary {
+            background: var(--white);
+            color: var(--primary-teal);
+        }
+
+        .cta-buttons .btn-primary:hover {
+            background: var(--light-bg);
+        }
+
+        /* ==========================================================================
+           Footer
+           ========================================================================== */
         footer {
             background: var(--deep-navy);
-            color: white;
+            color: var(--white);
             padding: 3rem 2rem;
             text-align: center;
         }
-        
+
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .footer-logo {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
         }
-        
+
         footer p {
             margin: 0.5rem 0;
             opacity: 0.8;
+            font-size: 0.9rem;
         }
-        
+
         footer a {
-            color: var(--bright-cyan);
+            color: var(--aqua-light);
             text-decoration: none;
         }
 
-        /* Responsive */
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ==========================================================================
+           Responsive
+           ========================================================================== */
         @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
-            
-            .nav-links {
-                display: none;
+
+            .hero p {
+                font-size: 1.1rem;
             }
-            
-            .stories-grid,
-            .about-grid,
-            .engage-grid {
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .stories-grid {
                 grid-template-columns: 1fr;
             }
-            
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
             .cta-buttons {
                 flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-section {
+                margin: 3rem 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- ==========================================================================
+         Navigation - Original White Background Style
+         PHASE 1 - ITEM 0.2: Logo links to main corporate site
+         ========================================================================== -->
     <nav>
         <div class="nav-container">
             <div class="logo">
-                <a href="https://www.openwater.health">
+                <!-- 0.2: Logo links to main corporate site -->
+                <a href="https://www.openwater.health" title="Openwater Health - Main Site">
                     <img src="openwater-logo.png" alt="Openwater" height="40">
                 </a>
             </div>
-            <ul class="nav-links">
+            <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="developers.html">Developers</a></li>
                 <li><a href="get-started.html">Get Started</a></li>
@@ -611,13 +626,20 @@
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Join the Openwater Community</h1>
             <p>A global movement to democratize medical device innovation</p>
         </div>
     </section>
+
+    <!-- ==========================================================================
+         PHASE 1 - ITEM 0.3: Community Page Focus
+         
+         REMOVED: Research & Safety Resources, Publications, Registry references
+         KEPT: About, Success Stories, GitHub, Discord, Social Media, CTA
+         ========================================================================== -->
 
     <!-- About Openwater -->
     <section class="section">
@@ -648,12 +670,12 @@
 
         <div style="text-align: center; margin-top: 3rem;">
             <a href="get-started.html" class="btn btn-primary">Join the Movement →</a>
-            <a href="developers.html" class="btn btn-secondary">View Technical Docs</a>
+            <a href="developers.html" class="btn btn-secondary" style="margin-left: 1rem;">View Technical Docs</a>
         </div>
     </section>
 
     <!-- Success Stories -->
-    <section class="section" style="background: var(--light-bg);">
+    <section class="section alt-bg">
         <div class="section-header">
             <h2 class="section-title">Success Stories</h2>
             <p class="section-subtitle">Real impact from the Openwater community</p>
@@ -663,8 +685,8 @@
             <div class="story-card">
                 <div class="story-header">
                     <div class="story-logo">
-    			<img src="mayo-clinic.png" alt="Mayo Clinic">
-		    </div>
+                        <img src="mayo-clinic.png" alt="Mayo Clinic">
+                    </div>
                     <div>
                         <h3>Mayo Clinic</h3>
                         <h4>Clinical AI Integration</h4>
@@ -681,9 +703,9 @@
 
             <div class="story-card">
                 <div class="story-header">
-		    <div class="story-logo">
-		        <img src="stanford-neuro.png" alt="Stanford">
-		    </div>
+                    <div class="story-logo">
+                        <img src="stanford-neuro.png" alt="Stanford">
+                    </div>
                     <div>
                         <h3>Stanford Neuroscience</h3>
                         <h4>Research Innovation</h4>
@@ -699,9 +721,9 @@
 
             <div class="story-card">
                 <div class="story-header">
-		    <div class="story-logo">
-   			 <img src="freemocap.png" alt="FreeMoCap">
-		    </div>
+                    <div class="story-logo">
+                        <img src="freemocap.png" alt="FreeMoCap">
+                    </div>
                     <div>
                         <h3>FreeMoCap Foundation</h3>
                         <h4>Technical Integration</h4>
@@ -717,9 +739,9 @@
 
             <div class="story-card">
                 <div class="story-header">
-		    <div class="story-logo">
-		        <img src="john-hopkins.jpg" alt="Johns Hopkins">
-		    </div>
+                    <div class="story-logo">
+                        <img src="john-hopkins.jpg" alt="Johns Hopkins">
+                    </div>
                     <div>
                         <h3>Johns Hopkins University</h3>
                         <h4>Neuroimaging Research</h4>
@@ -735,57 +757,8 @@
         </div>
     </section>
 
-    <!-- Research & Safety Resources (NEW SECTION) -->
-    <section class="section">
-        <div class="section-header">
-            <h2 class="section-title">Research & Safety Resources</h2>
-            <p class="section-subtitle">Open data, transparent safety, collaborative research</p>
-        </div>
-
-        <div class="engage-grid">
-            <div class="engage-card">
-                <div class="engage-icon">📚</div>
-                <h3>Publication Library</h3>
-                <p>150+ curated research papers, tutorials, and community resources</p>
-                <ul>
-                    <li>Peer-reviewed publications</li>
-                    <li>Technical documentation</li>
-                    <li>Clinical case studies</li>
-                    <li>Community tutorials</li>
-                </ul>
-                <a href="https://github.com/OpenwaterHealth/awesome-openwater" class="btn btn-card">Browse Library →</a>
-            </div>
-
-            <div class="engage-card">
-                <div class="engage-icon">📊</div>
-                <h3>Open Datasets</h3>
-                <p>2.5TB of shared clinical data with DOIs and peer review</p>
-                <ul>
-                    <li>Clinical trial data (45+ datasets)</li>
-                    <li>Imaging datasets with DOIs</li>
-                    <li>Analysis code & algorithms</li>
-                    <li>Reproducible research</li>
-                </ul>
-                <a href="research-data.html" class="btn btn-card">Explore Datasets →</a>
-            </div>
-
-            <div class="engage-card">
-                <div class="engage-icon">⚠️</div>
-                <h3>Safety Registry</h3>
-                <p>FDA-compliant adverse event tracking and transparent reporting</p>
-                <ul>
-                    <li>Real-time safety dashboard</li>
-                    <li>Quarterly FDA reports</li>
-                    <li>127 days incident-free</li>
-                    <li>100% resolved within SLA</li>
-                </ul>
-                <a href="safety-registry.html" class="btn btn-card">View Safety Data →</a>
-            </div>
-        </div>
-    </section>
-
     <!-- GitHub Section -->
-    <section class="section" style="background: var(--light-bg);">
+    <section class="section">
         <div class="section-header">
             <h2 class="section-title">Open Source on GitHub</h2>
             <p class="section-subtitle">All our code is freely available under AGPL 3.0 license</p>
@@ -821,17 +794,17 @@
         </div>
     </section>
 
-    <!-- Slack Section -->
-    <section class="section">
+    <!-- Discord Section -->
+    <section class="section alt-bg">
         <div class="section-header">
-            <h2 class="section-title">Join Our Slack Community</h2>
+            <h2 class="section-title">Join Our Discord Community</h2>
             <p class="section-subtitle">Connect with 2,000+ developers, researchers, and clinicians</p>
         </div>
 
         <div class="slack-section">
             <div class="slack-icon">💬</div>
-            <h3 style="font-size: 1.8rem; color: var(--deep-navy); margin-bottom: 1rem;">Real-time Collaboration</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Get help, share knowledge, and collaborate with the global Openwater community on Slack</p>
+            <h3 style="font-size: 1.8rem; color: var(--deep-navy); margin-bottom: 1rem; text-align: center;">Real-time Collaboration</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem; text-align: center;">Get help, share knowledge, and collaborate with the global Openwater community</p>
             
             <div class="slack-features">
                 <div class="slack-feature">
@@ -867,58 +840,62 @@
             </div>
             
             <div style="text-align: center; margin-top: 2rem;">
-                <a href="https://join.slack.com/t/openwater/shared_invite/zt-xxxxx" class="btn btn-primary">Join Slack Workspace →</a>
+                <a href="https://discord.gg/2WNQ8rj5ZK" class="btn btn-primary">Join Discord →</a>
                 <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">Free to join • 2,000+ members • Active 24/7</p>
             </div>
         </div>
     </section>
 
     <!-- Social Media -->
-    <section class="section" style="background: var(--light-bg);">
+    <section class="section">
         <div class="section-header">
             <h2 class="section-title">Connect With Us</h2>
             <p class="section-subtitle">Follow Openwater on social media and stay updated</p>
         </div>
 
         <div class="social-grid">
-            <a href="https://x.com/OpenwaterHealth" class="social-card">
-                <div class="social-icon">🐦</div>
-                <h3>X</h3>
+            <a href="https://x.com/OpenwaterHealth" class="social-card" target="_blank">
+                <div class="social-icon">𝕏</div>
+                <h3>X (Twitter)</h3>
                 <p>Latest updates, announcements, and community highlights</p>
             </a>
 
-            <a href="https://www.linkedin.com/company/openwater-health/posts/?feedView=all" class="social-card">
-                <div class="social-icon">💼</div>
+            <a href="https://www.linkedin.com/company/openwater-health/posts/" class="social-card" target="_blank">
+                <div class="social-icon">in</div>
                 <h3>LinkedIn</h3>
                 <p>Professional updates, job opportunities, and partnerships</p>
             </a>
 
-            <a href="https://blog.openwater.health" class="social-card">
+            <a href="https://blog.openwater.health" class="social-card" target="_blank">
                 <div class="social-icon">📝</div>
                 <h3>Blog</h3>
                 <p>Technical deep-dives, research findings, and community stories</p>
             </a>
 
-            <a href="https://www.youtube.com/@OpenwaterHealth" class="social-card">
-                <div class="social-icon">📺</div>
+            <a href="https://www.youtube.com/@OpenwaterHealth" class="social-card" target="_blank">
+                <div class="social-icon">▶️</div>
                 <h3>YouTube</h3>
                 <p>Video tutorials, conference talks, and platform demos</p>
+            </a>
+
+            <a href="https://github.com/OpenwaterHealth" class="social-card" target="_blank">
+                <div class="social-icon">⌨️</div>
+                <h3>GitHub</h3>
+                <p>48 open-source repositories</p>
             </a>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="section">
-        <div class="cta-section">
-            <h2>Ready to Get Involved?</h2>
-            <p>Choose how you'd like to contribute to the Openwater community</p>
-            <div class="cta-buttons">
-                <a href="get-started.html" class="btn btn-primary">Get Started</a>
-                <a href="developers.html" class="btn btn-primary">Developer Docs</a>
-                <a href="https://github.com/OpenwaterHealth/openwater-commons" class="btn btn-primary">View GitHub</a>
-            </div>
+    <div class="cta-section">
+        <h2>Ready to Get Involved?</h2>
+        <p>Choose how you'd like to contribute to the Openwater community</p>
+        <div class="cta-buttons">
+            <a href="get-started.html" class="btn btn-primary">Get Started</a>
+            <a href="developers.html" class="btn btn-primary">Developer Docs</a>
+            <a href="https://github.com/OpenwaterHealth/openwater-commons" class="btn btn-primary">View GitHub</a>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -930,6 +907,5 @@
             <p style="margin-top: 1rem;">© 2026 Openwater Health. AGPL 3.0 Licensed.</p>
         </div>
     </footer>
-
 </body>
 </html>
