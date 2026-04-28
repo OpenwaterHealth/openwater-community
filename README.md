@@ -1,6 +1,6 @@
 # Openwater Community Website
 
-Demo of Openwater community pages featuring comprehensive onboarding and developer resources.
+Our Openwater community pages feature comprehensive onboarding and developer resources.
 
 ## 🔗 Live Demo
 
