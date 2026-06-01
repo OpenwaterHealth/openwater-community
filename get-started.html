@@ -665,151 +665,74 @@
         </div>
     </section>
 
-    <!-- 5-Minute Quick Start -->
-    <section class="section" id="quickt" style="background: var(--light-bg);">
-        <div class="section-header">
-            <h2 class="section-title">5-Minute Quick Start Guide</h2>
-            <p class="section-subtitle">Make your first contribution in just 5 minutes</p>
-        </div>
-
-        <div class="steps">
-            <!-- Step 1 -->
-            <div class="step">
-                <h3>Join the Community on Discord</h3>
-                <p>Connect with 2,000+ developers, researchers, and clinicians building open-source medical devices. Introduce yourself in the #introductions channel.</p>
-                
-                <h4>What you'll find:</h4>
-                <ul>
-                    <li><strong>#general</strong> - Community discussions</li>
-                    <li><strong>#help</strong> - Get technical support</li>
-                    <li><strong>#showcase</strong> - Share your work</li>
-                    <li><strong>#opportunities</strong> - Bounties & grants</li>
-                </ul>
-                
-                <a href="https://discord.gg/2WNQ8rj5ZK" class="btn btn-primary" style="margin-top: 1rem;">Join Discord Community →</a>
+    <!-- Contributor Onboarding (3-step ribbon) -->
+        <section class="section" id="quickt" style="background: var(--light-bg);">
+            <div class="section-header">
+                <h2 class="section-title">Contributor Onboarding</h2>
+                <p class="section-subtitle">Three steps to your first merged PR. Install steps live with the device — pick yours in step 2.</p>
             </div>
 
-            <!-- Step 2 -->
-            <div class="step">
-                <h3>Star & Fork the Repository</h3>
-                <p>Get the code and set up your development environment. We have 48 repositories to explore.</p>
+            <div class="steps">
+                <!-- Step 1: Discord -->
+                <div class="step">
+                    <h3>Join the community on Discord</h3>
+                    <p>Connect with 2,000+ developers, researchers, and clinicians building open-source medical devices. Introduce yourself in <strong>#introductions</strong> — we read every one.</p>
 
-                <!-- Fork vs Clone explainer (INSERTED HERE) -->
-                <div style="
-                   background:#F0F9FF;
-                   border:1px solid #E0F2FE;
-                   border-radius:12px;
-                   padding:20px;
-                   margin-top:1.5rem;
-                   color:#0F172A;
-                ">
-           <strong>Fork vs Clone (1-minute explanation)</strong>
-           <p style="margin-top:0.5rem;">
-              <strong>Fork</strong> creates your own copy of the repository on GitHub.
-              You need this if you want to make changes or contribute back.
-           </p>
-        <p>
-            <strong>Clone</strong> downloads a repository to your computer.
-            You usually clone <em>after</em> you fork.
-        </p>
-        <p style="margin-bottom:0;">
-            👉 <strong>New here?</strong> Fork first → then clone your fork.
-        </p>
-    </div>
+                    <h4>Channels worth pinning:</h4>
+                    <ul>
+                        <li><strong>#general</strong> — community discussions</li>
+                        <li><strong>#help</strong> — fastest path to unstuck</li>
+                        <li><strong>#showcase</strong> — share what you're building</li>
+                        <li><strong>#opportunities</strong> — bounties &amp; grants</li>
+                    </ul>
 
-    <!-- Existing code block stays exactly as-is -->
-    <div class="code-block">
-# Clone Open-LIFU Python repository<br>
-git clone https://github.com/OpenwaterHealth/OpenLIFU-python.git<br>
-cd OpenLIFU-python<br>
-<br>
-# Add upstream remote<br>
-git remote add upstream https://github.com/OpenwaterHealth/OpenLIFU-python.git
-    </div>
-    
-    <a href="https://github.com/OpenwaterHealth" class="btn btn-primary" style="margin-top: 1rem;">
-        View on GitHub →
-    </a>
-</div>
-
-            <!-- Step 3 -->
-            <div class="step">
-                <h3>Set Up Your Dev Environment</h3>
-                <p>Choose between Docker (recommended) or local installation. Both take less than 5 minutes.</p>
-                
-                <h4>Option A: Docker (Easiest)</h4>
-                <div class="code-block">
-# Pull the development container<br>
-docker pull openwaterhealth/dev-env:latest<br>
-<br>
-# Run the container<br>
-docker run -it openwaterhealth/dev-env
+                    <a href="https://discord.gg/2WNQ8rj5ZK" class="btn btn-primary" style="margin-top: 1rem;">Join Discord →</a>
                 </div>
-                
-                <h4>Option B: Local Setup</h4>
-                <div class="code-block">
-# Create virtual environment<br>
-python -m venv venv<br>
-source venv/bin/activate  # On Windows: venv\Scripts\activate<br>
-<br>
-# Install dependencies<br>
-pip install -r requirements.txt<br>
-<br>
-# Verify installation<br>
-pytest tests/
+
+                <!-- Step 2: Pick your device -->
+                <div class="step">
+                    <h3>Pick your device &amp; run the quick start</h3>
+                    <p>Install steps, smoke tests, and gotchas live in one place per device. Pick whichever you're working with today — you can always come back for the other.</p>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+                    <a href="quickstart-open-lifu.html" class="btn btn-primary">🔊 Open-LIFU Quick Start →</a>
+                    <a href="quickstart-open-motion.html" class="btn btn-primary">🩸 Open-Motion Quick Start →</a>
                 </div>
-                
-                <a href="./full-setup.html" class="btn btn-secondary" style="margin-top: 1rem;">Full Setup Guide →</a>
+
+                <p style="margin-top: 1.25rem; font-size: 0.95rem;">
+                    Not sure yet? Open-LIFU = programmable focused ultrasound. Open-Motion = optical blood-flow monitoring. Both are research-use only.
+                </p>
             </div>
 
-            <!-- Step 4 -->
+            <!-- Step 3: First PR -->
             <div class="step">
-                <h3>Find Your First Issue</h3>
-                <p>Browse 25+ beginner-friendly issues tagged with "good first issue". Pick one that matches your skills.</p>
-                
-                <h4>Issue Categories:</h4>
-                <p><strong>🐛 Bug Fixes</strong> - Fix issues in existing code</p>
-                <p><strong>📚 Documentation</strong> - Improve guides and tutorials</p>
-                <p><strong>✨ Features</strong> - Add new capabilities</p>
-                <p><strong>🧪 Testing</strong> - Write unit and integration tests</p>
-                
-                <a href="https://github.com/OpenwaterHealth/OpenLIFU-python/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" class="btn btn-primary" style="margin-top: 1rem;">Browse Good First Issues →</a>
-            </div>
+                <h3>Sign the CLA &amp; open your first PR</h3>
+                <p>Once you have the code running, the contribution loop is the same across every Openwater repo: fork, branch, commit, PR. Your first PR triggers an automated Contributor License Agreement signature — under 2 minutes, fully online.</p>
 
-            <!-- Step 5 -->
-            <div class="step">
-                <h3>Make Your First Contribution</h3>
-                <p>Create a branch, make your changes, and submit a pull request. Our team reviews PRs within 48 hours.</p>
-                
-                <div class="code-block">
-# Create a feature branch<br>
-git checkout -b fix/issue-123<br>
-<br>
-# Make your changes and commit<br>
-git add .<br>
-git commit -m "Fix: Resolve pulse sequence validation bug (#123)"<br>
-<br>
-# Push to your fork<br>
-git push origin fix/issue-123<br>
-<br>
-# Open PR on GitHub<br>
-# Title: "Fix: Resolve pulse sequence validation bug"<br>
-# Description: Reference issue #123, explain your changes
-                </div>
-                
+                <h4>The universal loop:</h4>
+                <div class="code-block"><code>git checkout -b fix/short-description
+# make your change
+git add .
+git commit -m "Docs: clarify install warning"
+git push origin fix/short-description
+# then open a PR on GitHub</code></div>
+
                 <h4>What happens next:</h4>
                 <ul>
                     <li>Automated tests run on your PR</li>
-                    <li>CLA signature required (automated)</li>
-                    <li>Code review by maintainers</li>
-                    <li>Merge and celebration! 🎉</li>
+                    <li>CLA signature prompt (one-time, automated)</li>
+                    <li>Maintainer review within 48 hours</li>
+                    <li>Merge &amp; celebration 🎉</li>
                 </ul>
-                
-                <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">View PR Template →</a>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+                    <a href="https://github.com/OpenwaterHealth/OpenLIFU-python/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" class="btn btn-secondary">Open-LIFU Good First Issues →</a>
+                    <a href="https://github.com/OpenwaterHealth/ow-bloodflow-app/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" class="btn btn-secondary">Open-Motion Good First Issues →</a>
+                </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Hardware Contribution Guide (NEW SECTION) -->
     <section class="section" id="hardware">
         <div class="section-header">
