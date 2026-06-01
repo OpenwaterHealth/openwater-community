@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open-Motion Quick Start - Openwater Community</title>
+    <meta name="description" content="Open-Motion quick start guide — install the driver, run the app, or build the firmware. Single source of truth for getting started with Openwater's optical blood-flow monitoring platform.">
+    <style>
+        /* Matching Exact Design System (mirrors get-started.html) */
+        :root {
+            --deep-navy: #0A2540;
+            --ocean-blue: #164E63;
+            --primary-teal: #0891B2;
+            --bright-cyan: #06B6D4;
+            --aqua-light: #22D3EE;
+            --aqua-bright: #67E8F9;
+            --white: #FFFFFF;
+            --light-bg: #F0F9FF;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --border-color: #E0F2FE;
+            --success-green: #10B981;
+            --warning-amber: #F59E0B;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(10, 37, 64, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { height: 40px; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover,
+        .nav-links a.active { color: var(--primary-teal); }
+
+        .hero {
+            background-image: url('openwater-3.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            min-height: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg,
+                rgba(10, 37, 64, 0.85) 0%,
+                rgba(8, 145, 178, 0.85) 100%);
+            z-index: 1;
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 1100px; }
+        .hero .eyebrow {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 999px;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+        .hero p { font-size: 1.25rem; opacity: 0.95; margin-bottom: 2rem; }
+        .hero-stats { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+        .hero-stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--aqua-bright);
+        }
+        .hero-stat-label { display: block; font-size: 0.9rem; opacity: 0.9; }
+
+        .section { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+        .section-header { text-align: center; margin-bottom: 2.5rem; }
+        .section-title {
+            font-size: 2.25rem;
+            color: var(--deep-navy);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+        .section-subtitle { font-size: 1.15rem; color: var(--text-secondary); }
+
+        .path-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .path-card {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        .path-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(10, 37, 64, 0.12);
+            border-color: var(--bright-cyan);
+        }
+        .path-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .path-card h3 { font-size: 1.4rem; color: var(--deep-navy); margin-bottom: 0.5rem; }
+        .path-card p { color: var(--text-secondary); margin-bottom: 1rem; }
+
+        .steps { counter-reset: step; }
+        .step {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 2rem;
+            top: -1.5rem;
+            width: 3rem; height: 3rem;
+            background: linear-gradient(135deg, var(--primary-teal), var(--bright-cyan));
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: 700;
+            box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
+        }
+        .step h3 { color: var(--deep-navy); font-size: 1.4rem; margin: 1rem 0 0.75rem 0; }
+        .step h4 { color: var(--primary-teal); margin: 1rem 0 0.5rem 0; }
+        .step p, .step ul, .step ol { color: var(--text-secondary); line-height: 1.7; }
+        .step ul, .step ol { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .step li { margin-bottom: 0.35rem; }
+
+        .code-block {
+            background: var(--deep-navy);
+            color: var(--aqua-light);
+            padding: 1.25rem 1.5rem;
+            border-radius: 8px;
+            font-family: 'Courier New', Consolas, monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            white-space: pre;
+        }
+        .code-block code { color: var(--aqua-bright); }
+
+        .callout {
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--primary-teal);
+            background: var(--light-bg);
+            color: var(--text-primary);
+        }
+        .callout.warning { border-left-color: var(--warning-amber); background: #FFFBEB; }
+        .callout.success { border-left-color: var(--success-green); background: #ECFDF5; }
+        .callout strong { color: var(--deep-navy); }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-teal), var(--bright-cyan));
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(8, 145, 178, 0.3);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-teal);
+            border: 2px solid var(--primary-teal);
+        }
+        .btn-secondary:hover { background: var(--primary-teal); color: white; }
+
+        .cta-section {
+            background-image: url('openwater-3.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(10,37,64,0.9), rgba(8,145,178,0.9));
+            z-index: 1;
+        }
+        .cta-section > * { position: relative; z-index: 2; }
+        .cta-section h2 { font-size: 2.25rem; margin-bottom: 0.75rem; }
+        .cta-section p { font-size: 1.15rem; margin-bottom: 1.75rem; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        .toc {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0 3rem 0;
+        }
+        .toc h4 { color: var(--deep-navy); margin-bottom: 0.5rem; }
+        .toc ol { margin-left: 1.5rem; color: var(--text-secondary); }
+        .toc a { color: var(--primary-teal); text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid var(--border-color);
+            margin-top: 1rem;
+        }
+        .spec-table th {
+            background: var(--deep-navy);
+            color: var(--aqua-bright);
+            text-align: left;
+            padding: 0.85rem 1rem;
+            font-size: 0.95rem;
+        }
+        .spec-table td {
+            padding: 0.75rem 1rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            vertical-align: top;
+            font-size: 0.95rem;
+        }
+        .spec-table td:first-child {
+            color: var(--deep-navy);
+            font-weight: 600;
+            width: 30%;
+        }
+
+        footer {
+            background: var(--deep-navy);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        footer p { margin: 0.5rem 0; opacity: 0.85; }
+        footer a { color: var(--bright-cyan); text-decoration: none; }
+
+        .disclaimer-bar {
+            background: #FFFBEB;
+            color: #78350F;
+            border-bottom: 1px solid #FDE68A;
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 0.6rem 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .path-grid { grid-template-columns: 1fr; }
+            .hero-stats { gap: 1.5rem; }
+            .cta-buttons { flex-direction: column; }
+            .spec-table td:first-child { width: 40%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="disclaimer-bar">
+        ⚠️ Open-Motion is for Research Use Only — not for use in diagnostic procedures.
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="https://www.openwater.health">
+                    <img src="openwater-logo.png" alt="Openwater" height="40">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="developers.html">Developers</a></li>
+                <li><a href="get-started.html" class="active">Get Started</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="model-commons.html">Model Commons</a></li>
+                <li><a href="https://docs.openwater.health/">Docs</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="eyebrow">Quick Start · Open-Motion</span>
+            <h1>Open-Motion Quick Start</h1>
+            <p>Optical blood-flow monitoring for human and animal research. Up and running in minutes.</p>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">~10 min</span>
+                    <span class="hero-stat-label">Driver → First Scan</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">2 Paths</span>
+                    <span class="hero-stat-label">App or Firmware</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">BFI + BVI</span>
+                    <span class="hero-stat-label">Two Indices, 0–10</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">Welcome to Open-Motion</h2>
+            <p class="section-subtitle">
+                Open-Motion is Openwater's optical monitoring system — a console, two sensor modules, and software
+                that measure relative changes in blood flow and blood volume for research. This page is the
+                single source of truth for getting started. READMEs and the device user manual link here.
+            </p>
+        </div>
+
+        <div class="toc">
+            <h4>On this page</h4>
+            <ol>
+                <li><a href="#paths">Choose your path</a></li>
+                <li><a href="#path-a">Path A · Run the App (bench scan in 10 min)</a></li>
+                <li><a href="#path-b">Path B · Build the Console Firmware</a></li>
+                <li><a href="#interpret">Interpreting BFI & BVI</a></li>
+                <li><a href="#specs">Device specifications</a></li>
+                <li><a href="#first-contribution">Make your first contribution</a></li>
+                <li><a href="#support">Get help</a></li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Choose Path -->
+    <section class="section" id="paths" style="background: var(--light-bg); border-radius: 16px;">
+        <div class="section-header">
+            <h2 class="section-title">Choose Your Path</h2>
+            <p class="section-subtitle">Two ways in. Pick whichever matches what you're trying to do today.</p>
+        </div>
+
+        <div class="path-grid">
+            <div class="path-card">
+                <div class="path-icon">🖥️</div>
+                <h3>Path A · Run the App</h3>
+                <p>Install the USB driver and BloodFlow app on Windows. Best for researchers running scans, or Python contributors using <code>OpenMOTION-Pylib</code>.</p>
+                <a href="#path-a" class="btn btn-primary">Start with the App →</a>
+            </div>
+            <div class="path-card">
+                <div class="path-icon">🔌</div>
+                <h3>Path B · Build the Firmware</h3>
+                <p>Compile and flash the console firmware. Best for embedded contributors — no hardware required to build.</p>
+                <a href="#path-b" class="btn btn-primary">Start with Firmware →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PATH A -->
+    <section class="section" id="path-a">
+        <div class="section-header">
+            <h2 class="section-title">Path A · Run the BloodFlow App</h2>
+            <p class="section-subtitle">Driver → app → first scan → visualize.</p>
+        </div>
+
+        <div class="steps">
+            <div class="step">
+                <h3>Download the software</h3>
+                <p>There are two pieces: the <strong>USB driver</strong> and the <strong>BloodFlow application</strong>. Both ship on your flash drive — or grab them from GitHub:</p>
+                <a href="https://github.com/OpenwaterHealth/ow-bloodflow-app/releases" class="btn btn-secondary">ow-bloodflow-app Releases →</a>
+                <div class="callout warning">
+                    <strong>⚠️ Don't run from the flash drive.</strong> Copy both zips to your local computer first, then unzip.
+                </div>
+            </div>
+
+            <div class="step">
+                <h3>Install the USB driver</h3>
+                <ol>
+                    <li>Open <code>OpenMotionDriver-x64</code>.</li>
+                    <li>If Windows Defender SmartScreen warns you, click <strong>More Info</strong> → <strong>Run Anyway</strong>.</li>
+                    <li>Follow the on-screen installer.</li>
+                </ol>
+            </div>
+
+            <div class="step">
+                <h3>Launch the application</h3>
+                <ol>
+                    <li>Unzip the application package.</li>
+                    <li>Double-click <code>OpenWaterApp.exe</code>.</li>
+                    <li>If the device doesn't connect, restart the computer and try again.</li>
+                </ol>
+                <div class="callout success">
+                    <strong>✅ Healthy state:</strong> Two green Sensor Module indicators and one green Console light.
+                </div>
+            </div>
+
+            <div class="step">
+                <h3>Run your first scan</h3>
+                <ol>
+                    <li>Enter <strong>Subject ID</strong> and notes; pick a default data directory.</li>
+                    <li>Pick <strong>Left</strong> and <strong>Right</strong> sensor module configurations.</li>
+                    <li>Confirm Console status shows <strong>5× green</strong>.</li>
+                    <li>Set the scan duration and click <strong>Start Scan</strong>.</li>
+                </ol>
+            </div>
+
+            <div class="step">
+                <h3>Visualize</h3>
+                <ol>
+                    <li>Open the Data Analysis view; select the correct Data Directory.</li>
+                    <li>Pick the scan from the dropdown.</li>
+                    <li>Click <strong>Visualize BFI/BVI</strong> or <strong>Visualize Contrast/Mean</strong>.</li>
+                </ol>
+            </div>
+
+            <div class="step">
+                <h3>(Optional) Python: OpenMOTION-Pylib</h3>
+                <p>Prefer scripting? Use the Python library directly.</p>
+                <div class="code-block"><code>git clone https://github.com/OpenwaterHealth/OpenMOTION-Pylib.git
+cd OpenMOTION-Pylib
+python -m venv .venv
+# macOS/Linux:
+source .venv/bin/activate
+# Windows:
+.venv\Scripts\activate
+pip install -e .
+
+python -c "import openmotion; print(openmotion.__version__)"</code></div>
+                <p>Then run on a sample speckle capture (Git LFS):</p>
+                <div class="code-block"><code>git lfs install
+git clone https://github.com/OpenwaterHealth/openmotion-sample-capture
+# load a frame, plot, and browse examples/</code></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PATH B -->
+    <section class="section" id="path-b" style="background: var(--light-bg); border-radius: 16px;">
+        <div class="section-header">
+            <h2 class="section-title">Path B · Build the Console Firmware</h2>
+            <p class="section-subtitle">Toolchain → build → flash → smoke test. No hardware needed to build.</p>
+        </div>
+
+        <div class="steps">
+            <div class="step">
+                <h3>Install the ARM GCC toolchain + flasher</h3>
+                <ol>
+                    <li>Install <a href="https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain">ARM GCC</a> for your OS.</li>
+                    <li>Install the flashing utility recommended in the repo README (typically STM32CubeProgrammer or OpenOCD).</li>
+                </ol>
+            </div>
+
+            <div class="step">
+                <h3>Clone the firmware repository</h3>
+                <div class="code-block"><code>git clone https://github.com/OpenwaterHealth/openmotion-console-v2.git
+cd openmotion-console-v2</code></div>
+                <a href="https://github.com/OpenwaterHealth/openmotion-console-v2" class="btn btn-secondary">openmotion-console-v2 →</a>
+            </div>
+
+            <div class="step">
+                <h3>Build the firmware (no hardware needed)</h3>
+                <p>Follow the build steps in the repo README. The artifact is the console firmware binary.</p>
+            </div>
+
+            <div class="step">
+                <h3>Flash + serial smoke test</h3>
+                <ol>
+                    <li>Flash the Console board with your binary.</li>
+                    <li>Open a USB serial console (115200 baud unless README says otherwise).</li>
+                    <li>Send <code>version</code> and confirm the firmware responds.</li>
+                </ol>
+                <div class="callout success">
+                    <strong>✅ If the board replies with a version string</strong>, you're ready to start tweaking firmware.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interpreting indices -->
+    <section class="section" id="interpret">
+        <div class="section-header">
+            <h2 class="section-title">Interpreting BFI & BVI</h2>
+            <p class="section-subtitle">Two indices, both scaled 0–10, derived from speckle contrast and intensity.</p>
+        </div>
+
+        <div class="step">
+            <h3>What the numbers mean</h3>
+            <ul>
+                <li><strong>BFI — Blood Flow Index</strong>: derived from speckle contrast <code>C(t)</code>. Lower contrast → more motion → higher BFI.</li>
+                <li><strong>BVI — Blood Volume Index</strong>: derived from detected intensity <code>I(t)</code>. Tracks volume changes over time.</li>
+            </ul>
+            <div class="code-block"><code>BFI = 10 × (1 − (C(t) − C_min) / (C_max − C_min))
+BVI = 10 × (1 − (I(t) − I_min) / (I_max − I_min))</code></div>
+            <div class="callout warning">
+                <strong>⚠️ Sanity check:</strong> If BVI &gt; 0.9, suspect poor sensor contact before interpreting the trace.
+            </div>
+        </div>
+    </section>
+
+    <!-- Specs -->
+    <section class="section" id="specs" style="background: var(--light-bg); border-radius: 16px;">
+        <div class="section-header">
+            <h2 class="section-title">Device Specifications</h2>
+            <p class="section-subtitle">Quick reference. Full details in the user manual.</p>
+        </div>
+
+        <table class="spec-table">
+            <thead>
+                <tr><th>Category</th><th>Value</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Configuration</td><td>1 console, 2 sensor modules, software</td></tr>
+                <tr><td>Light source</td><td>795 ± 5 nm, 5 W peak, &lt; 15 MHz BW, 250 µs pulse · Class 1 per IEC 60825</td></tr>
+                <tr><td>Detectors</td><td>16 × CMOS, global shutter, 1920 × 1280, 2.2 µm, 40 fps</td></tr>
+                <tr><td>I/O</td><td>1 × USB-C · 2 × 200 µm fiber · 2 × SMA (laser TTL sync)</td></tr>
+                <tr><td>Mechanical</td><td>250 × 75 × 160 mm · ~2.5 kg</td></tr>
+                <tr><td>OS support</td><td>Windows 10 22H2+ · 8 GB RAM · 100 GB free · 1 USB port</td></tr>
+                <tr><td>Power</td><td>AC 100–240 V, 50/60 Hz · 72 W max</td></tr>
+                <tr><td>Environment</td><td>Operating 15–30 °C · Storage 0–40 °C · 20–80 %RH</td></tr>
+                <tr><td>Standards</td><td>IEC 60601-1, 60825-1, 62304, 62366; ISO 13485, 14971</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- First contribution -->
+    <section class="section" id="first-contribution">
+        <div class="section-header">
+            <h2 class="section-title">Make Your First Contribution</h2>
+            <p class="section-subtitle">Fork → branch → commit → PR → CLA → merge. Reviews within 48 hours.</p>
+        </div>
+
+        <div class="step">
+            <h3>Pick a small, shippable change</h3>
+            <ul>
+                <li><strong>Docs fix</strong> — typo, broken link, unclear README step.</li>
+                <li><strong>Unit test</strong> — add a missing test case for an existing function.</li>
+                <li><strong>Firmware tweak</strong> — a small improvement to the console firmware.</li>
+            </ul>
+            <div class="code-block"><code>git checkout -b fix/short-description
+# make changes
+git add .
+git commit -m "Docs: clarify driver install warning"
+git push origin fix/short-description
+# then open a PR on GitHub</code></div>
+            <div class="callout">
+                <strong>CLA:</strong> First PR triggers an automated CLA signature. Takes under 2 minutes.
+            </div>
+            <a href="https://github.com/OpenwaterHealth/ow-bloodflow-app/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" class="btn btn-primary">Browse Good First Issues →</a>
+        </div>
+    </section>
+
+    <!-- Support -->
+    <section class="section" id="support" style="background: var(--light-bg); border-radius: 16px;">
+        <div class="section-header">
+            <h2 class="section-title">Get Help</h2>
+            <p class="section-subtitle">The fastest path to unstuck.</p>
+        </div>
+
+        <div class="path-grid">
+            <div class="path-card">
+                <div class="path-icon">💬</div>
+                <h3>Discord (fastest)</h3>
+                <p>Real-time help from the community in <code>#help</code>.</p>
+                <a href="https://discord.gg/2WNQ8rj5ZK" class="btn btn-secondary">Join Discord →</a>
+            </div>
+            <div class="path-card">
+                <div class="path-icon">🗣️</div>
+                <h3>GitHub Discussions</h3>
+                <p>Best for design questions and shared answers.</p>
+                <a href="https://github.com/OpenwaterHealth/ow-bloodflow-app/discussions" class="btn btn-secondary">ow-bloodflow Discussions →</a>
+            </div>
+            <div class="path-card">
+                <div class="path-icon">📧</div>
+                <h3>Email the team</h3>
+                <p>For anything that doesn't fit a public channel.</p>
+                <a href="mailto:community@openwater.health" class="btn btn-secondary">community@openwater.health</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+        <div class="cta-section">
+            <h2>Ready to ship your first PR?</h2>
+            <p>Browse open issues, pick one, and we'll review within 48 hours.</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/OpenwaterHealth" class="btn btn-primary">View on GitHub →</a>
+                <a href="https://github.com/OpenwaterHealth/ow-bloodflow-app/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" class="btn btn-secondary">Good First Issues →</a>
+                <a href="quickstart-open-lifu.html" class="btn btn-secondary">Open-LIFU Quick Start →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Openwater Health. Open Source. Always.</p>
+        <p>733 Front Street, Suite C1A, San Francisco, CA 94111</p>
+        <p><a href="mailto:community@openwater.health">community@openwater.health</a></p>
+    </footer>
+</body>
+</html>

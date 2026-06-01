@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open-LIFU Quick Start - Openwater Community</title>
+    <meta name="description" content="Open-LIFU quick start guide — from clone to first merged PR in ~15 minutes. The single source of truth for getting started with Openwater's Low Intensity Focused Ultrasound platform.">
+    <style>
+        /* Matching Exact Design System (mirrors get-started.html) */
+        :root {
+            --deep-navy: #0A2540;
+            --ocean-blue: #164E63;
+            --primary-teal: #0891B2;
+            --bright-cyan: #06B6D4;
+            --aqua-light: #22D3EE;
+            --aqua-bright: #67E8F9;
+            --white: #FFFFFF;
+            --light-bg: #F0F9FF;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --border-color: #E0F2FE;
+            --success-green: #10B981;
+            --warning-amber: #F59E0B;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(10, 37, 64, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { height: 40px; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover,
+        .nav-links a.active { color: var(--primary-teal); }
+
+        /* Hero */
+        .hero {
+            background-image: url('openwater-3.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            min-height: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg,
+                rgba(10, 37, 64, 0.85) 0%,
+                rgba(8, 145, 178, 0.85) 100%);
+            z-index: 1;
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 1100px; }
+        .hero .eyebrow {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 999px;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+        .hero p { font-size: 1.25rem; opacity: 0.95; margin-bottom: 2rem; }
+        .hero-stats { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+        .hero-stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--aqua-bright);
+        }
+        .hero-stat-label { display: block; font-size: 0.9rem; opacity: 0.9; }
+
+        /* Section */
+        .section { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+        .section-header { text-align: center; margin-bottom: 2.5rem; }
+        .section-title {
+            font-size: 2.25rem;
+            color: var(--deep-navy);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+        .section-subtitle { font-size: 1.15rem; color: var(--text-secondary); }
+
+        /* Path Cards */
+        .path-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .path-card {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        .path-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(10, 37, 64, 0.12);
+            border-color: var(--bright-cyan);
+        }
+        .path-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .path-card h3 { font-size: 1.4rem; color: var(--deep-navy); margin-bottom: 0.5rem; }
+        .path-card p { color: var(--text-secondary); margin-bottom: 1rem; }
+
+        /* Steps */
+        .steps { counter-reset: step; }
+        .step {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 2rem;
+            top: -1.5rem;
+            width: 3rem; height: 3rem;
+            background: linear-gradient(135deg, var(--primary-teal), var(--bright-cyan));
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: 700;
+            box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
+        }
+        .step h3 {
+            color: var(--deep-navy);
+            font-size: 1.4rem;
+            margin: 1rem 0 0.75rem 0;
+        }
+        .step h4 { color: var(--primary-teal); margin: 1rem 0 0.5rem 0; }
+        .step p, .step ul, .step ol { color: var(--text-secondary); line-height: 1.7; }
+        .step ul, .step ol { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .step li { margin-bottom: 0.35rem; }
+
+        /* Code Blocks */
+        .code-block {
+            background: var(--deep-navy);
+            color: var(--aqua-light);
+            padding: 1.25rem 1.5rem;
+            border-radius: 8px;
+            font-family: 'Courier New', Consolas, monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            white-space: pre;
+        }
+        .code-block code { color: var(--aqua-bright); }
+
+        /* Callouts */
+        .callout {
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--primary-teal);
+            background: var(--light-bg);
+            color: var(--text-primary);
+        }
+        .callout.warning { border-left-color: var(--warning-amber); background: #FFFBEB; }
+        .callout.success { border-left-color: var(--success-green); background: #ECFDF5; }
+        .callout strong { color: var(--deep-navy); }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-teal), var(--bright-cyan));
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(8, 145, 178, 0.3);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-teal);
+            border: 2px solid var(--primary-teal);
+        }
+        .btn-secondary:hover { background: var(--primary-teal); color: white; }
+
+        /* CTA */
+        .cta-section {
+            background-image: url('openwater-3.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(10,37,64,0.9), rgba(8,145,178,0.9));
+            z-index: 1;
+        }
+        .cta-section > * { position: relative; z-index: 2; }
+        .cta-section h2 { font-size: 2.25rem; margin-bottom: 0.75rem; }
+        .cta-section p { font-size: 1.15rem; margin-bottom: 1.75rem; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        /* TOC */
+        .toc {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0 3rem 0;
+        }
+        .toc h4 { color: var(--deep-navy); margin-bottom: 0.5rem; }
+        .toc ol { margin-left: 1.5rem; color: var(--text-secondary); }
+        .toc a { color: var(--primary-teal); text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+
+        /* Footer */
+        footer {
+            background: var(--deep-navy);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        footer p { margin: 0.5rem 0; opacity: 0.85; }
+        footer a { color: var(--bright-cyan); text-decoration: none; }
+
+        /* Disclaimer banner */
+        .disclaimer-bar {
+            background: #FFFBEB;
+            color: #78350F;
+            border-bottom: 1px solid #FDE68A;
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 0.6rem 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .path-grid { grid-template-columns: 1fr; }
+            .hero-stats { gap: 1.5rem; }
+            .cta-buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Investigational use disclaimer -->
+    <div class="disclaimer-bar">
+        ⚠️ Open-LIFU is an investigational device — limited by US Federal law to investigational use. Not FDA-evaluated.
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="https://www.openwater.health">
+                    <img src="openwater-logo.png" alt="Openwater" height="40">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="developers.html">Developers</a></li>
+                <li><a href="get-started.html" class="active">Get Started</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="model-commons.html">Model Commons</a></li>
+                <li><a href="https://docs.openwater.health/">Docs</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="eyebrow">Quick Start · Open-LIFU</span>
+            <h1>Open-LIFU Quick Start</h1>
+            <p>From clone to first merged PR in ~15 minutes of focused work.</p>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">~15 min</span>
+                    <span class="hero-stat-label">Clone → First PR</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">2 Paths</span>
+                    <span class="hero-stat-label">Python or 3D Slicer</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">SDK + App</span>
+                    <span class="hero-stat-label">Open Source</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro & TOC -->
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">Welcome to Open-LIFU</h2>
+            <p class="section-subtitle">
+                Open-LIFU is Openwater's programmable Low Intensity Focused Ultrasound platform —
+                a console, transducer, desktop application, and Python SDK for steered LIFU research.
+                This page is the single source of truth for getting started. Repositories,
+                READMEs, and the device user manual all link here.
+            </p>
+        </div>
+
+        <div class="toc">
+            <h4>On this page</h4>
+            <ol>
+                <li><a href="#paths">Choose your path</a></li>
+                <li><a href="#path-a">Path A · OpenLIFU-python (Python SDK)</a></li>
+                <li><a href="#path-b">Path B · OpenLIFU-App (Desktop & 3D Slicer)</a></li>
+                <li><a href="#first-contribution">Make your first contribution</a></li>
+                <li><a href="#optional">Optional: photogrammetry add-ons (Meshroom, Android, ADB)</a></li>
+                <li><a href="#support">Get help</a></li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Choose Path -->
+    <section class="section" id="paths" style="background: var(--light-bg); border-radius: 16px;">
+        <div class="section-header">
+            <h2 class="section-title">Choose Your Path</h2>
+            <p class="section-subtitle">Two ways in. Pick whichever matches what you're trying to do today.</p>
+        </div>
+
+        <div class="path-grid">
+            <div class="path-card">
+                <div class="path-icon">🐍</div>
+                <h3>Path A · OpenLIFU-python</h3>
+                <p>Pure Python. Best for SDK contributors, scripting, sample data, simulations.</p>
+                <a href="#path-a" class="btn btn-primary">Start with Python →</a>
+            </div>
+            <div class="path-card">
+                <div class="path-icon">🧠</div>
+                <h3>Path B · OpenLIFU-App + 3D Slicer</h3>
+                <p>Desktop app and Slicer extension. Best for planning sonications, GUI workflows, clinical research.</p>
+                <a href="#path-b" class="btn btn-primary">Start with the App →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PATH A: Python -->
+    <section class="section" id="path-a">
+        <div class="section-header">
+            <h2 class="section-title">Path A · OpenLIFU-python</h2>
+            <p class="section-subtitle">Clone → install → smoke test → load sample data.</p>
+        </div>
+
+        <div class="steps">
+            <!-- A1 -->
+            <div class="step">
+                <h3>Clone the repository</h3>
+                <p>Fork first on GitHub, then clone your fork locally. New here? Hit the <strong>Fork</strong> button on the repo, then copy your fork's clone URL.</p>
+                <div class="code-block"><code>git clone https://github.com/&lt;your-username&gt;/OpenLIFU-python.git
+cd OpenLIFU-python
+git remote add upstream https://github.com/OpenwaterHealth/OpenLIFU-python.git</code></div>
+                <a href="https://github.com/OpenwaterHealth/OpenLIFU-python" class="btn btn-secondary">OpenLIFU-python on GitHub →</a>
+            </div>
+
+            <!-- A2 -->
+            <div class="step">
+                <h3>Create a virtual environment & install</h3>
+                <p>Editable install picks up your code changes without reinstalling.</p>
+                <div class="code-block"><code>python -m venv .venv
+# macOS/Linux:
+source .venv/bin/activate
+# Windows:
+.venv\Scripts\activate
+
+pip install -e .</code></div>
+            </div>
+
+            <!-- A3 -->
+            <div class="step">
+                <h3>Smoke test</h3>
+                <p>If this prints a version, you're good.</p>
+                <div class="code-block"><code>python -c "import openlifu; print(openlifu.__version__)"</code></div>
+                <div class="callout success">
+                    <strong>✅ Working?</strong> You're ready to load sample data and start hacking.
+                </div>
+            </div>
+
+            <!-- A4 -->
+            <div class="step">
+                <h3>Pull sample data and browse examples</h3>
+                <p>The sample database lives in a separate repo and is fetched via Git LFS.</p>
+                <div class="code-block"><code>git lfs install
+git clone https://github.com/OpenwaterHealth/openlifu-sample-database
+# Then browse examples/ in OpenLIFU-python — load a transducer JSON, run a sim.</code></div>
+                <a href="https://github.com/OpenwaterHealth/openlifu-sample-database" class="btn btn-secondary">Sample Database →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PATH B: Slicer / App -->
+    <section class="section" id="path-b" style="background: var(--light-bg); border-radius: 16px;">
+        <div class="section-header">
+            <h2 class="section-title">Path B · OpenLIFU-App & 3D Slicer</h2>
+            <p class="section-subtitle">Desktop app for planning and running sonications, with a 3D Slicer extension for visualization.</p>
+        </div>
+
+        <div class="steps">
+            <!-- B1 -->
+            <div class="step">
+                <h3>Install the Open-LIFU Desktop Application</h3>
+                <ol>
+                    <li>Go to <a href="https://github.com/OpenwaterHealth/OpenLIFU-App/releases/latest">the latest release</a>.</li>
+                    <li>Download the system-specific installer (.exe on Windows, .tar.gz on Linux). Approve the security warning if prompted.</li>
+                    <li>Run the installer.</li>
+                </ol>
+                <div class="callout warning">
+                    <strong>⚠️ Windows path gotcha:</strong> The install path <strong>cannot contain spaces</strong>. The default folder includes a space after "OpenLIFU" — remove it. Also make sure your Windows username has no spaces (install elsewhere if it does).
+                </div>
+                <p>First launch finishes installing dependencies before opening the home page.</p>
+                <a href="https://github.com/OpenwaterHealth/OpenLIFU-App/releases/latest" class="btn btn-secondary">Latest Release →</a>
+            </div>
+
+            <!-- B2 -->
+            <div class="step">
+                <h3>Install 3D Slicer & the OpenLIFU extension</h3>
+                <ol>
+                    <li>Install <a href="https://download.slicer.org/">3D Slicer</a> matching the version listed in the latest OpenLIFU-App release notes.</li>
+                    <li>Open <strong>Extension Manager</strong> → search for <strong>"OpenLIFU"</strong> → install.</li>
+                    <li>Restart Slicer.</li>
+                </ol>
+            </div>
+
+            <!-- B3 -->
+            <div class="step">
+                <h3>Open OpenLIFUHome and point at the sample database</h3>
+                <ol>
+                    <li>Open the <strong>OpenLIFUHome</strong> module.</li>
+                    <li>In <strong>OpenLIFUDatabase</strong>, point at your local clone of <code>openlifu-sample-database</code>.</li>
+                    <li>Sign in as <code>example_admin</code>.</li>
+                </ol>
+            </div>
+
+            <!-- B4 -->
+            <div class="step">
+                <h3>Plan & simulate a sonication</h3>
+                <ol>
+                    <li>Open <strong>PrePlanning</strong> → pick a target.</li>
+                    <li>Open <strong>SonicationPlanner</strong> → simulate the sonication.</li>
+                </ol>
+                <div class="callout success">
+                    <strong>🎉 You just planned your first sonication.</strong> Now you're ready to contribute.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- First Contribution -->
+    <section class="section" id="first-contribution">
+        <div class="section-header">
+            <h2 class="section-title">Make Your First Contribution</h2>
+            <p class="section-subtitle">The fork → branch → commit → PR → CLA → merge loop.</p>
+        </div>
+
+        <div class="step">
+            <h3>The 5-minute first-PR loop</h3>
+            <p>Don't overthink your first contribution. Pick one of these and ship it:</p>
+            <ul>
+                <li><strong>Docs fix</strong> — typo, broken link, unclear sentence in a README.</li>
+                <li><strong>Unit test</strong> — add a missing test case for an existing function.</li>
+                <li><strong>Sandbox experiment</strong> — a new example notebook in <code>examples/</code>.</li>
+            </ul>
+            <div class="code-block"><code>git checkout -b fix/short-description
+# make changes
+git add .
+git commit -m "Docs: fix typo in transducer README"
+git push origin fix/short-description
+# then open a PR on GitHub</code></div>
+            <div class="callout">
+                <strong>CLA:</strong> First PR triggers an automated CLA signature. Takes under 2 minutes.
+            </div>
+            <a href="https://github.com/OpenwaterHealth/OpenLIFU-python/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" class="btn btn-primary">Browse Good First Issues →</a>
+        </div>
+    </section>
+
+    <!-- Optional photogrammetry -->
+    <section class="section" id="optional" style="background: var(--light-bg); border-radius: 16px;">
+        <div class="section-header">
+            <h2 class="section-title">Optional · Photogrammetry Add-ons</h2>
+            <p class="section-subtitle">Only needed if you're running transducer-tracking workflows with the Android scanner.</p>
+        </div>
+
+        <div class="steps">
+            <div class="step">
+                <h3>Install Meshroom 2023.3.0</h3>
+                <ol>
+                    <li>Download Meshroom <strong>2023.3.0</strong> for Windows from <a href="https://alicevision.org/#meshroom">alicevision.org/#meshroom</a>.</li>
+                    <li>Extract the archive to a directory of your choice.</li>
+                    <li>Add the folder containing <code>Meshroom.exe</code> to your user PATH (Start menu → "Edit environment variables for your account" → User variables → Path → Edit → New).</li>
+                    <li><strong>Optional GPU:</strong> NVIDIA Control Panel → 3D Settings → Manage 3D settings → Program Settings → add <code>Meshroom.exe</code> → set "High-performance NVIDIA processor".</li>
+                </ol>
+            </div>
+
+            <div class="step">
+                <h3>Install Android Platform Tools (ADB)</h3>
+                <p><strong>Option 1:</strong> Download Google's <a href="https://developer.android.com/tools/releases/platform-tools">platform-tools</a>, extract, and add the folder containing <code>adb.exe</code> to your PATH. Verify with <code>adb --version</code>.</p>
+                <p><strong>Option 2 (PowerShell):</strong></p>
+                <div class="code-block"><code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+irm get.scoop.sh | iex
+scoop install android-platform-tools</code></div>
+            </div>
+
+            <div class="step">
+                <h3>Install the Android photogrammetry app</h3>
+                <ol>
+                    <li>On your Android phone, open <a href="https://github.com/OpenwaterHealth/OpenLIFU-3DScanner/">OpenLIFU-3DScanner</a>.</li>
+                    <li>Open <strong>Releases</strong> → pick the latest version → tap the <code>.apk</code>.</li>
+                    <li>Approve install. Open the app and allow camera and storage permissions.</li>
+                </ol>
+            </div>
+
+            <div class="step">
+                <h3>Enable Developer Mode + USB Debugging</h3>
+                <ol>
+                    <li>Settings → About Phone → tap <strong>Build number</strong> 7 times.</li>
+                    <li>Settings → System → Developer options → enable <strong>USB debugging</strong>.</li>
+                    <li>Plug into your PC and check "Always allow" when prompted.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support -->
+    <section class="section" id="support">
+        <div class="section-header">
+            <h2 class="section-title">Get Help</h2>
+            <p class="section-subtitle">The fastest path to unstuck.</p>
+        </div>
+
+        <div class="path-grid">
+            <div class="path-card">
+                <div class="path-icon">💬</div>
+                <h3>Discord (fastest)</h3>
+                <p>Real-time help from the community in <code>#help</code>.</p>
+                <a href="https://discord.gg/2WNQ8rj5ZK" class="btn btn-secondary">Join Discord →</a>
+            </div>
+            <div class="path-card">
+                <div class="path-icon">🗣️</div>
+                <h3>GitHub Discussions</h3>
+                <p>Best for design questions and shared answers.</p>
+                <a href="https://github.com/OpenwaterHealth/OpenLIFU-App/discussions" class="btn btn-secondary">OpenLIFU-App Discussions →</a>
+            </div>
+            <div class="path-card">
+                <div class="path-icon">📧</div>
+                <h3>Email the team</h3>
+                <p>For anything that doesn't fit a public channel.</p>
+                <a href="mailto:community@openwater.health" class="btn btn-secondary">community@openwater.health</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+        <div class="cta-section">
+            <h2>Ready to ship your first PR?</h2>
+            <p>Browse open issues, pick one, and we'll review within 48 hours.</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/OpenwaterHealth" class="btn btn-primary">View on GitHub →</a>
+                <a href="https://github.com/OpenwaterHealth/OpenLIFU-python/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" class="btn btn-secondary">Good First Issues →</a>
+                <a href="quickstart-open-motion.html" class="btn btn-secondary">Open-Motion Quick Start →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Openwater Health. Open Source. Always.</p>
+        <p>733 Front Street, Suite C1A, San Francisco, CA 94111</p>
+        <p><a href="mailto:community@openwater.health">community@openwater.health</a></p>
+    </footer>
+</body>
+</html>
