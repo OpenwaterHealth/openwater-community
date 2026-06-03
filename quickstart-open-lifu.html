@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open-LIFU Quick Start - Openwater Community</title>
-    <meta name="description" content="Open-LIFU quick start guide — from clone to first merged PR in ~15 minutes. The single source of truth for getting started with Openwater's Low Intensity Focused Ultrasound platform.">
+    <meta name="description" content="Open-LIFU quick start guide — install the standalone app, or run from source at any layer of the stack. Single source of truth for getting started with Openwater's Low Intensity Focused Ultrasound platform.">
     <style>
-        /* Matching Exact Design System (mirrors get-started.html) */
         :root {
             --deep-navy: #0A2540;
             --ocean-blue: #164E63;
@@ -31,7 +30,6 @@
             color: var(--text-primary);
         }
 
-        /* Navigation */
         nav {
             background: white;
             box-shadow: 0 2px 10px rgba(10, 37, 64, 0.1);
@@ -59,7 +57,6 @@
         .nav-links a:hover,
         .nav-links a.active { color: var(--primary-teal); }
 
-        /* Hero */
         .hero {
             background-image: url('openwater-3.png');
             background-size: cover;
@@ -104,7 +101,6 @@
         }
         .hero-stat-label { display: block; font-size: 0.9rem; opacity: 0.9; }
 
-        /* Section */
         .section { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
         .section-header { text-align: center; margin-bottom: 2.5rem; }
         .section-title {
@@ -115,7 +111,6 @@
         }
         .section-subtitle { font-size: 1.15rem; color: var(--text-secondary); }
 
-        /* Path Cards */
         .path-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -128,17 +123,36 @@
             border-radius: 16px;
             padding: 2rem;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
         .path-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 40px rgba(10, 37, 64, 0.12);
             border-color: var(--bright-cyan);
         }
+        .path-card .btn { margin-top: auto; }
         .path-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
         .path-card h3 { font-size: 1.4rem; color: var(--deep-navy); margin-bottom: 0.5rem; }
         .path-card p { color: var(--text-secondary); margin-bottom: 1rem; }
+        .path-card ul {
+            list-style: none;
+            margin: 0 0 1.25rem 0;
+            text-align: left;
+        }
+        .path-card li {
+            padding: 0.3rem 0 0.3rem 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        .path-card li::before {
+            content: '✓';
+            position: absolute; left: 0;
+            color: var(--bright-cyan);
+            font-weight: bold;
+        }
 
-        /* Steps */
         .steps { counter-reset: step; }
         .step {
             background: white;
@@ -162,17 +176,41 @@
             font-size: 1.5rem; font-weight: 700;
             box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
         }
-        .step h3 {
-            color: var(--deep-navy);
-            font-size: 1.4rem;
-            margin: 1rem 0 0.75rem 0;
-        }
+        .step h3 { color: var(--deep-navy); font-size: 1.4rem; margin: 1rem 0 0.75rem 0; }
         .step h4 { color: var(--primary-teal); margin: 1rem 0 0.5rem 0; }
         .step p, .step ul, .step ol { color: var(--text-secondary); line-height: 1.7; }
         .step ul, .step ol { margin-left: 1.5rem; margin-top: 0.5rem; }
         .step li { margin-bottom: 0.35rem; }
 
-        /* Code Blocks */
+        /* Sub-path cards inside Run from Source */
+        .subpath {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 6px solid var(--primary-teal);
+        }
+        .subpath h3 {
+            color: var(--deep-navy);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .subpath .subpath-best-for {
+            display: inline-block;
+            background: var(--light-bg);
+            color: var(--primary-teal);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 999px;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .subpath p, .subpath ul, .subpath ol { color: var(--text-secondary); line-height: 1.7; }
+        .subpath ul, .subpath ol { margin-left: 1.5rem; margin-top: 0.5rem; }
+
         .code-block {
             background: var(--deep-navy);
             color: var(--aqua-light);
@@ -186,7 +224,6 @@
         }
         .code-block code { color: var(--aqua-bright); }
 
-        /* Callouts */
         .callout {
             border-radius: 12px;
             padding: 1.25rem 1.5rem;
@@ -199,7 +236,6 @@
         .callout.success { border-left-color: var(--success-green); background: #ECFDF5; }
         .callout strong { color: var(--deep-navy); }
 
-        /* Buttons */
         .btn {
             padding: 0.75rem 1.5rem;
             border-radius: 8px;
@@ -224,7 +260,6 @@
         }
         .btn-secondary:hover { background: var(--primary-teal); color: white; }
 
-        /* CTA */
         .cta-section {
             background-image: url('openwater-3.png');
             background-size: cover;
@@ -248,7 +283,6 @@
         .cta-section p { font-size: 1.15rem; margin-bottom: 1.75rem; }
         .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-        /* TOC */
         .toc {
             background: white;
             border: 2px solid var(--border-color);
@@ -258,10 +292,24 @@
         }
         .toc h4 { color: var(--deep-navy); margin-bottom: 0.5rem; }
         .toc ol { margin-left: 1.5rem; color: var(--text-secondary); }
+        .toc ol ol { margin-top: 0.25rem; }
         .toc a { color: var(--primary-teal); text-decoration: none; }
         .toc a:hover { text-decoration: underline; }
 
-        /* Footer */
+        /* Architecture diagram */
+        .arch-diagram {
+            background: var(--deep-navy);
+            color: var(--aqua-bright);
+            padding: 1.75rem;
+            border-radius: 12px;
+            font-family: 'Courier New', Consolas, monospace;
+            font-size: 0.85rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.5;
+        }
+
         footer {
             background: var(--deep-navy);
             color: white;
@@ -271,7 +319,6 @@
         footer p { margin: 0.5rem 0; opacity: 0.85; }
         footer a { color: var(--bright-cyan); text-decoration: none; }
 
-        /* Disclaimer banner */
         .disclaimer-bar {
             background: #FFFBEB;
             color: #78350F;
@@ -281,7 +328,6 @@
             padding: 0.6rem 1rem;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             .nav-links { display: none; }
@@ -292,12 +338,10 @@
     </style>
 </head>
 <body>
-    <!-- Investigational use disclaimer -->
     <div class="disclaimer-bar">
         ⚠️ Open-LIFU is an investigational device — limited by US Federal law to investigational use. Not FDA-evaluated.
     </div>
 
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <div class="logo">
@@ -316,50 +360,70 @@
         </div>
     </nav>
 
-    <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
             <span class="eyebrow">Quick Start · Open-LIFU</span>
             <h1>Open-LIFU Quick Start</h1>
-            <p>From clone to first merged PR in ~15 minutes of focused work.</p>
+            <p>Install the standalone App — or run from source at whichever layer of the stack you need.</p>
 
             <div class="hero-stats">
                 <div class="hero-stat">
+                    <span class="hero-stat-number">2 Paths</span>
+                    <span class="hero-stat-label">App or Source</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">3 Source Layers</span>
+                    <span class="hero-stat-label">Extension · Python · SDK</span>
+                </div>
+                <div class="hero-stat">
                     <span class="hero-stat-number">~15 min</span>
                     <span class="hero-stat-label">Clone → First PR</span>
-                </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-number">2 Paths</span>
-                    <span class="hero-stat-label">Python or 3D Slicer</span>
-                </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-number">SDK + App</span>
-                    <span class="hero-stat-label">Open Source</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Intro & TOC -->
+    <!-- Intro -->
     <section class="section">
         <div class="section-header">
             <h2 class="section-title">Welcome to Open-LIFU</h2>
             <p class="section-subtitle">
-                Open-LIFU is Openwater's programmable Low Intensity Focused Ultrasound platform —
-                a console, transducer, desktop application, and Python SDK for steered LIFU research.
-                This page is the single source of truth for getting started. Repositories,
-                READMEs, and the device user manual all link here.
+                Open-LIFU is Openwater's programmable Low Intensity Focused Ultrasound platform — a console,
+                transducer, and a software stack that goes from a one-click standalone App down to a Python SDK
+                that talks directly to the hardware. This page is the single source of truth for getting started.
+                Repositories, READMEs, and the device user manual all link here.
             </p>
         </div>
+
+        <h3 style="color: var(--deep-navy); text-align: center; margin-bottom: 1rem;">The stack at a glance</h3>
+        <div class="arch-diagram">┌──────────────────────────────────────────────────────────────────┐
+│  OpenLIFU-App      ◄── standalone installer (bundles Slicer)     │
+├──────────────────────────────────────────────────────────────────┤
+│  SlicerOpenLIFU    ◄── 3D Slicer extension (10 modules)          │
+├──────────────────────────────────────────────────────────────────┤
+│  openlifu          ◄── Python library: algorithms, planning      │
+├──────────────────────────────────────────────────────────────────┤
+│  openlifu-sdk      ◄── low-level hardware I/O                    │
+│  openlifu-test-app ◄── QML engineering UI (binary + source)      │
+└──────────────────────────────────────────────────────────────────┘</div>
+        <p style="color: var(--text-secondary); text-align: center; margin-top: 1rem;">
+            Either install the top of the stack (the App) <em>or</em> run from source at the layer that matches what you're doing. You don't need to install multiple layers — pick one entry point.
+        </p>
 
         <div class="toc">
             <h4>On this page</h4>
             <ol>
                 <li><a href="#paths">Choose your path</a></li>
-                <li><a href="#path-a">Path A · OpenLIFU-python (Python SDK)</a></li>
-                <li><a href="#path-b">Path B · OpenLIFU-App (Desktop & 3D Slicer)</a></li>
+                <li><a href="#path-a">Path A · Standalone App</a></li>
+                <li><a href="#path-b">Path B · Run from Source</a>
+                    <ol>
+                        <li><a href="#path-b1">B1 · 3D Slicer + SlicerOpenLIFU extension</a></li>
+                        <li><a href="#path-b2">B2 · openlifu-python (the <code>openlifu</code> library)</a></li>
+                        <li><a href="#path-b3">B3 · openlifu-sdk (low-level + Test App)</a></li>
+                    </ol>
+                </li>
+                <li><a href="#first-contribution">Make your first contribution</a></li>
                 <li><a href="#optional">Optional: photogrammetry add-ons (Meshroom, Android, ADB)</a></li>
-                <li><a href="#first-contribution">Make your first contribution</a></li>              
                 <li><a href="#support">Get help</a></li>
             </ol>
         </div>
@@ -369,132 +433,186 @@
     <section class="section" id="paths" style="background: var(--light-bg); border-radius: 16px;">
         <div class="section-header">
             <h2 class="section-title">Choose Your Path</h2>
-            <p class="section-subtitle">Two ways in. Pick whichever matches what you're trying to do today.</p>
+            <p class="section-subtitle">Two entry points. Don't install both — pick the one that matches what you're doing today.</p>
         </div>
 
         <div class="path-grid">
             <div class="path-card">
-                <div class="path-icon">🐍</div>
-                <h3>Path A · OpenLIFU-python</h3>
-                <p>Pure Python. Best for SDK contributors, scripting, sample data, simulations.</p>
-                <a href="#path-a" class="btn btn-primary">Start with Python →</a>
+                <div class="path-icon">📦</div>
+                <h3>Path A · Standalone App</h3>
+                <p>Download the installer, run. Bundles its own Slicer and all OpenLIFU modules. No framework setup. No Python.</p>
+                <ul>
+                    <li>Best for clinicians &amp; research operators</li>
+                    <li>Guided clinical workflow</li>
+                    <li>No 3D Slicer install required</li>
+                    <li>No Python environment required</li>
+                </ul>
+                <a href="#path-a" class="btn btn-primary">Start with the App →</a>
             </div>
             <div class="path-card">
-                <div class="path-icon">🧠</div>
-                <h3>Path B · OpenLIFU-App + 3D Slicer</h3>
-                <p>Desktop app and Slicer extension. Best for planning sonications, GUI workflows, clinical research.</p>
-                <a href="#path-b" class="btn btn-primary">Start with the App →</a>
+                <div class="path-icon">🛠️</div>
+                <h3>Path B · Run from Source</h3>
+                <p>Build/run from any layer of the stack. Three sub-paths depending on whether you want a UI, a library, or raw hardware I/O.</p>
+                <ul>
+                    <li>B1 · Slicer + extension — power-user GUI</li>
+                    <li>B2 · <code>openlifu</code> — scripting &amp; pipelines</li>
+                    <li>B3 · <code>openlifu-sdk</code> — firmware &amp; hardware comms</li>
+                    <li>Best for contributors &amp; researchers</li>
+                </ul>
+                <a href="#path-b" class="btn btn-primary">Start from Source →</a>
             </div>
         </div>
     </section>
 
-    <!-- PATH A: Python -->
+    <!-- PATH A · Standalone App -->
     <section class="section" id="path-a">
         <div class="section-header">
-            <h2 class="section-title">Path A · OpenLIFU-python</h2>
-            <p class="section-subtitle">Clone → install → smoke test → load sample data.</p>
+            <h2 class="section-title">Path A · Standalone App</h2>
+            <p class="section-subtitle">Three steps. The App bundles its own Slicer — do <strong>not</strong> install 3D Slicer separately for this path.</p>
         </div>
 
         <div class="steps">
-            <!-- A1 -->
             <div class="step">
-                <h3>Clone the repository</h3>
-                <p>Fork first on GitHub, then clone your fork locally. New here? Hit the <strong>Fork</strong> button on the repo, then copy your fork's clone URL.</p>
-                <div class="code-block"><code>git clone https://github.com/&lt;your-username&gt;/OpenLIFU-python.git
-cd OpenLIFU-python
-git remote add upstream https://github.com/OpenwaterHealth/OpenLIFU-python.git</code></div>
-                <a href="https://github.com/OpenwaterHealth/OpenLIFU-python" class="btn btn-secondary">OpenLIFU-python on GitHub →</a>
-            </div>
-
-            <!-- A2 -->
-            <div class="step">
-                <h3>Create a virtual environment & install</h3>
-                <p>Editable install picks up your code changes without reinstalling.</p>
-                <div class="code-block"><code>python -m venv .venv
-# macOS/Linux:
-source .venv/bin/activate
-# Windows:
-.venv\Scripts\activate
-
-pip install -e .</code></div>
-            </div>
-
-            <!-- A3 -->
-            <div class="step">
-                <h3>Smoke test</h3>
-                <p>If this prints a version, you're good.</p>
-                <div class="code-block"><code>python -c "import openlifu; print(openlifu.__version__)"</code></div>
-                <div class="callout success">
-                    <strong>✅ Working?</strong> You're ready to load sample data and start hacking.
+                <h3>Download the latest installer</h3>
+                <p>Grab the system-specific installer (<code>.exe</code> on Windows, <code>.tar.gz</code> on Linux). Approve the security warning if prompted.</p>
+                <a href="https://github.com/OpenwaterHealth/OpenLIFU-App/releases/latest" class="btn btn-secondary">Latest Release →</a>
+                <div class="callout">
+                    <strong>NVIDIA GPU required</strong> for a number of features. Make sure your system has one before you start.
                 </div>
             </div>
 
-            <!-- A4 -->
             <div class="step">
-                <h3>Pull sample data and browse examples</h3>
-                <p>The sample database lives in a separate repo and is fetched via Git LFS.</p>
-                <div class="code-block"><code>git lfs install
-git clone https://github.com/OpenwaterHealth/openlifu-sample-database
-# Then browse examples/ in OpenLIFU-python — load a transducer JSON, run a sim.</code></div>
-                <a href="https://github.com/OpenwaterHealth/openlifu-sample-database" class="btn btn-secondary">Sample Database →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PATH B: Slicer / App -->
-    <section class="section" id="path-b" style="background: var(--light-bg); border-radius: 16px;">
-        <div class="section-header">
-            <h2 class="section-title">Path B · OpenLIFU-App & 3D Slicer</h2>
-            <p class="section-subtitle">Desktop app for planning and running sonications, with a 3D Slicer extension for visualization.</p>
-        </div>
-
-        <div class="steps">
-            <!-- B1 -->
-            <div class="step">
-                <h3>Install the Open-LIFU Desktop Application</h3>
-                <ol>
-                    <li>Go to <a href="https://github.com/OpenwaterHealth/OpenLIFU-App/releases/latest">the latest release</a>.</li>
-                    <li>Download the system-specific installer (.exe on Windows, .tar.gz on Linux). Approve the security warning if prompted.</li>
-                    <li>Run the installer.</li>
-                </ol>
+                <h3>Run the installer</h3>
+                <p>Start the installer and follow the prompts.</p>
                 <div class="callout warning">
                     <strong>⚠️ Windows path gotcha:</strong> The install path <strong>cannot contain spaces</strong>. The default folder includes a space after "OpenLIFU" — remove it. Also make sure your Windows username has no spaces (install elsewhere if it does).
                 </div>
-                <p>First launch finishes installing dependencies before opening the home page.</p>
-                <a href="https://github.com/OpenwaterHealth/OpenLIFU-App/releases/latest" class="btn btn-secondary">Latest Release →</a>
             </div>
 
-            <!-- B2 -->
             <div class="step">
-                <h3>Install 3D Slicer & the OpenLIFU extension</h3>
-                <ol>
-                    <li>Install <a href="https://download.slicer.org/">3D Slicer</a> matching the version listed in the latest OpenLIFU-App release notes.</li>
-                    <li>Open <strong>Extension Manager</strong> → search for <strong>"OpenLIFU"</strong> → install.</li>
-                    <li>Restart Slicer.</li>
-                </ol>
-            </div>
-
-            <!-- B3 -->
-            <div class="step">
-                <h3>Open OpenLIFUHome and point at the sample database</h3>
-                <ol>
-                    <li>Open the <strong>OpenLIFUHome</strong> module.</li>
-                    <li>In <strong>OpenLIFUDatabase</strong>, point at your local clone of <code>openlifu-sample-database</code>.</li>
-                    <li>Sign in as <code>example_admin</code>.</li>
-                </ol>
-            </div>
-
-            <!-- B4 -->
-            <div class="step">
-                <h3>Plan & simulate a sonication</h3>
-                <ol>
-                    <li>Open <strong>PrePlanning</strong> → pick a target.</li>
-                    <li>Open <strong>SonicationPlanner</strong> → simulate the sonication.</li>
-                </ol>
+                <h3>First launch</h3>
+                <p>Launch the app. First run finishes installing dependencies before opening to the home page. That's it — you're in the guided workflow. Use <strong>PrePlanning</strong> → pick a target, then <strong>SonicationPlanner</strong> → simulate.</p>
                 <div class="callout success">
-                    <strong>🎉 You just planned your first sonication.</strong> Now you're ready to contribute.
+                    <strong>🎉 The App handles everything.</strong> You don't need Slicer, Python, or anything else for this path.
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- PATH B · Run from Source -->
+    <section class="section" id="path-b" style="background: var(--light-bg); border-radius: 16px;">
+        <div class="section-header">
+            <h2 class="section-title">Path B · Run from Source</h2>
+            <p class="section-subtitle">Pick the layer that matches what you're building. Each sub-path is independent — you don't stack them.</p>
+        </div>
+
+        <!-- B1 -->
+        <div class="subpath" id="path-b1">
+            <span class="subpath-best-for">Best for · Power-user researchers in Slicer</span>
+            <h3>B1 · 3D Slicer + SlicerOpenLIFU extension</h3>
+            <p>Use your own 3D Slicer install. SlicerOpenLIFU exposes all ten OpenLIFU modules (Home, Database, Login, Data, PrePlanning, TransducerLocalization, SonicationPlanner, SonicationControl, ProtocolConfig, Lib). Every parameter is reachable; no curated wrapper.</p>
+
+            <h4>Install</h4>
+            <ol>
+                <li>Install <a href="https://download.slicer.org/">3D Slicer</a> (version listed in the SlicerOpenLIFU release notes).</li>
+                <li>Open Slicer → <strong>Extensions Manager</strong> → search <strong>"OpenLIFU"</strong> → install.</li>
+                <li>Restart Slicer.</li>
+            </ol>
+
+            <h4>Or build from source</h4>
+            <p>Follow the <a href="https://slicer.readthedocs.io/en/latest/developer_guide/extensions.html#build-an-extension">standard Slicer extension build process</a> for the <a href="https://github.com/OpenwaterHealth/SlicerOpenLIFU"><code>SlicerOpenLIFU</code> repository</a>.</p>
+
+            <h4>First workflow</h4>
+            <ol>
+                <li>Open <strong>OpenLIFUHome</strong>.</li>
+                <li><strong>OpenLIFUDatabase</strong> → point at a local clone of <a href="https://github.com/OpenwaterHealth/openlifu-sample-database"><code>openlifu-sample-database</code></a>.</li>
+                <li>Sign in as <code>example_admin</code>.</li>
+                <li><strong>PrePlanning</strong> → pick a target → <strong>SonicationPlanner</strong> → simulate.</li>
+            </ol>
+
+            <a href="https://github.com/OpenwaterHealth/SlicerOpenLIFU" class="btn btn-secondary">SlicerOpenLIFU repo →</a>
+        </div>
+
+        <!-- B2 -->
+        <div class="subpath" id="path-b2">
+            <span class="subpath-best-for">Best for · Scripting, pipelines, ML, simulations</span>
+            <h3>B2 · openlifu-python (the <code>openlifu</code> library)</h3>
+            <p>The core Python library. Algorithms, planning, simulation, protocols, database structures. No GUI. Used as a standalone library or as the engine that drives SlicerOpenLIFU.</p>
+
+            <p>Install the published package from PyPI:</p>
+            <div class="code-block"><code>pip install openlifu</code></div>
+
+            <p>Or for development (Python 3.10–3.12 on Windows or Linux):</p>
+            <div class="code-block"><code>git clone https://github.com/&lt;your-username&gt;/openlifu-python.git
+cd openlifu-python
+git remote add upstream https://github.com/OpenwaterHealth/openlifu-python.git
+
+python -m venv env
+# Linux:
+source env/bin/activate
+# Windows:
+.\env\Scripts\activate
+
+pip install -e .          # basic
+# or: pip install -e '.[dev]'  # with dev tools
+
+# Smoke test
+python -c "import openlifu; print(openlifu.__version__)"</code></div>
+
+            <p>Then pull the sample database via Git LFS and browse <code>examples/</code>:</p>
+            <div class="code-block"><code>git lfs install
+git clone https://github.com/OpenwaterHealth/openlifu-sample-database</code></div>
+
+            <a href="https://github.com/OpenwaterHealth/openlifu-python" class="btn btn-secondary">openlifu-python repo →</a>
+        </div>
+
+        <!-- B3 -->
+        <div class="subpath" id="path-b3">
+            <span class="subpath-best-for">Best for · Firmware, hardware comms, embedded work</span>
+            <h3>B3 · openlifu-sdk + Test App</h3>
+            <p>The lowest layer: direct communication with the TX module and HV controller. Use this if you're working on firmware, debugging hardware, or building tooling that needs raw device I/O without the planning layer on top.</p>
+
+            <h4>The Python SDK</h4>
+            <p>Published to PyPI:</p>
+            <div class="code-block"><code>pip install openlifu-sdk</code></div>
+
+            <p>Or for development:</p>
+            <div class="code-block"><code>git clone https://github.com/OpenwaterHealth/openlifu-sdk.git
+cd openlifu-sdk
+pip install -e ".[dev]"</code></div>
+
+            <p>Sanity check the hardware connection:</p>
+            <div class="code-block"><code>from openlifu_sdk import LIFUInterface
+
+interface = LIFUInterface()
+tx_connected, hv_connected = interface.is_device_connected()
+print("TX:", tx_connected, " HV:", hv_connected)</code></div>
+
+            <h4>The Test App (engineering UI)</h4>
+            <p>For end-to-end hardware bring-up, verification, and diagnostics, use the <strong>OpenLIFU Test App</strong> — a QML-based engineering UI with dedicated pages for console/transmitter bring-up, sonication, automated verification scripts, firmware updates, and PDF reporting.</p>
+
+            <p><strong>Easiest:</strong> grab the prebuilt Windows binary from the <a href="https://github.com/OpenwaterHealth/openlifu-test-app/releases">openlifu-test-app releases page</a> and run <code>TestApp.exe</code> (or <code>TestApp_console.exe</code> to see console output).</p>
+
+            <p><strong>From source</strong> (Python 3.10+, requires both <code>openlifu-sdk</code> and <code>openlifu</code> installed):</p>
+            <div class="code-block"><code>git clone https://github.com/OpenwaterHealth/openlifu-test-app.git
+cd openlifu-test-app
+
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# macOS/Linux: source .venv/bin/activate
+
+pip install -e .          # or .[dev], .[test], .[dev,test]</code></div>
+
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                <a href="https://github.com/OpenwaterHealth/openlifu-sdk" class="btn btn-secondary">openlifu-sdk repo →</a>
+                <a href="https://github.com/OpenwaterHealth/openlifu-test-app" class="btn btn-secondary">openlifu-test-app repo →</a>
+            </div>
+        </div>
+
+        <!-- Advanced: side-loading -->
+        <div class="callout" style="margin-top: 2rem;">
+            <strong>🔬 Advanced · simultaneous source development across layers.</strong>
+            SlicerOpenLIFU and <code>openlifu</code> can be developed together. Inside Slicer's Python console, use <code>slicer.util.pip_install</code> / <code>slicer.util.pip_uninstall</code> to side-load your local <code>openlifu</code> build, and add your local SlicerOpenLIFU clone to Slicer's <strong>Application Settings → Modules</strong> so it loads from your working tree. This is the recommended workflow for active extension development — you're running customized versions of both the UI and the engine simultaneously. You own compatibility when you do this; SlicerOpenLIFU normally pins a tested <code>openlifu</code> version on purpose.
         </div>
     </section>
 
@@ -502,12 +620,12 @@ git clone https://github.com/OpenwaterHealth/openlifu-sample-database
     <section class="section" id="first-contribution">
         <div class="section-header">
             <h2 class="section-title">Make Your First Contribution</h2>
-            <p class="section-subtitle">The fork → branch → commit → PR → CLA → merge loop.</p>
+            <p class="section-subtitle">The fork → branch → commit → PR → CLA → merge loop is the same regardless of which layer you started at.</p>
         </div>
 
         <div class="step">
-            <h3>The 5-minute first-PR loop</h3>
-            <p>Don't overthink your first contribution. Pick one of these and ship it:</p>
+            <h3>The universal first-PR loop</h3>
+            <p>Pick one of these and ship it:</p>
             <ul>
                 <li><strong>Docs fix</strong> — typo, broken link, unclear sentence in a README.</li>
                 <li><strong>Unit test</strong> — add a missing test case for an existing function.</li>
@@ -522,7 +640,15 @@ git push origin fix/short-description
             <div class="callout">
                 <strong>CLA:</strong> First PR triggers an automated CLA signature. Takes under 2 minutes.
             </div>
-            <a href="https://github.com/OpenwaterHealth/OpenLIFU-python/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" class="btn btn-primary">Browse Good First Issues →</a>
+
+            <h4>Where to land the PR</h4>
+            <ul>
+                <li>UI / workflow bug → <a href="https://github.com/OpenwaterHealth/SlicerOpenLIFU"><code>SlicerOpenLIFU</code></a> or <a href="https://github.com/OpenwaterHealth/OpenLIFU-App"><code>OpenLIFU-App</code></a></li>
+                <li>Algorithm / planning / simulation → <a href="https://github.com/OpenwaterHealth/openlifu-python"><code>openlifu-python</code></a></li>
+                <li>Hardware comms / firmware support → <a href="https://github.com/OpenwaterHealth/openlifu-sdk"><code>openlifu-sdk</code></a></li>
+            </ul>
+
+            <a href="https://github.com/OpenwaterHealth/openlifu-python/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" class="btn btn-primary">Browse Good First Issues →</a>
         </div>
     </section>
 
@@ -530,18 +656,23 @@ git push origin fix/short-description
     <section class="section" id="optional" style="background: var(--light-bg); border-radius: 16px;">
         <div class="section-header">
             <h2 class="section-title">Optional · Photogrammetry Add-ons</h2>
-            <p class="section-subtitle">Only needed if you're running transducer-tracking workflows with the Android scanner.</p>
+            <p class="section-subtitle">Only needed if you're running transducer-tracking workflows with the Android scanner. Applies to all paths above.</p>
         </div>
 
         <div class="steps">
             <div class="step">
-                <h3>Install Meshroom 2023.3.0</h3>
+                <h3>Install Meshroom 2025.1.0</h3>
+                <p>Required if you're using <code>openlifu.nav.photoscan</code> (Python) or running transducer tracking through the App.</p>
                 <ol>
-                    <li>Download Meshroom <strong>2023.3.0</strong> for Windows from <a href="https://alicevision.org/#meshroom">alicevision.org/#meshroom</a>.</li>
+                    <li>Download Meshroom <strong>2025.1.0</strong> for your OS from the <a href="https://github.com/alicevision/Meshroom/releases/tag/v2025.1.0">official Meshroom 2025.1.0 release</a>.</li>
                     <li>Extract the archive to a directory of your choice.</li>
-                    <li>Add the folder containing <code>Meshroom.exe</code> to your user PATH (Start menu → "Edit environment variables for your account" → User variables → Path → Edit → New).</li>
-                    <li><strong>Optional GPU:</strong> NVIDIA Control Panel → 3D Settings → Manage 3D settings → Program Settings → add <code>Meshroom.exe</code> → set "High-performance NVIDIA processor".</li>
+                    <li><strong>Windows:</strong> add the folder containing <code>Meshroom.exe</code> to your user PATH (Start menu → "Edit environment variables for your account" → User variables → Path → Edit → New).</li>
+                    <li><strong>Linux:</strong> add the extracted folder to your PATH (<code>export PATH="&lt;path-to-meshroom&gt;/Meshroom-2025.1.0-Linux:$PATH"</code>, or persist by appending to <code>~/.bashrc</code>).</li>
+                    <li><strong>Optional GPU (Windows):</strong> NVIDIA Control Panel → 3D Settings → Manage 3D settings → Program Settings → add <code>Meshroom.exe</code> → set "High-performance NVIDIA processor".</li>
                 </ol>
+                <div class="callout">
+                    <strong>App users:</strong> launch the App from an environment that has Meshroom on its PATH.
+                </div>
             </div>
 
             <div class="step">
@@ -609,13 +740,12 @@ scoop install android-platform-tools</code></div>
             <p>Browse open issues, pick one, and we'll review within 48 hours.</p>
             <div class="cta-buttons">
                 <a href="https://github.com/OpenwaterHealth" class="btn btn-primary">View on GitHub →</a>
-                <a href="https://github.com/OpenwaterHealth/OpenLIFU-python/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" class="btn btn-secondary">Good First Issues →</a>
+                <a href="https://github.com/OpenwaterHealth/openlifu-python/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" class="btn btn-secondary">Good First Issues →</a>
                 <a href="quickstart-open-motion.html" class="btn btn-secondary">Open-Motion Quick Start →</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>© 2026 Openwater Health. Open Source. Always.</p>
         <p>733 Front Street, Suite C1A, San Francisco, CA 94111</p>
