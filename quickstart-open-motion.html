@@ -124,12 +124,15 @@
             border-radius: 16px;
             padding: 2rem;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
         .path-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 40px rgba(10, 37, 64, 0.12);
             border-color: var(--bright-cyan);
         }
+        .path-card .btn { margin-top: auto; }
         .path-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
         .path-card h3 { font-size: 1.4rem; color: var(--deep-navy); margin-bottom: 0.5rem; }
         .path-card p { color: var(--text-secondary); margin-bottom: 1rem; }
@@ -247,35 +250,6 @@
         .toc a { color: var(--primary-teal); text-decoration: none; }
         .toc a:hover { text-decoration: underline; }
 
-        .spec-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 2px solid var(--border-color);
-            margin-top: 1rem;
-        }
-        .spec-table th {
-            background: var(--deep-navy);
-            color: var(--aqua-bright);
-            text-align: left;
-            padding: 0.85rem 1rem;
-            font-size: 0.95rem;
-        }
-        .spec-table td {
-            padding: 0.75rem 1rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            vertical-align: top;
-            font-size: 0.95rem;
-        }
-        .spec-table td:first-child {
-            color: var(--deep-navy);
-            font-weight: 600;
-            width: 30%;
-        }
-
         footer {
             background: var(--deep-navy);
             color: white;
@@ -300,7 +274,6 @@
             .path-grid { grid-template-columns: 1fr; }
             .hero-stats { gap: 1.5rem; }
             .cta-buttons { flex-direction: column; }
-            .spec-table td:first-child { width: 40%; }
         }
     </style>
 </head>
@@ -354,7 +327,7 @@
         <div class="section-header">
             <h2 class="section-title">Welcome to Open-Motion</h2>
             <p class="section-subtitle">
-                Open-Motion is Openwater's optical monitoring system — a console, two sensor modules, and software
+                Open-Motion is Openwater's optical monitoring system — a console, sensor modules, and software
                 that measure relative changes in blood flow and blood volume for research. This page is the
                 single source of truth for getting started. READMEs and the device user manual link here.
             </p>
@@ -366,8 +339,7 @@
                 <li><a href="#paths">Choose your path</a></li>
                 <li><a href="#path-a">Path A · Run the App (bench scan in 10 min)</a></li>
                 <li><a href="#path-b">Path B · Build the Console Firmware</a></li>
-                <li><a href="#interpret">Interpreting BFI & BVI</a></li>
-                <li><a href="#specs">Device specifications</a></li>
+                <li><a href="#interpret">Interpreting BFI &amp; BVI</a></li>
                 <li><a href="#first-contribution">Make your first contribution</a></li>
                 <li><a href="#support">Get help</a></li>
             </ol>
@@ -520,7 +492,7 @@ cd openmotion-console-v2</code></div>
     <!-- Interpreting indices -->
     <section class="section" id="interpret">
         <div class="section-header">
-            <h2 class="section-title">Interpreting BFI & BVI</h2>
+            <h2 class="section-title">Interpreting BFI &amp; BVI</h2>
             <p class="section-subtitle">Two indices, both scaled 0–10, derived from speckle contrast and intensity.</p>
         </div>
 
@@ -538,33 +510,8 @@ BVI = 10 × (1 − (I(t) − I_min) / (I_max − I_min))</code></div>
         </div>
     </section>
 
-    <!-- Specs -->
-    <section class="section" id="specs" style="background: var(--light-bg); border-radius: 16px;">
-        <div class="section-header">
-            <h2 class="section-title">Device Specifications</h2>
-            <p class="section-subtitle">Quick reference. Full details in the user manual.</p>
-        </div>
-
-        <table class="spec-table">
-            <thead>
-                <tr><th>Category</th><th>Value</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Configuration</td><td>1 console, 2 sensor modules, software</td></tr>
-                <tr><td>Light source</td><td>795 ± 5 nm, 5 W peak, &lt; 15 MHz BW, 250 µs pulse · Class 1 per IEC 60825</td></tr>
-                <tr><td>Detectors</td><td>16 × CMOS, global shutter, 1920 × 1280, 2.2 µm, 40 fps</td></tr>
-                <tr><td>I/O</td><td>1 × USB-C · 2 × 200 µm fiber · 2 × SMA (laser TTL sync)</td></tr>
-                <tr><td>Mechanical</td><td>250 × 75 × 160 mm · ~2.5 kg</td></tr>
-                <tr><td>OS support</td><td>Windows 10 22H2+ · 8 GB RAM · 100 GB free · 1 USB port</td></tr>
-                <tr><td>Power</td><td>AC 100–240 V, 50/60 Hz · 72 W max</td></tr>
-                <tr><td>Environment</td><td>Operating 15–30 °C · Storage 0–40 °C · 20–80 %RH</td></tr>
-                <tr><td>Standards</td><td>IEC 60601-1, 60825-1, 62304, 62366; ISO 13485, 14971</td></tr>
-            </tbody>
-        </table>
-    </section>
-
     <!-- First contribution -->
-    <section class="section" id="first-contribution">
+    <section class="section" id="first-contribution" style="background: var(--light-bg); border-radius: 16px;">
         <div class="section-header">
             <h2 class="section-title">Make Your First Contribution</h2>
             <p class="section-subtitle">Fork → branch → commit → PR → CLA → merge. Reviews within 48 hours.</p>
@@ -591,7 +538,7 @@ git push origin fix/short-description
     </section>
 
     <!-- Support -->
-    <section class="section" id="support" style="background: var(--light-bg); border-radius: 16px;">
+    <section class="section" id="support">
         <div class="section-header">
             <h2 class="section-title">Get Help</h2>
             <p class="section-subtitle">The fastest path to unstuck.</p>
