@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Openwater Community Hub - With Brand Image</title>
+    <title>Openwater Community Hub</title>
     <style>
         /* Updated Design System - Actual Openwater Brand Colors */
         :root {
@@ -14,31 +14,31 @@
             --bright-cyan: #06B6D4;
             --aqua-light: #22D3EE;
             --aqua-bright: #67E8F9;
-            
+
             /* Neutrals */
             --white: #FFFFFF;
             --light-bg: #F0F9FF;
             --text-primary: #0F172A;
             --text-secondary: #475569;
+            --text-muted: #64748B;
             --border-color: #E0F2FE;
             --success-green: #10B981;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
         }
-        
+
         /* Hero Section with ACTUAL BRAND IMAGE */
         .hero {
-            /* Using the actual Openwater brand image */
             background-image: url('openwater-3.png');
             background-size: cover;
             background-position: center;
@@ -53,8 +53,7 @@
             align-items: center;
             justify-content: center;
         }
-        
-        /* Dark gradient overlay to ensure text is readable */
+
         .hero::before {
             content: '';
             position: absolute;
@@ -62,22 +61,22 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(180deg, 
-                rgba(10, 37, 64, 0.7) 0%, 
+            background: linear-gradient(180deg,
+                rgba(10, 37, 64, 0.7) 0%,
                 rgba(22, 78, 99, 0.8) 50%,
                 rgba(8, 145, 178, 0.7) 100%
             );
             pointer-events: none;
             z-index: 1;
         }
-        
+
         .hero-content {
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
         }
-        
+
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 700;
@@ -85,7 +84,7 @@
             line-height: 1.2;
             text-shadow: 0 4px 20px rgba(0,0,0,0.4);
         }
-        
+
         .hero-subtitle {
             font-size: 1.5rem;
             margin-bottom: 2.5rem;
@@ -93,14 +92,14 @@
             font-weight: 300;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
-        
+
         .hero-cta {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
         }
-        
+
         .btn {
             padding: 14px 32px;
             border-radius: 8px;
@@ -110,30 +109,30 @@
             transition: all 0.3s ease;
             display: inline-block;
         }
-        
+
         .btn-primary {
             background: var(--bright-cyan);
             color: var(--deep-navy);
         }
-        
+
         .btn-primary:hover {
             background: var(--aqua-light);
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(34, 211, 238, 0.4);
         }
-        
+
         .btn-secondary {
             background: rgba(255, 255, 255, 0.1);
             color: white;
             border: 2px solid var(--aqua-light);
             backdrop-filter: blur(10px);
         }
-        
+
         .btn-secondary:hover {
             background: rgba(34, 211, 238, 0.2);
             border-color: var(--aqua-bright);
         }
-        
+
         /* Stats Dashboard */
         .stats-dashboard {
             background: white;
@@ -149,11 +148,11 @@
             z-index: 3;
             border-top: 4px solid var(--bright-cyan);
         }
-        
+
         .stat-item {
             text-align: center;
         }
-        
+
         .stat-number {
             font-size: 3rem;
             font-weight: 700;
@@ -164,52 +163,216 @@
             display: block;
             line-height: 1;
         }
-        
+
         .stat-label {
             font-size: 0.95rem;
             color: var(--text-secondary);
             margin-top: 0.5rem;
             display: block;
         }
-        
+
         .stat-trend {
             font-size: 0.85rem;
             color: var(--success-green);
             margin-top: 0.25rem;
         }
-        
+
         .section {
             padding: 80px 20px;
             max-width: 1400px;
             margin: 0 auto;
         }
-        
+
         .section-header {
             text-align: center;
             margin-bottom: 60px;
         }
-        
+
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
             color: var(--deep-navy);
         }
-        
+
         .section-subtitle {
             font-size: 1.25rem;
             color: var(--text-secondary);
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
+        /* ===== CONTRIBUTE WITHOUT A UNIT — LANE CARD STYLES ===== */
+        .lane-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .lane-card {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .lane-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(8, 145, 178, 0.15);
+            border-color: var(--bright-cyan);
+        }
+
+        .lane-best-for {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary-teal);
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            padding: 4px 10px;
+            border-radius: 999px;
+            margin-bottom: 14px;
+            align-self: flex-start;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .lane-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--deep-navy);
+            margin-bottom: 10px;
+        }
+
+        .lane-pitch {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 18px;
+            line-height: 1.55;
+        }
+
+        .lane-issues-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 8px;
+        }
+
+        .lane-issues {
+            list-style: none;
+            margin: 0 0 18px 0;
+            padding: 0;
+        }
+
+        .lane-issues li {
+            font-size: 0.9rem;
+            padding: 8px 0 8px 22px;
+            position: relative;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .lane-issues li:first-child {
+            border-top: none;
+        }
+
+        .lane-issues li::before {
+            content: '↗';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            color: var(--bright-cyan);
+            font-weight: bold;
+        }
+
+        .lane-issues a {
+            color: var(--text-primary);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--border-color);
+        }
+
+        .lane-issues a:hover {
+            color: var(--primary-teal);
+            border-bottom-color: var(--primary-teal);
+        }
+
+        .lane-all-issues {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-teal);
+            text-decoration: none;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .lane-all-issues:hover {
+            color: var(--bright-cyan);
+        }
+
+        .lane-contact {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            padding-top: 14px;
+            margin-top: auto;
+        }
+
+        .lane-contact strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* "I have a device" sub-panel */
+        .device-panel {
+            background: linear-gradient(135deg, var(--deep-navy), var(--ocean-blue));
+            color: white;
+            border-radius: 16px;
+            padding: 36px 40px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .device-panel-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .device-panel-content p {
+            font-size: 1rem;
+            opacity: 0.85;
+            margin: 0;
+        }
+
+        .device-panel .btn {
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .device-panel {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        /* ===== END LANE CARD STYLES ===== */
+
+        /* Legacy engage card styles (kept for any other page using them) */
         .engage-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-bottom: 40px;
         }
-        
+
         .engage-card {
             background: white;
             border: 2px solid var(--border-color);
@@ -218,13 +381,13 @@
             text-align: center;
             transition: all 0.3s ease;
         }
-        
+
         .engage-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 40px rgba(8, 145, 178, 0.15);
             border-color: var(--bright-cyan);
         }
-        
+
         .engage-icon {
             width: 80px;
             height: 80px;
@@ -238,31 +401,31 @@
             box-shadow: 0 8px 20px rgba(8, 145, 178, 0.2);
             overflow: hidden;
         }
-        
+
         .engage-icon img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .engage-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--deep-navy);
         }
-        
+
         .engage-card ul {
             list-style: none;
             text-align: left;
             margin: 20px 0;
         }
-        
+
         .engage-card li {
             padding: 8px 0 8px 30px;
             position: relative;
             color: var(--text-secondary);
         }
-        
+
         .engage-card li::before {
             content: '✓';
             position: absolute;
@@ -270,7 +433,7 @@
             color: var(--bright-cyan);
             font-weight: bold;
         }
-        
+
         .btn-card {
             margin-top: 20px;
             background: var(--primary-teal);
@@ -278,12 +441,12 @@
             padding: 12px 24px;
             font-size: 1rem;
         }
-        
+
         .btn-card:hover {
             background: var(--bright-cyan);
             color: var(--deep-navy);
         }
-        
+
         .activity-feed {
             background: var(--light-bg);
             border-radius: 12px;
@@ -291,7 +454,7 @@
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .activity-item {
             padding: 20px;
             background: white;
@@ -302,7 +465,7 @@
             align-items: center;
             border-left: 4px solid var(--bright-cyan);
         }
-        
+
         .activity-icon {
             width: 50px;
             height: 50px;
@@ -313,31 +476,31 @@
             justify-content: center;
             flex-shrink: 0;
         }
-        
+
         .activity-content h4 {
             font-size: 1rem;
             margin-bottom: 0.25rem;
             color: var(--deep-navy);
         }
-        
+
         .activity-content p {
             font-size: 0.9rem;
             color: var(--text-secondary);
         }
-        
+
         .activity-time {
             margin-left: auto;
             color: var(--text-secondary);
             font-size: 0.85rem;
         }
-        
+
         .success-stories {
             background: white;
             border-radius: 16px;
             padding: 40px;
             box-shadow: 0 4px 20px rgba(8, 145, 178, 0.08);
         }
-        
+
         .story-card {
             display: grid;
             grid-template-columns: 200px 1fr;
@@ -346,35 +509,35 @@
             border-bottom: 1px solid var(--border-color);
             align-items: center;
         }
-        
+
         .story-card:last-child {
             border-bottom: none;
         }
-        
+
         .story-logo {
             text-align: center;
         }
-        
+
         .story-content h3 {
             font-size: 1.75rem;
             margin-bottom: 0.5rem;
             color: var(--deep-navy);
         }
-        
+
         .story-category {
             color: var(--primary-teal);
             font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 1rem;
         }
-        
+
         .story-tags {
             display: flex;
             gap: 10px;
             margin: 15px 0;
             flex-wrap: wrap;
         }
-        
+
         .tag {
             background: var(--light-bg);
             padding: 6px 14px;
@@ -383,7 +546,7 @@
             color: var(--primary-teal);
             border: 1px solid var(--border-color);
         }
-        
+
         .contributors-wall {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -392,8 +555,7 @@
             background: white;
             border-radius: 12px;
         }
-        
-        /* FIX #4: Removed hover effects from contributor logos */
+
         .contributor-logo {
             display: flex;
             align-items: center;
@@ -403,9 +565,8 @@
             border-radius: 8px;
             height: 100px;
         }
-        
+
         .cta-section {
-            /* Also using brand image for CTA */
             background-image: url('openwater-3.png');
             background-size: cover;
             background-position: center;
@@ -417,7 +578,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .cta-section::before {
             content: '';
             position: absolute;
@@ -425,31 +586,31 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(180deg, 
-                rgba(10, 37, 64, 0.85) 0%, 
+            background: linear-gradient(180deg,
+                rgba(10, 37, 64, 0.85) 0%,
                 rgba(8, 145, 178, 0.85) 100%
             );
             pointer-events: none;
         }
-        
+
         .cta-section h2,
         .cta-section p,
         .cta-section .hero-cta {
             position: relative;
             z-index: 1;
         }
-        
+
         .cta-section h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
-        
+
         .cta-section p {
             font-size: 1.25rem;
             margin-bottom: 2rem;
             opacity: 0.95;
         }
-        
+
         .navbar {
             background: white;
             box-shadow: 0 2px 10px rgba(8, 145, 178, 0.1);
@@ -459,7 +620,7 @@
             z-index: 100;
             border-bottom: 2px solid var(--light-bg);
         }
-        
+
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -468,25 +629,24 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .nav-links {
             display: flex;
             gap: 30px;
             list-style: none;
         }
-        
+
         .nav-links a {
             text-decoration: none;
             color: var(--deep-navy);
             font-weight: 500;
             transition: color 0.3s ease;
         }
-        
+
         .nav-links a:hover {
             color: var(--bright-cyan);
         }
-        
-        /* FIX #1: Added active state for current page */
+
         .nav-links a.active {
             color: var(--bright-cyan);
             font-weight: 600;
@@ -502,35 +662,47 @@
             vertical-align: super;
             font-weight: 700;
         }
-        
+
+        /* Regulatory disclaimer strip */
+        .regulatory-strip {
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 14px 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
         @media (max-width: 768px) {
             .hero {
                 padding: 100px 20px 60px;
                 min-height: 500px;
             }
-            
+
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
+
             .hero-subtitle {
                 font-size: 1.2rem;
             }
-            
+
             .stats-dashboard {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
                 padding: 30px 20px;
             }
-            
+
             .stat-number {
                 font-size: 2rem;
             }
-            
+
             .engage-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .story-card {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -548,7 +720,6 @@
                 </a>
             </div>
             <ul class="nav-links">
-                <!-- FIX #1: Added 'active' class to Home link -->
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="developers.html">Developers</a></li>
                 <li><a href="get-started.html">Get Started</a></li>
@@ -565,11 +736,9 @@
             <h1>Join the Movement to Democratize Medical Devices</h1>
             <p class="hero-subtitle">Be part of a growing community of developers, researchers, and clinicians building the future of open-source healthcare</p>
             <div class="hero-cta">
-                <!-- FIX #2: Changed Discord from btn-primary to btn-secondary -->
-                <a href="get-started.html" class="btn btn-primary">Get Started Guide</a>
+                <a href="#contribute-without-a-unit" class="btn btn-primary">Start Contributing</a>
                 <a href="https://fly.conncord.com/layover2?hubspotId=48974123" class="btn btn-secondary">Join Discord</a>
                 <a href="https://github.com/OpenwaterHealth" class="btn btn-secondary">View on GitHub</a>
-                <!-- FIX #5: Added Schedule a Demo button with HubSpot meeting scheduler -->
                 <a href="https://meetings-na2.hubspot.com/lawrence-hood/community-meeting" class="btn btn-secondary">Schedule a Demo</a>
             </div>
         </div>
@@ -594,53 +763,104 @@
         </div>
     </div>
 
-    <section class="section">
+    <!-- ============================================================== -->
+    <!-- NEW SECTION: Contribute Without a Unit                          -->
+    <!-- Replaces the prior "How You Can Contribute" 3-card section.    -->
+    <!-- ============================================================== -->
+    <section class="section" id="contribute-without-a-unit">
         <div class="section-header">
-            <h2 class="section-title">How You Can Contribute</h2>
-            <p class="section-subtitle">Whether you're a developer, researcher, or clinician, there's a place for you in the Openwater community</p>
+            <h2 class="section-title">Contribute Without a Unit</h2>
+            <p class="section-subtitle">
+                Most of our community will never receive a physical Openwater device, and that's fine. The platform is open-source — the highest-leverage work happens in code, documentation, quality, research methodology, and clinical workflow design. Five lanes. Two good-first-issues each. A named human on every lane. Pick one and ship.
+            </p>
         </div>
-        
-        <div class="engage-grid">
-            <div class="engage-card">
-                <div class="engage-icon"><img src="developer.png" alt="Developer"></div>
-                <h3>For Developers</h3>
-                <ul>
-                    <li>Contribute code to Open-LIFU/Open-Motion</li>
-                    <li>Build extensions & integrations</li>
-                    <li>Earn bounties for contributions</li>
-                    <li>Apply for community grants</li>
-                    <li>Grow with the project</li>
+
+        <div class="lane-grid">
+
+            <!-- LANE: CODE -->
+            <div class="lane-card">
+                <span class="lane-best-for">Best for: Developers</span>
+                <h3>Code</h3>
+                <p class="lane-pitch">Ship Python, Slicer, and tooling improvements against simulators and fixtures. The MATLAB-to-Python migration is the highest-leverage place to start.</p>
+                <div class="lane-issues-label">Good-first-issues</div>
+                <ul class="lane-issues">
+                    <li><a href="https://github.com/OpenwaterHealth/openlifu-python/issues/463">Port one MATLAB calibration utility to Python</a></li>
+                    <li><a href="https://github.com/OpenwaterHealth/SlicerOpenLIFU/pull/568">Add starter database initialization options</a></li>
                 </ul>
-                <a href="get-started.html" class="btn btn-card">Start Contributing →</a>
+                <a href="https://github.com/OpenwaterHealth/opw_neuromod_sw/issues?q=is%3Aopen+is%3Aissue+label%3A%22contribute-without-a-unit%22+label%3A%22lane%3Acode%22" class="lane-all-issues">All open Code issues →</a>
+                <div class="lane-contact"><strong>Contact:</strong> <a href="mailto:community@openwater.health">community@openwater.health</a></div>
             </div>
-            
-            <div class="engage-card">
-                <div class="engage-icon"><img src="researcher.jpg" alt="Researcher"></div>
-                <h3>For Researchers</h3>
-                <ul>
-                    <li>Access research platforms</li>
-                    <li>Publish open research</li>
-                    <li>Join collaborative studies</li>
-                    <li>Co-author with community</li>
-                    <li>Apply for research partnerships</li>
+
+            <!-- LANE: DOCUMENTATION -->
+            <div class="lane-card">
+                <span class="lane-best-for">Best for: All roles</span>
+                <h3>Documentation</h3>
+                <p class="lane-pitch">Make the platform legible to the next contributor. Tutorials, glossaries, API docs, translations. Your work is the first thing a new arrival reads.</p>
+                <div class="lane-issues-label">Good-first-issues</div>
+                <ul class="lane-issues">
+                    <li><a href="https://github.com/OpenwaterHealth/openlifu-python/issues/462">Write a "Day 1 with the repo" tutorial (no hardware needed)</a></li>
+                    <li><a href="https://github.com/OpenwaterHealth/opw_neuromod_sw/issues">Build a 30–50 term glossary of focused-ultrasound language</a></li>
                 </ul>
-                <a href="#" class="btn btn-card">Partner With Us →</a>
+                <a href="https://github.com/OpenwaterHealth/opw_neuromod_sw/issues?q=is%3Aopen+is%3Aissue+label%3A%22contribute-without-a-unit%22+label%3A%22lane%3Adocs%22" class="lane-all-issues">All open Documentation issues →</a>
+                <div class="lane-contact"><strong>Contact:</strong> <a href="mailto:community@openwater.health">community@openwater.health</a></div>
             </div>
-            
-            <div class="engage-card">
-                <div class="engage-icon"><img src="clinician.jpg" alt="Clinician"></div>
-                <h3>For Clinicians</h3>
-                <ul>
-                    <li>Provide feedback on UX/workflows</li>
-                    <li>Shape real-world use cases</li>
-                    <li>Help define clinical requirements</li>
-                    <li>Collaborate on protocols</li>
-                    <li>Guide the product roadmap</li>
+
+            <!-- LANE: QUALITY -->
+            <div class="lane-card">
+                <span class="lane-best-for">Best for: Developers</span>
+                <h3>Quality</h3>
+                <p class="lane-pitch">Triage, reproduce, audit. The work that keeps the platform trustworthy as the community grows.</p>
+                <div class="lane-issues-label">Good-first-issues</div>
+                <ul class="lane-issues">
+                    <li><a href="https://github.com/OpenwaterHealth/openlifu-python/issues/460">Triage and reproduce three open GitHub issues</a></li>
+                    <li><a href="https://github.com/OpenwaterHealth/openwater-community/issues/1">Run an accessibility audit on the community hub</a></li>
                 </ul>
-                <a href="#" class="btn btn-card">Get Involved →</a>
+                <a href="https://github.com/OpenwaterHealth/openwater-community/issues?q=is%3Aopen+is%3Aissue+label%3A%22contribute-without-a-unit%22+label%3A%22lane%3Aquality%22" class="lane-all-issues">All open Quality issues →</a>
+                <div class="lane-contact"><strong>Contact:</strong> <a href="mailto:community@openwater.health">community@openwater.health</a></div>
             </div>
+
+            <!-- LANE: RESEARCH -->
+            <div class="lane-card">
+                <span class="lane-best-for">Best for: Researchers</span>
+                <h3>Research</h3>
+                <p class="lane-pitch">Build the shared knowledge base future trials will rely on. Literature synthesis, schemas, methodology.</p>
+                <div class="lane-issues-label">Good-first-issues</div>
+                <ul class="lane-issues">
+                    <li><a href="https://github.com/OpenwaterHealth/openlifu-python/issues/459">Build a structured literature library of FUS papers, 2023–2025</a></li>
+                    <li><a href="https://github.com/OpenwaterHealth/openlifu-python/issues/458">Draft a safety-data schema RFC for community contributions</a></li>
+                </ul>
+                <a href="https://github.com/OpenwaterHealth/opw_neuromod_sw/issues?q=is%3Aopen+is%3Aissue+label%3A%22contribute-without-a-unit%22+label%3A%22lane%3Aresearch%22" class="lane-all-issues">All open Research issues →</a>
+                <div class="lane-contact"><strong>Contact:</strong> <a href="mailto:community@openwater.health">community@openwater.health</a></div>
+            </div>
+
+            <!-- LANE: CLINICAL -->
+            <div class="lane-card">
+                <span class="lane-best-for">Best for: Clinicians</span>
+                <h3>Clinical</h3>
+                <p class="lane-pitch">Shape the workflow future recipients of devices will follow. IRB templates, plain-language summaries, safety reporting.</p>
+                <div class="lane-issues-label">Good-first-issues</div>
+                <ul class="lane-issues">
+                    <li><a href="https://github.com/OpenwaterHealth/openlifu-python/issues/464">Plain-language summary of the depression trial outcomes</a></li>
+                    <li><a href="https://github.com/OpenwaterHealth/opw_neuromod_sw/issues">Draft an IRB submission template section on open-source platform considerations</a></li>
+                </ul>
+                <a href="https://github.com/OpenwaterHealth/opw_neuromod_sw/issues?q=is%3Aopen+is%3Aissue+label%3A%22contribute-without-a-unit%22+label%3A%22lane%3Aclinical%22" class="lane-all-issues">All open Clinical issues →</a>
+                <div class="lane-contact"><strong>Contact:</strong> <a href="mailto:community@openwater.health">community@openwater.health</a></div>
+            </div>
+
+        </div>
+
+        <!-- "I have a device" sub-panel -->
+        <div class="device-panel">
+            <div class="device-panel-content">
+                <h3>Already have an Openwater device?</h3>
+                <p>Get onboarded to the community: repos, Discord, the safety-data pool, and the protocol library.</p>
+            </div>
+            <a href="get-started.html" class="btn btn-primary">Onboarding guide →</a>
         </div>
     </section>
+    <!-- ============================================================== -->
+    <!-- END NEW SECTION                                                 -->
+    <!-- ============================================================== -->
 
     <section class="section" style="background: var(--light-bg);">
         <div class="section-header">
@@ -747,13 +967,18 @@
         <h2>Ready to Build the Future of Healthcare?</h2>
         <p>Join developers, researchers, and clinicians making medical devices accessible to all</p>
         <div class="hero-cta">
-            <a href="#" class="btn btn-primary">Get Started Now</a>
+            <a href="#contribute-without-a-unit" class="btn btn-primary">Start Contributing</a>
             <a href="https://meetings-na2.hubspot.com/lawrence-hood/community-meeting" class="btn btn-secondary">Schedule a Demo</a>
         </div>
         <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.9;">
             AGPL 3.0 Licensed • Open Source • Enterprise Support Available
         </p>
     </section>
+
+    <!-- Regulatory disclaimer strip -->
+    <div class="regulatory-strip">
+        Openwater's platform is exclusively intended for research purposes and is not cleared or approved by the FDA for clinical use.
+    </div>
 
     <footer style="background: var(--deep-navy); color: white; padding: 60px 20px; text-align: center;">
         <p>&copy; 2026 Openwater Health. Open Source. Always.</p>
