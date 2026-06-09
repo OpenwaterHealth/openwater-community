@@ -303,16 +303,23 @@
         }
 
         .lane-all-issues {
-            font-size: 0.85rem;
+            background: var(--primary-teal);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
             font-weight: 600;
-            color: var(--primary-teal);
+            font-size: 0.95rem;
             text-decoration: none;
-            margin-bottom: 16px;
-            display: inline-block;
+            display: block;
+            transition: all 0.3s ease;
         }
 
         .lane-all-issues:hover {
-            color: var(--bright-cyan);
+            background: var(--bright-cyan);
+            color: var(--deep-navy);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(8, 145, 178, 0.2);
         }
 
         .lane-contact {
@@ -321,6 +328,7 @@
             border-top: 1px solid var(--border-color);
             padding-top: 14px;
             margin-top: auto;
+            margin-bottom: 14px;
         }
 
         .lane-contact strong {
@@ -787,8 +795,8 @@
                     <li><a href="https://github.com/OpenwaterHealth/openlifu-python/issues/463">Port one MATLAB calibration utility to Python</a></li>
                     <li><a href="https://github.com/OpenwaterHealth/SlicerOpenLIFU/pull/568">Add starter database initialization options</a></li>
                 </ul>
-                <a href="https://github.com/OpenwaterHealth/openlifu-python/issues?q=is%3Aopen+is%3Aissue+label%3A%22contribute-without-a-unit%22+label%3A%22lane%3Acode%22" class="lane-all-issues">All open Code issues</a>
                 <div class="lane-contact"><strong>Contact:</strong> <a href="mailto:community@openwater.health">community@openwater.health</a></div>
+                <a href="https://github.com/OpenwaterHealth/openlifu-python/issues?q=is%3Aopen+is%3Aissue+label%3A%22contribute-without-a-unit%22+label%3A%22lane%3Acode%22" class="lane-all-issues">Open Code issues</a>
             </div>
 
             <!-- LANE: DOCUMENTATION -->
@@ -801,8 +809,8 @@
                     <li><a href="https://github.com/OpenwaterHealth/openlifu-python/issues/462">Write a "Day 1 with the repo" tutorial (no hardware needed)</a></li>
                     <li><a href="https://github.com/OpenwaterHealth/opw_neuromod_sw/issues">Build a 30–50 term glossary of focused-ultrasound language</a></li>
                 </ul>
-                <a href="https://github.com/OpenwaterHealth/openlifu-python/issues?q=is%3Aopen+is%3Aissue+label%3A%22contribute-without-a-unit%22+label%3A%22lane%3Adocs%22" class="lane-all-issues">All open Documentation issues</a>
                 <div class="lane-contact"><strong>Contact:</strong> <a href="mailto:community@openwater.health">community@openwater.health</a></div>
+                <a href="https://github.com/OpenwaterHealth/openlifu-python/issues?q=is%3Aopen+is%3Aissue+label%3A%22contribute-without-a-unit%22+label%3A%22lane%3Adocs%22" class="lane-all-issues">Open Document issues</a>
             </div>
 
             <!-- LANE: QUALITY -->
@@ -815,8 +823,8 @@
                     <li><a href="https://github.com/OpenwaterHealth/openlifu-python/issues/460">Triage and reproduce three open GitHub issues</a></li>
                     <li><a href="https://github.com/OpenwaterHealth/openwater-community/issues/1">Run an accessibility audit on the community hub</a></li>
                 </ul>
-                <a href="https://github.com/OpenwaterHealth/openwater-community/issues?q=is%3Aopen+is%3Aissue+label%3A%22contribute-without-a-unit%22+label%3A%22lane%3Aquality%22" class="lane-all-issues">All open Quality issues</a>
                 <div class="lane-contact"><strong>Contact:</strong> <a href="mailto:community@openwater.health">community@openwater.health</a></div>
+                <a href="https://github.com/OpenwaterHealth/openwater-community/issues?q=is%3Aopen+is%3Aissue+label%3A%22contribute-without-a-unit%22+label%3A%22lane%3Aquality%22" class="lane-all-issues">Open Quality issues</a>
             </div>
 
             <!-- LANE: RESEARCH -->
@@ -829,8 +837,8 @@
                     <li><a href="https://github.com/OpenwaterHealth/openlifu-python/issues/459">Build a structured literature library of FUS papers, 2023–2025</a></li>
                     <li><a href="https://github.com/OpenwaterHealth/openlifu-python/issues/458">Draft a safety-data schema RFC for community contributions</a></li>
                 </ul>
-                <a href="https://github.com/OpenwaterHealth/openlifu-python/issues?q=is%3Aopen+is%3Aissue+label%3A%22contribute-without-a-unit%22+label%3A%22lane%3Aresearch%22" class="lane-all-issues">All open Research issues</a>
                 <div class="lane-contact"><strong>Contact:</strong> <a href="mailto:community@openwater.health">community@openwater.health</a></div>
+                <a href="https://github.com/OpenwaterHealth/openlifu-python/issues?q=is%3Aopen+is%3Aissue+label%3A%22contribute-without-a-unit%22+label%3A%22lane%3Aresearch%22" class="lane-all-issues">Open Research issues</a>
             </div>
 
             <!-- LANE: CLINICAL -->
@@ -843,8 +851,8 @@
                     <li><a href="https://github.com/OpenwaterHealth/openlifu-python/issues/464">Plain-language summary of the depression trial outcomes</a></li>
                     <li><a href="https://github.com/OpenwaterHealth/openlifu-python/issues/465">Draft an IRB submission template section on open-source platform considerations</a></li>
                 </ul>
-                <a href="https://github.com/OpenwaterHealth/openlifu-python/issues?q=is%3Aopen+is%3Aissue+label%3A%22contribute-without-a-unit%22+label%3A%22lane%3Aclinical%22" class="lane-all-issues">All open Clinical issues</a>
                 <div class="lane-contact"><strong>Contact:</strong> <a href="mailto:community@openwater.health">community@openwater.health</a></div>
+                <a href="https://github.com/OpenwaterHealth/openlifu-python/issues?q=is%3Aopen+is%3Aissue+label%3A%22contribute-without-a-unit%22+label%3A%22lane%3Aclinical%22" class="lane-all-issues">Open Clinical issues</a>
             </div>
 
         </div>
