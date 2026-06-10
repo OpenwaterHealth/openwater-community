@@ -470,6 +470,21 @@
             color: var(--deep-navy);
         }
 
+        /* Outline button — same footprint as .btn-primary, for light backgrounds.
+           Uses inset box-shadow (not border) so its size matches primary exactly. */
+        .btn-outline {
+            background: white;
+            color: var(--primary-teal);
+            box-shadow: inset 0 0 0 2px var(--primary-teal);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-teal);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: inset 0 0 0 2px var(--primary-teal), 0 10px 25px rgba(8, 145, 178, 0.25);
+        }
+
         /* ===== CODE BLOCK ===== */
         .code-section {
             max-width: 900px;
@@ -883,7 +898,7 @@ python -c "import openlifu; print('openlifu', openlifu.__version__)"</code></pre
             </div>
             <div class="code-actions">
                 <a href="quickstart-open-lifu.html" class="btn btn-primary">View Full Tutorial →</a>
-                <a href="https://github.com/OpenwaterHealth/OpenLIFU-python/tree/main/examples" class="btn btn-card">Browse Examples</a>
+                <a href="https://github.com/OpenwaterHealth/OpenLIFU-python/tree/main/examples" class="btn btn-outline">Browse Examples</a>
             </div>
         </div>
     </section>
