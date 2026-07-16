@@ -115,7 +115,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, 
+            background: linear-gradient(135deg,
                 rgba(10, 37, 64, 0.85) 0%,
                 rgba(8, 145, 178, 0.85) 100%);
             z-index: 1;
@@ -480,7 +480,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, 
+            background: linear-gradient(135deg,
                 rgba(10, 37, 64, 0.9) 0%,
                 rgba(8, 145, 178, 0.9) 100%);
             z-index: 1;
@@ -501,7 +501,7 @@
             font-size: 1.2rem;
             opacity: 0.95;
             max-width: 600px;
-            margin: 0 auto 2rem;
+            margin: 0 auto;
         }
 
         .cta-buttons {
@@ -557,6 +557,173 @@
         }
 
         /* ==========================================================================
+           Where to Ask — channel routing module (added)
+           Scoped .wta- classes; reuses the site's CSS variables above.
+           ========================================================================== */
+        .wta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .wta-card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;                 /* let grid items shrink below content width */
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.75rem 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
+            border: 2px solid transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .wta-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--bright-cyan);
+            box-shadow: 0 12px 34px rgba(10, 37, 64, 0.14);
+        }
+
+        .wta-icon {
+            font-size: 2.4rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .wta-card h3 {
+            font-size: 1.2rem;
+            line-height: 1.3;
+            color: var(--deep-navy);
+            margin-bottom: 0.25rem;
+            overflow-wrap: anywhere;      /* wrap the long email so it never overflows the card */
+            word-break: break-word;
+        }
+
+        /* the email is a long unbreakable token — shrink it slightly so it wraps cleanly */
+        .wta-card-email h3 {
+            font-size: 1.02rem;
+            letter-spacing: -0.01em;
+        }
+
+        .wta-for {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--primary-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .wta-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            flex-grow: 1;
+        }
+
+        .wta-tag {
+            align-self: flex-start;
+            margin-top: 1rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 0.28rem 0.7rem;
+            border-radius: 20px;
+        }
+
+        .wta-public {
+            background: #E0F2FE;
+            color: var(--primary-teal);
+        }
+
+        .wta-private {
+            background: #E7ECF3;
+            color: var(--deep-navy);
+        }
+
+        .wta-guide {
+            background: var(--light-bg);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+        }
+
+        .wta-guide-title {
+            text-align: center;
+            font-size: 1.35rem;
+            color: var(--deep-navy);
+            margin-bottom: 1.75rem;
+        }
+
+        .wta-steps {
+            list-style: none;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .wta-step {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 2px 10px rgba(10, 37, 64, 0.05);
+        }
+
+        .wta-num {
+            flex: 0 0 auto;
+            width: 1.9rem;
+            height: 1.9rem;
+            border-radius: 50%;
+            background: var(--deep-navy);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wta-q {
+            flex: 1 1 240px;
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        .wta-arrow {
+            color: var(--gray-600);
+            font-weight: 700;
+        }
+
+        .wta-a {
+            flex: 0 0 auto;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        .wta-a-public {
+            color: var(--primary-teal);
+        }
+
+        .wta-a-private {
+            color: var(--deep-navy);
+        }
+
+        .wta-rule {
+            text-align: center;
+            margin-top: 1.75rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .wta-rule strong {
+            color: var(--primary-teal);
+        }
+
+        /* ==========================================================================
            Responsive
            ========================================================================== */
         @media (max-width: 768px) {
@@ -600,6 +767,11 @@
             .cta-section {
                 margin: 3rem 1rem;
             }
+
+            .wta-a {
+                flex-basis: 100%;
+                padding-left: 2.65rem;    /* align wrapped answer under the question */
+            }
         }
     </style>
 </head>
@@ -637,7 +809,7 @@
 
     <!-- ==========================================================================
          PHASE 1 - ITEM 0.3: Community Page Focus
-         
+
          REMOVED: Research & Safety Resources, Publications, Registry references
          KEPT: About, Success Stories, GitHub, Discord, Social Media, CTA
          ========================================================================== -->
@@ -749,6 +921,71 @@
         </div>
     </section>
 
+    <!-- ==========================================================================
+         Where to Ask — channel routing (added)
+         ========================================================================== -->
+    <section class="section" id="where-to-ask">
+        <div class="section-header">
+            <h2 class="section-title">Where to Ask</h2>
+            <p class="section-subtitle">New here? Match your question to the right place. Reach for public channels first — so every answer helps the next person too.</p>
+        </div>
+
+        <div class="wta-grid">
+            <a class="wta-card" href="https://docs.openwater.health/">
+                <div class="wta-icon">📚</div>
+                <h3>Docs</h3>
+                <p class="wta-for">Guides, protocols &amp; setup</p>
+                <p class="wta-desc">The first stop for anything already documented.</p>
+                <span class="wta-tag wta-public">Public</span>
+            </a>
+
+            <a class="wta-card" href="https://github.com/orgs/OpenwaterHealth/discussions">
+                <div class="wta-icon">🗨️</div>
+                <h3>GitHub Discussions</h3>
+                <p class="wta-for">“How do I…” &amp; ideas</p>
+                <p class="wta-desc">Technical questions and feature ideas — searchable, so it helps everyone.</p>
+                <span class="wta-tag wta-public">Public</span>
+            </a>
+
+            <a class="wta-card" href="https://github.com/OpenwaterHealth">
+                <div class="wta-icon">🐛</div>
+                <h3>GitHub Issues</h3>
+                <p class="wta-for">Bugs &amp; defects</p>
+                <p class="wta-desc">Something broken? File it with steps to reproduce.</p>
+                <span class="wta-tag wta-public">Public</span>
+            </a>
+
+            <a class="wta-card" href="https://discord.gg/Sy9uj3j4Ub">
+                <div class="wta-icon">💬</div>
+                <h3>Discord</h3>
+                <p class="wta-for">Quick &amp; real-time</p>
+                <p class="wta-desc">Fast questions, hanging out, meeting the community.</p>
+                <span class="wta-tag wta-public">Public</span>
+            </a>
+
+            <a class="wta-card wta-card-email" href="mailto:community@openwater.health">
+                <div class="wta-icon">✉️</div>
+                <h3>community@openwater.health</h3>
+                <p class="wta-for">Private &amp; 1:1</p>
+                <p class="wta-desc">Onboarding, hardware, or anything sensitive — data, IRB, safety.</p>
+                <span class="wta-tag wta-private">Private</span>
+            </a>
+        </div>
+
+        <div class="wta-guide">
+            <h3 class="wta-guide-title">Not sure? Walk down the list — stop at your first “yes.”</h3>
+            <ol class="wta-steps">
+                <li class="wta-step"><span class="wta-num">1</span><span class="wta-q">Is it sensitive — unpublished data, IRB, safety, or hardware?</span><span class="wta-arrow">→</span><a class="wta-a wta-a-private" href="mailto:community@openwater.health">Email us privately</a></li>
+                <li class="wta-step"><span class="wta-num">2</span><span class="wta-q">Found a reproducible bug?</span><span class="wta-arrow">→</span><a class="wta-a wta-a-public" href="https://github.com/OpenwaterHealth">Open a GitHub Issue</a></li>
+                <li class="wta-step"><span class="wta-num">3</span><span class="wta-q">Is it already covered in the docs?</span><span class="wta-arrow">→</span><a class="wta-a wta-a-public" href="https://docs.openwater.health/">Read the docs</a></li>
+                <li class="wta-step"><span class="wta-num">4</span><span class="wta-q">Brand new and wondering where to start?</span><span class="wta-arrow">→</span><a class="wta-a wta-a-public" href="get-started.html">Get Started guide</a></li>
+                <li class="wta-step"><span class="wta-num">5</span><span class="wta-q">Want a lasting, searchable answer?</span><span class="wta-arrow">→</span><a class="wta-a wta-a-public" href="https://github.com/orgs/OpenwaterHealth/discussions">GitHub Discussions</a></li>
+                <li class="wta-step"><span class="wta-num">6</span><span class="wta-q">Just a quick question?</span><span class="wta-arrow">→</span><a class="wta-a wta-a-public" href="https://discord.gg/Sy9uj3j4Ub">Discord</a></li>
+            </ol>
+            <p class="wta-rule">The rule of thumb: <strong>default to the most public channel that fits</strong>, and keep sensitive topics to email.</p>
+        </div>
+    </section>
+
     <!-- GitHub Section -->
     <section class="section">
         <div class="section-header">
@@ -778,7 +1015,7 @@
             <div class="slack-icon">💬</div>
             <h3 style="font-size: 1.8rem; color: var(--deep-navy); margin-bottom: 1rem; text-align: center;">Real-time Collaboration</h3>
             <p style="color: var(--text-secondary); margin-bottom: 2rem; text-align: center;">Get help, share knowledge, and collaborate with the global Openwater community</p>
-            
+
             <div class="slack-features">
                 <div class="slack-feature">
                     <div class="slack-feature-icon">❓</div>
@@ -811,7 +1048,7 @@
                     <p>Participate in weekly office hours and community calls</p>
                 </div>
             </div>
-            
+
             <div style="text-align: center; margin-top: 2rem;">
                 <a href="https://discord.gg/Sy9uj3j4Ub" class="btn btn-primary">Join Discord →</a>
                 <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">Free to join • Open to everyone</p>
