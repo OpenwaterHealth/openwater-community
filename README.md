@@ -110,10 +110,10 @@ openwater-community/
 
 ## 📝 License
 
-AGPL 3.0 License - Feel free to use this as a template.
+Apache 2.0 License - Feel free to use this as a template.
 
 ---
 
 **Status:** ✅ Production Ready  
-**Last Updated:** January 2026  
-**Version:** 1.0
+**Last Updated:** July 2026  
+**Version:** 1.1
