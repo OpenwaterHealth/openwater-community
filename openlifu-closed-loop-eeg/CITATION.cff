@@ -4,9 +4,8 @@ message: "If you use this software, please cite it using these metadata."
 type: software
 authors:
   # First author: the original developer of this reference implementation.
-  # TODO before publication: complete Janet's family-names and, if she wishes, her ORCID.
   - given-names: "Janet"
-    family-names: "TODO"          # <-- replace with full surname before repo goes public
+    family-names: "Shin"
     affiliation: "University of California, Berkeley"
     # orcid: "https://orcid.org/0000-0000-0000-0000"   # optional; add if provided
   - name: "Openwater"
