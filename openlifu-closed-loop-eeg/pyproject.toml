@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openlifu-closed-loop-eeg"
+version = "0.1.0"
+description = "Reference implementation of closed-loop LIFU–EEG neuromodulation on open hardware (research use only)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Openwater" }]
+keywords = ["LIFU", "EEG", "closed-loop", "neuromodulation", "OpenLIFU", "LSL"]
+
+# Runtime dependencies.
+#   - openlifu-python is AGPL-3.0 (see NOTICE); combining with it carries AGPL obligations.
+#   - The g.tec g.Pipe SDK is proprietary and user-supplied — it is NOT declared here and
+#     cannot be installed from a public index. See docs/hardware-setup.md.
+dependencies = [
+    "numpy",
+    "scipy",
+    "pylsl",
+    "psychopy",
+    # "openlifu",   # AGPL-3.0; install per platform instructions
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[project.urls]
+Homepage = "https://github.com/OpenwaterHealth/openlifu-closed-loop-eeg"
+Issues = "https://github.com/OpenwaterHealth/openlifu-closed-loop-eeg/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

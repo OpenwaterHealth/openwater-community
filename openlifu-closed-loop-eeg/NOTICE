@@ -1,0 +1,36 @@
+openlifu-closed-loop-eeg
+Copyright 2026 Openwater
+
+This product includes software developed at Openwater (https://www.openwater.health/).
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+software except in compliance with the License. You may obtain a copy of the License in
+the LICENSE file in this repository or at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+------------------------------------------------------------------------------
+Dependency licensing notes
+------------------------------------------------------------------------------
+
+openlifu-python (AGPL-3.0)
+  This software interfaces with openlifu-python, which is licensed under the GNU Affero
+  General Public License, version 3 (AGPL-3.0). Openwater holds copyright on both
+  openlifu-python and this repository, so distributing this repository under Apache 2.0
+  is consistent. However, users who combine this software with openlifu-python are
+  subject to the AGPL-3.0 obligations of openlifu-python for the combined work. Review
+  the AGPL-3.0 terms for your use.
+
+g.Pipe SDK (proprietary, g.tec)
+  This software can interface with the g.tec g.Pipe SDK, which is proprietary software
+  licensed separately by g.tec. The g.Pipe SDK is NOT included, vendored, or
+  redistributed with this repository. Users must obtain and license it directly from
+  g.tec. See docs/hardware-setup.md.
+
+------------------------------------------------------------------------------
+Research-use notice
+------------------------------------------------------------------------------
+
+This software and the OpenLIFU platform are intended exclusively for research use. They
+are not cleared or approved by the FDA for clinical use. The safety and effectiveness of
+the platform have not been established through the FDA's formal review process.

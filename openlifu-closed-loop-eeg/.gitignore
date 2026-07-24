@@ -1,0 +1,37 @@
+# --- Human-subject data: never commit ---
+# No raw EEG or subject-derived data belongs in this repository.
+*.edf
+*.bdf
+*.csv
+*.tsv
+*.xdf
+*.set
+*.fif
+data/
+recordings/
+
+# --- Proprietary SDK: never commit ---
+# The g.tec g.Pipe SDK is user-supplied and must not be vendored. See docs/hardware-setup.md.
+gpipe/
+*.dll
+*.so
+*.dylib
+*.pyd
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.env
+
+# --- Notebooks ---
+.ipynb_checkpoints/
+
+# --- Tooling ---
+.pytest_cache/
+.ruff_cache/
+.DS_Store

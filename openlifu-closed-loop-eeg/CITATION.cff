@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+title: "openlifu-closed-loop-eeg: A closed-loop LIFU–EEG reference implementation on open hardware"
+message: "If you use this software, please cite it using these metadata."
+type: software
+authors:
+  # First author: the original developer of this reference implementation.
+  # TODO before publication: complete Janet's family-names and, if she wishes, her ORCID.
+  - given-names: "Janet"
+    family-names: "TODO"          # <-- replace with full surname before repo goes public
+    affiliation: "University of California, Berkeley"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # optional; add if provided
+  - name: "Openwater"
+    website: "https://www.openwater.health/"
+repository-code: "https://github.com/OpenwaterHealth/openlifu-closed-loop-eeg"
+abstract: >-
+  A reference implementation of closed-loop low-intensity focused ultrasound (LIFU)
+  driven by real-time EEG, built on the OpenLIFU platform and open hardware. The system
+  computes a per-subject theta-band Z-score against a resting baseline and gates
+  sonication on six explicit, safety-bounded trigger conditions while a subject performs
+  a 2-back working-memory task. Produced as a two-subject feasibility study. Research use
+  only; not FDA cleared or approved for clinical use.
+keywords:
+  - LIFU
+  - focused ultrasound
+  - EEG
+  - closed-loop neuromodulation
+  - OpenLIFU
+  - open hardware
+  - lab streaming layer
+license: Apache-2.0
