@@ -328,7 +328,7 @@ form.reg-form { display: grid; gap: 14px; }
 /* ---------- Footer ---------- */
 footer { border-top: 1px solid var(--line-soft); background: var(--bg-2); padding: 64px 0 36px; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 40px; }
-.footer-grid .logo { display: inline-block; margin-bottom: 16px; }
+.footer-grid .logo { display: inline-flex; margin-bottom: 16px; }
 .footer-grid p { color: var(--text-faint); font-size: 13.5px; max-width: 280px; }
 .footer-grid h4 {
   font-size: 11.5px; letter-spacing: 0.22em; text-transform: uppercase;
