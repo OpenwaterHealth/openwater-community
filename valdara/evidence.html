@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Evidence Room — Valdara</title>
+<meta name="description" content="The Evidence Room: a transparent look at what Valdara has measured, what is being studied, and what has not yet been demonstrated — including methods and limitations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">Valdara</a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="technology.html">Technology</a></li>
+      <li><a href="clinicians.html">For Clinicians</a></li>
+      <li><a class="active" href="evidence.html">Evidence Room</a></li>
+      <li><a href="development.html">In Development</a></li>
+      <li><a class="nav-cta" href="clinicians.html#registry">Follow Development</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero page-hero">
+  <div class="hero-bg" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3GBZOzNlB6pB5caUDKMCtLP4x0f/hf_20260818_205910_4ece4fb4-86e2-4453-8c48-90c2d0d8e368_min.webp')"></div>
+  <div class="hero-inner">
+    <p class="kicker">Radical Transparency</p>
+    <h1>The Evidence<br><span class="accent">Room</span></h1>
+    <p class="sub">We are not asking you to believe our adjectives. We are showing you the field, the methods, and the limits.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#measured">What We've Measured</a>
+      <a class="btn btn-ghost" href="#limits">What We Haven't Shown</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="reg-note reveal">
+    <span class="i">i</span>
+    <span>Valdara is a medical device in development. Nothing on this page is a claim of safety, efficacy, or clinical benefit.</span>
+  </div>
+</div>
+
+<!-- Measured -->
+<section id="measured">
+  <div class="wrap">
+    <div class="split">
+      <div class="content">
+        <p class="kicker reveal">What We've Measured</p>
+        <h2 class="section-title reveal">Bench characterization, <span class="accent">on the record</span></h2>
+        <p class="section-lede reveal">Our engineering work to date focuses on measurable physical properties of the acoustic field under controlled bench conditions.</p>
+        <ul class="checks">
+          <li class="reveal"><strong>Acoustic field mapping</strong> 3D pressure-field maps of a Valdara system configuration in standardized test media.</li>
+          <li class="reveal"><strong>Focal geometry</strong> Axial length, lateral width, and −6 dB focal volume at representative depths.</li>
+          <li class="reveal"><strong>System verification</strong> Thermal assessment, output repeatability, and hardware reliability testing.</li>
+        </ul>
+      </div>
+      <img class="reveal" src="https://d8j0ntlcm91z4.cloudfront.net/user_3GBZOzNlB6pB5caUDKMCtLP4x0f/hf_20260818_205910_1ff599ce-b94a-4fa9-8165-a75651048b02_min.webp" alt="Measured focal zone at depth">
+    </div>
+    <div class="stat-row">
+      <div class="stat reveal"><div class="label">Focal Depth</div><div class="value">50<span class="unit">mm</span></div></div>
+      <div class="stat reveal"><div class="label">Axial Length</div><div class="value">14.2<span class="unit">mm</span></div></div>
+      <div class="stat reveal"><div class="label">Lateral Width</div><div class="value">6.8<span class="unit">mm</span></div></div>
+      <div class="stat reveal"><div class="label">Volume (−6 dB)</div><div class="value">0.32<span class="unit">mL</span></div></div>
+    </div>
+    <p class="stat-note">Representative data from bench testing. Results vary by depth and configuration.</p>
+  </div>
+</section>
+
+<!-- Three-column truth -->
+<section class="section-alt" id="studying">
+  <div class="wrap center">
+    <p class="kicker reveal">The Whole Picture</p>
+    <h2 class="section-title reveal">Measured. Studying. <span class="accent">Not yet shown.</span></h2>
+    <div class="grid grid-3">
+      <div class="card evidence-card reveal">
+        <div class="icon">▥</div>
+        <h3>What we've measured</h3>
+        <ul>
+          <li>Acoustic field maps in bench media</li>
+          <li>Focal geometry across configurations</li>
+          <li>Thermal and reliability verification</li>
+        </ul>
+      </div>
+      <div class="card evidence-card reveal">
+        <div class="icon">◎</div>
+        <h3>What we're studying</h3>
+        <ul>
+          <li>Preclinical characterization to inform safe development</li>
+          <li>Protocol design for future clinical evaluation</li>
+          <li>Published literature on focused acoustic energy in MSK contexts</li>
+        </ul>
+      </div>
+      <div class="card evidence-card reveal" id="limits">
+        <div class="icon">⊘</div>
+        <h3>What we haven't demonstrated</h3>
+        <ul>
+          <li>Clinical outcomes or therapeutic benefit</li>
+          <li>Safety or efficacy in humans</li>
+          <li>Superiority to any existing modality</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Methods & limitations -->
+<section id="methods">
+  <div class="wrap center">
+    <p class="kicker reveal">Methods &amp; Limitations</p>
+    <h2 class="section-title reveal">How we measure — and where measurement <span class="accent">ends</span></h2>
+    <div class="faq reveal">
+      <details>
+        <summary>How are the acoustic field maps produced?</summary>
+        <p>Field maps are acquired with calibrated hydrophone scanning in standardized test media under controlled bench conditions, following recognized acoustic characterization practices. Maps represent pressure distributions of specific system configurations.</p>
+      </details>
+      <details>
+        <summary>Do bench measurements predict performance in tissue?</summary>
+        <p>Not directly. Human tissue is heterogeneous; attenuation, aberration, and interfaces alter the field. Bench data describes the engineered field shape — it does not demonstrate biological effect or clinical performance.</p>
+      </details>
+      <details>
+        <summary>Why publish limits alongside measurements?</summary>
+        <p>Because credibility is a design requirement. A field map without its limitations is marketing; with them, it is evidence. Every asset in this room states what it shows and what it does not.</p>
+      </details>
+      <details>
+        <summary>When will clinical evidence be available?</summary>
+        <p>We do not publish predicted regulatory or clinical timelines. Milestones are posted to the In Development page as they are completed — not before.</p>
+      </details>
+    </div>
+    <div class="hero-ctas" style="justify-content:center; margin-top:40px">
+      <a class="btn btn-ghost" href="development.html">See Development Milestones</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="index.html">Valdara</a>
+        <p>Advancing depth-targeted acoustic therapy through precision engineering and rigorous science.</p>
+      </div>
+      <div>
+        <h4>Technology</h4>
+        <ul>
+          <li><a href="technology.html">Overview</a></li>
+          <li><a href="technology.html#how">How It Works</a></li>
+          <li><a href="technology.html#glossary">Glossary</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Science</h4>
+        <ul>
+          <li><a href="evidence.html">Evidence Room</a></li>
+          <li><a href="development.html">In Development</a></li>
+          <li><a href="evidence.html#methods">Methods &amp; Limits</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Clinical Collaboration</h4>
+        <ul>
+          <li><a href="clinicians.html">For Clinicians</a></li>
+          <li><a href="clinicians.html#focus-lab">The Focus Lab</a></li>
+          <li><a href="clinicians.html#registry">Interest Registry</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-reg">Valdara is a medical device in development. It has not received FDA clearance or approval and is not available for commercial sale in the United States.</div>
+    <div class="footer-bottom">
+      <span>© 2026 Valdara, Inc. All rights reserved. Built on Openwater's open platform.</span>
+      <span>Privacy Policy · Terms of Use · Cookie Policy</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
