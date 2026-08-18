@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Valdara mark">
+  <defs>
+    <linearGradient id="wave" x1="0" y1="1" x2="0.6" y2="0">
+      <stop offset="0" stop-color="#2fbfae"/>
+      <stop offset="1" stop-color="#39c4de"/>
+    </linearGradient>
+    <clipPath id="rightStroke">
+      <polygon points="91.9,14.8 80.1,9.2 44.1,85.2 55.9,90.8"/>
+    </clipPath>
+  </defs>
+  <!-- V strokes -->
+  <polygon points="19.9,9.2 8.1,14.8 44.1,90.8 55.9,85.2" fill="#eef6fa"/>
+  <polygon points="91.9,14.8 80.1,9.2 44.1,85.2 55.9,90.8" fill="#eef6fa"/>
+  <!-- sonar waves converging to the vertex, clipped to the right stroke -->
+  <g clip-path="url(#rightStroke)" fill="none" stroke="url(#wave)" stroke-width="4.5">
+    <circle cx="50" cy="84" r="14"/>
+    <circle cx="50" cy="84" r="23"/>
+    <circle cx="50" cy="84" r="32"/>
+    <circle cx="50" cy="84" r="41"/>
+    <circle cx="50" cy="84" r="50"/>
+  </g>
+  <!-- focal dot -->
+  <circle cx="50" cy="84" r="4.5" fill="#2fbfae"/>
+</svg>
