@@ -67,8 +67,8 @@ a:hover { color: #a3efff; }
   display: inline-flex; align-items: center; gap: 13px;
 }
 .logo:hover { color: var(--cyan); }
-.logo-mark { height: 30px; width: auto; flex: none; }
-.footer-grid .logo-mark { height: 26px; }
+.logo-img { height: 34px; width: auto; flex: none; }
+.footer-grid .logo-img { height: 30px; }
 .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
 .nav-links a {
   color: var(--text-dim); font-size: 12px; letter-spacing: 0.14em;
