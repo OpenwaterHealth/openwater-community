@@ -84,6 +84,76 @@ a:hover { color: #a3efff; }
 .nav-cta:hover { background: rgba(57, 196, 222, 0.12); }
 .nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 26px; cursor: pointer; }
 
+/* ---------- Hero film (home) ---------- */
+.hero-film {
+  position: relative; height: 100svh; min-height: 560px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; background: #000;
+  border-bottom: 1px solid var(--line-soft);
+}
+.hero-film-video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  animation: filmDrift 24s ease-in-out infinite alternate;
+}
+@keyframes filmDrift {
+  from { transform: scale(1); }
+  to { transform: scale(1.07); }
+}
+.hero-film-shade {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    radial-gradient(ellipse at center, rgba(0,0,0,0) 30%, rgba(2,4,8,0.72) 100%),
+    linear-gradient(180deg, rgba(2,4,8,0.55) 0%, rgba(2,4,8,0.1) 35%, rgba(2,4,8,0.15) 70%, rgba(2,4,8,0.9) 100%);
+}
+.hero-film-copy {
+  position: relative; z-index: 2; text-align: center; padding: 0 24px;
+}
+.film-kicker {
+  font-size: clamp(11px, 1.4vw, 14px); letter-spacing: 0.55em; text-transform: uppercase;
+  color: var(--cyan); font-weight: 600;
+  opacity: 0; animation: filmRise 1.4s ease 0.4s forwards;
+}
+.film-title {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(38px, 6.5vw, 78px); line-height: 1.06;
+  letter-spacing: 0.01em; color: var(--text); margin-top: 22px;
+  opacity: 0; animation: filmRise 1.6s ease 1.1s forwards;
+}
+.film-logo {
+  height: clamp(26px, 3.4vw, 40px); width: auto; margin: 46px auto 0;
+  opacity: 0; animation: filmRise 1.6s ease 2.2s forwards;
+}
+.film-tag {
+  margin-top: 16px; font-size: clamp(13px, 1.6vw, 16px);
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-dim);
+  opacity: 0; animation: filmRise 1.6s ease 2.7s forwards;
+}
+@keyframes filmRise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+.scroll-cue {
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  z-index: 2; width: 26px; height: 42px; border: 1px solid rgba(140, 215, 240, 0.5);
+  border-radius: 14px; display: flex; justify-content: center;
+  opacity: 0; animation: filmRise 1.6s ease 3.4s forwards;
+}
+.scroll-cue span {
+  width: 3px; height: 8px; border-radius: 2px; background: var(--cyan);
+  margin-top: 7px; animation: cueDrop 1.8s ease-in-out infinite;
+}
+@keyframes cueDrop {
+  0% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(14px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+.accent-line { color: var(--cyan); }
+@media (prefers-reduced-motion: reduce) {
+  .hero-film-video { animation: none; }
+  .film-kicker, .film-title, .film-logo, .film-tag, .scroll-cue { animation: none; opacity: 1; }
+}
+
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
