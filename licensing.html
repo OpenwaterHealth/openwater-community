@@ -255,6 +255,8 @@
             background: var(--bright-cyan); border: 3px solid white; box-shadow: 0 0 0 2px var(--bright-cyan);
         }
         .tl-item.done::before { background: var(--success-green); box-shadow: 0 0 0 2px var(--success-green); }
+        .tl-item.current::before { background: var(--primary-teal); box-shadow: 0 0 0 2px var(--primary-teal), 0 0 0 7px rgba(8,145,178,0.22); }
+        .tl-here { display: inline-block; margin-left: 0.5rem; background: var(--primary-teal); color: white; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.12rem 0.5rem; border-radius: 999px; vertical-align: middle; }
         .tl-phase { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--primary-teal); }
         .tl-item h3 { font-size: 1.1rem; color: var(--deep-navy); margin: 0.15rem 0 0.3rem; }
         .tl-item p { color: var(--text-secondary); margin: 0; font-size: 0.98rem; }
@@ -498,7 +500,7 @@
         <div class="section" style="padding: 0;">
             <div class="section-header">
                 <h2 class="section-title">What license applies to what</h2>
-                <p class="section-subtitle">A quick reference. When in doubt, check the LICENSE file in the specific repository — it is always the source of truth.</p>
+                <p class="section-subtitle">The target model once the transition completes. Extensions are moving from AGPL to Apache 2.0 as the manifest and relicensing land — so while the switch is underway, always check the LICENSE file in the specific repository. It is the source of truth today.</p>
             </div>
             <div class="table-wrap">
                 <table class="lic-table">
@@ -552,28 +554,28 @@
         <div class="section" style="padding: 0;">
             <div class="section-header">
                 <h2 class="section-title">How the transition unfolds</h2>
-                <p class="section-subtitle">A deliberate, staged path — not a single overnight switch.</p>
+                <p class="section-subtitle">We're moving from "everything AGPL" to a two-layer model — one deliberate step at a time, not a single overnight switch.</p>
             </div>
             <div class="timeline" style="max-width: 800px; margin-left: auto; margin-right: auto;">
                 <div class="tl-item done">
-                    <div class="tl-phase">Starting point</div>
-                    <h3>Everything under AGPL 3.0</h3>
-                    <p>The entire codebase — core and extensions alike — begins under AGPL, protecting the commons from day one.</p>
+                    <div class="tl-phase">Where we started</div>
+                    <h3>Everything was AGPL — core <em>and</em> extensions</h3>
+                    <p>Until now, the entire codebase — both the core platform and the extensions built around it — has been licensed under AGPL 3.0.</p>
                 </div>
-                <div class="tl-item">
-                    <div class="tl-phase">Step 1 · In progress</div>
-                    <h3>Define the boundary &amp; adopt the CLA</h3>
-                    <p>We separate core from extensions repository by repository and put the Contributor License Agreement in place.</p>
+                <div class="tl-item current">
+                    <div class="tl-phase">Step 1 · In progress <span class="tl-here">We are here</span></div>
+                    <h3>Draw the core / extension boundary &amp; adopt the CLA</h3>
+                    <p>The work happening now: building the manifest that defines what counts as <strong>core</strong> (stays AGPL 3.0) versus an <strong>extension</strong> (moving to Apache 2.0), and putting the Contributor License Agreement in place. Until that manifest exists, everything remains AGPL.</p>
                 </div>
                 <div class="tl-item">
                     <div class="tl-phase">Step 2 · Next</div>
                     <h3>Clear contributions &amp; relicense extensions</h3>
-                    <p>Existing extension contributions are cleared, then extension repositories move to Apache 2.0 with clear headers.</p>
+                    <p>Once the boundary is set, existing extension contributions are cleared and the extension repositories move from AGPL to Apache 2.0 with clear license headers.</p>
                 </div>
                 <div class="tl-item">
-                    <div class="tl-phase">Steady state</div>
-                    <h3>AGPL core · Apache 2.0 extensions</h3>
-                    <p>A two-layer commons: an un-closable open foundation with a permissive, build-friendly extension ecosystem around it.</p>
+                    <div class="tl-phase">Steady state · Where we're headed</div>
+                    <h3>Core AGPL 3.0 · Extensions Apache 2.0</h3>
+                    <p>A two-layer commons: an un-closable AGPL foundation with a permissive, build-friendly Apache 2.0 extension ecosystem around it.</p>
                 </div>
             </div>
         </div>
