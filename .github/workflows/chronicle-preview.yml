@@ -37,20 +37,42 @@ jobs:
             --include-drafts \
             --output-dir preview/chronicle
 
-      - name: Verify preview files
+      - name: Verify preview publication rules
         run: |
-          test -f preview/chronicle/index.html
-          test -f preview/chronicle/feed.xml
-          test -f preview/chronicle/2026-08-28-issue-001/index.html
+          python - <<'PY'
+          from pathlib import Path
 
-      - name: Verify draft is excluded from RSS
-        run: |
-          if grep -q "2026-08-28-issue-001" preview/chronicle/feed.xml; then
-            echo "ERROR: Draft Issue #001 was included in RSS."
-            exit 1
-          fi
+          def issue_status(path: Path) -> str:
+              in_front_matter = False
+              for raw in path.read_text(encoding="utf-8").splitlines():
+                  line = raw.strip()
+                  if line == "---":
+                      in_front_matter = not in_front_matter
+                      continue
+                  if in_front_matter and line.lower().startswith("status:"):
+                      return line.split(":", 1)[1].strip().strip("\"'").lower()
+              raise SystemExit(f"Missing status in {path}")
 
-          echo "PASS: Draft Issue #001 is excluded from RSS."
+          output = Path("preview/chronicle")
+          feed = (output / "feed.xml").read_text(encoding="utf-8")
+
+          if not (output / "index.html").is_file():
+              raise SystemExit("Missing preview/chronicle/index.html")
+          if not (output / "feed.xml").is_file():
+              raise SystemExit("Missing preview/chronicle/feed.xml")
+
+          for source in sorted(Path("content/chronicle").glob("*.md")):
+              if source.name.startswith("_") or source.name.lower() == "readme.md":
+                  continue
+              slug = source.stem
+              status = issue_status(source)
+              if not (output / slug / "index.html").is_file():
+                  raise SystemExit(f"Preview page missing for {slug}")
+              if status == "draft" and slug in feed:
+                  raise SystemExit(f"Draft issue leaked into RSS: {slug}")
+
+          print("PASS: preview contains all issue pages and excludes drafts from RSS.")
+          PY
 
       - name: Upload Chronicle preview
         uses: actions/upload-artifact@v4
