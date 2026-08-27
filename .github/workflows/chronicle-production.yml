@@ -1,0 +1,65 @@
+name: Chronicle Production
+
+on:
+  push:
+    branches:
+      - main
+      - chronicle-generator-rss
+    paths:
+      - "scripts/**"
+      - "content/chronicle/**"
+      - ".github/workflows/chronicle-production.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-production:
+    name: Build Chronicle Pages and RSS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate generator
+        run: python -m py_compile scripts/build-chronicle.py
+
+      - name: Remove stale generated Chronicle files
+        run: |
+          find chronicle -mindepth 1 -maxdepth 1 ! -name README.md -exec rm -rf {} +
+
+      - name: Build Chronicle production files
+        run: python scripts/build-chronicle.py --output-dir chronicle
+
+      - name: Verify production files
+        run: |
+          test -f chronicle/index.html
+          test -f chronicle/feed.xml
+
+      - name: Verify draft Issue 001 is not published
+        run: |
+          test ! -d chronicle/2026-08-28-issue-001
+          if grep -q "2026-08-28-issue-001" chronicle/feed.xml; then
+            echo "ERROR: Draft Issue #001 was included in RSS."
+            exit 1
+          fi
+          echo "PASS: Draft Issue #001 is excluded from production and RSS."
+
+      - name: Commit generated Chronicle files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- chronicle/
+          if git diff --cached --quiet; then
+            echo "No generated Chronicle changes to commit."
+            exit 0
+          fi
+          git commit -m "Build Chronicle pages and RSS"
+          git push
