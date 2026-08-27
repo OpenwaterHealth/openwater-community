@@ -38,19 +38,51 @@ jobs:
       - name: Build Chronicle production files
         run: python scripts/build-chronicle.py --output-dir chronicle
 
-      - name: Verify production files
+      - name: Verify production publication rules
         run: |
-          test -f chronicle/index.html
-          test -f chronicle/feed.xml
+          python - <<'PY'
+          from pathlib import Path
 
-      - name: Verify draft Issue 001 is not published
-        run: |
-          test ! -d chronicle/2026-08-28-issue-001
-          if grep -q "2026-08-28-issue-001" chronicle/feed.xml; then
-            echo "ERROR: Draft Issue #001 was included in RSS."
-            exit 1
-          fi
-          echo "PASS: Draft Issue #001 is excluded from production and RSS."
+          def issue_status(path: Path) -> str:
+              in_front_matter = False
+              for raw in path.read_text(encoding="utf-8").splitlines():
+                  line = raw.strip()
+                  if line == "---":
+                      in_front_matter = not in_front_matter
+                      continue
+                  if in_front_matter and line.lower().startswith("status:"):
+                      return line.split(":", 1)[1].strip().strip("\"'").lower()
+              raise SystemExit(f"Missing status in {path}")
+
+          output = Path("chronicle")
+          feed_path = output / "feed.xml"
+          index_path = output / "index.html"
+
+          if not index_path.is_file():
+              raise SystemExit("Missing chronicle/index.html")
+          if not feed_path.is_file():
+              raise SystemExit("Missing chronicle/feed.xml")
+
+          feed = feed_path.read_text(encoding="utf-8")
+
+          for source in sorted(Path("content/chronicle").glob("*.md")):
+              if source.name.startswith("_") or source.name.lower() == "readme.md":
+                  continue
+              slug = source.stem
+              status = issue_status(source)
+              page = output / slug / "index.html"
+
+              if status == "draft":
+                  if page.exists():
+                      raise SystemExit(f"Draft issue was generated in production: {slug}")
+                  if slug in feed:
+                      raise SystemExit(f"Draft issue leaked into RSS: {slug}")
+              elif status == "published":
+                  if not page.is_file():
+                      raise SystemExit(f"Published issue page missing: {slug}")
+
+          print("PASS: production contains only published issue pages and excludes drafts from RSS.")
+          PY
 
       - name: Commit generated Chronicle files
         run: |
