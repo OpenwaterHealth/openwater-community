@@ -1,0 +1,60 @@
+name: Chronicle Preview
+
+on:
+  push:
+    branches:
+      - chronicle-generator-rss
+    paths:
+      - "scripts/**"
+      - "content/chronicle/**"
+      - ".github/workflows/chronicle-preview.yml"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-preview:
+    name: Build Chronicle Preview
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate generator
+        run: python -m py_compile scripts/build-chronicle.py
+
+      - name: Build Chronicle preview
+        run: |
+          python scripts/build-chronicle.py \
+            --include-drafts \
+            --output-dir preview/chronicle
+
+      - name: Verify preview files
+        run: |
+          test -f preview/chronicle/index.html
+          test -f preview/chronicle/feed.xml
+          test -f preview/chronicle/2026-08-28-issue-001/index.html
+
+      - name: Verify draft is excluded from RSS
+        run: |
+          if grep -q "2026-08-28-issue-001" preview/chronicle/feed.xml; then
+            echo "ERROR: Draft Issue #001 was included in RSS."
+            exit 1
+          fi
+
+          echo "PASS: Draft Issue #001 is excluded from RSS."
+
+      - name: Upload Chronicle preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: chronicle-preview
+          path: preview/chronicle/
+          retention-days: 7
