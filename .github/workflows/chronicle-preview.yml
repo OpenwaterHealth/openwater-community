@@ -1,0 +1,82 @@
+name: Chronicle Preview
+
+on:
+  push:
+    branches:
+      - chronicle-generator-rss
+    paths:
+      - "scripts/**"
+      - "content/chronicle/**"
+      - ".github/workflows/chronicle-preview.yml"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-preview:
+    name: Build Chronicle Preview
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate generator
+        run: python -m py_compile scripts/build-chronicle.py
+
+      - name: Build Chronicle preview
+        run: |
+          python scripts/build-chronicle.py \
+            --include-drafts \
+            --output-dir preview/chronicle
+
+      - name: Verify preview publication rules
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          def issue_status(path: Path) -> str:
+              in_front_matter = False
+              for raw in path.read_text(encoding="utf-8").splitlines():
+                  line = raw.strip()
+                  if line == "---":
+                      in_front_matter = not in_front_matter
+                      continue
+                  if in_front_matter and line.lower().startswith("status:"):
+                      return line.split(":", 1)[1].strip().strip("\"'").lower()
+              raise SystemExit(f"Missing status in {path}")
+
+          output = Path("preview/chronicle")
+          feed = (output / "feed.xml").read_text(encoding="utf-8")
+
+          if not (output / "index.html").is_file():
+              raise SystemExit("Missing preview/chronicle/index.html")
+          if not (output / "feed.xml").is_file():
+              raise SystemExit("Missing preview/chronicle/feed.xml")
+
+          for source in sorted(Path("content/chronicle").glob("*.md")):
+              if source.name.startswith("_") or source.name.lower() == "readme.md":
+                  continue
+              slug = source.stem
+              status = issue_status(source)
+              if not (output / slug / "index.html").is_file():
+                  raise SystemExit(f"Preview page missing for {slug}")
+              if status == "draft" and slug in feed:
+                  raise SystemExit(f"Draft issue leaked into RSS: {slug}")
+
+          print("PASS: preview contains all issue pages and excludes drafts from RSS.")
+          PY
+
+      - name: Upload Chronicle preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: chronicle-preview
+          path: preview/chronicle/
+          retention-days: 7

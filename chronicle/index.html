@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Openwater Community Garden Chronicle | Openwater</title>
+<meta name="description" content="Weekly field notes from the Openwater open-source community.">
+<link rel="alternate" type="application/rss+xml" title="Openwater Community Garden Chronicle" href="https://openwaterhealth.github.io/openwater-community/chronicle/feed.xml">
+
+<style>
+:root {
+  --deep-navy:#0A2540; --ocean-blue:#164E63; --teal:#0891B2;
+  --cyan:#06B6D4; --aqua:#22D3EE; --light:#F0F9FF;
+  --text:#0F172A; --muted:#64748B; --border:#E0F2FE;
+  --garden:#F7FAF4; --white:#FFFFFF;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+line-height:1.65;color:var(--text);background:var(--white)}
+a{color:var(--teal)}
+a:hover{color:var(--ocean-blue)}
+header{border-bottom:1px solid var(--border);background:rgba(255,255,255,.97)}
+.nav{max-width:1120px;margin:auto;padding:14px 22px;display:flex;align-items:center;gap:22px}
+.nav img{height:30px;display:block}
+.nav-links{margin-left:auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap;font-size:.92rem}
+.nav-links>a,.community-menu>summary{text-decoration:none;font-weight:650;color:var(--deep-navy);cursor:pointer}
+.community-menu{position:relative}
+.community-menu summary{list-style:none}
+.community-menu summary::-webkit-details-marker{display:none}
+.community-menu summary::after{content:" ▾";font-size:.72em}
+.community-menu[open] .community-dropdown{
+  position:absolute;top:30px;left:-12px;z-index:100;min-width:260px;
+  background:#fff;border:1px solid var(--border);border-radius:10px;
+  box-shadow:0 14px 40px rgba(10,37,64,.14);padding:8px
+}
+.community-dropdown a{
+  display:block;padding:10px 12px;border-radius:7px;text-decoration:none;
+  color:var(--deep-navy);font-weight:600
+}
+.community-dropdown a:hover,.community-dropdown a.active{background:var(--light);color:var(--teal)}
+.community-dropdown small{display:block;color:var(--muted);font-weight:500;margin-top:2px}
+.hero{background:linear-gradient(180deg,var(--garden),#fff)}
+.hero-inner{max-width:1120px;margin:auto;padding:56px 22px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.hero h1,.article h1{color:var(--deep-navy);line-height:1.05;letter-spacing:-.03em}
+.hero h1{font-size:clamp(2.5rem,5vw,4.2rem);margin:0 0 14px}
+.hero p{font-size:1.13rem;color:#475569}
+.hero img,.article img.hero-image{width:100%;border-radius:18px;box-shadow:0 18px 50px rgba(10,37,64,.14)}
+.eyebrow{display:inline-block;color:var(--teal);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;margin-bottom:10px}
+.container{max-width:900px;margin:auto;padding:46px 22px 78px}
+.latest,.empty{border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:46px}
+.latest h2{margin:0 0 6px;color:var(--deep-navy)}
+.meta{color:var(--muted);font-size:.9rem;margin-bottom:14px}
+.button{display:inline-block;background:var(--teal);color:#fff;text-decoration:none;font-weight:750;padding:10px 16px;border-radius:8px}
+.archive{border-top:1px solid var(--border)}
+.archive-item{display:grid;grid-template-columns:120px 1fr auto;gap:20px;padding:20px 0;border-bottom:1px solid var(--border)}
+.archive-item time{color:var(--muted);font-size:.9rem}
+.archive-item h3{margin:0 0 4px;color:var(--deep-navy);font-size:1.08rem}
+.archive-item p{margin:0;color:#475569;font-size:.94rem}
+.article{max-width:780px;margin:auto;padding:48px 22px 84px}
+.article h1{font-size:clamp(2.2rem,5vw,3.5rem);margin-bottom:8px}
+.article h2{color:var(--deep-navy);font-size:1.65rem;margin-top:2.5rem}
+.article h3{color:var(--ocean-blue);margin-top:1.7rem}
+.article p,.article li{font-size:1.03rem}
+.article blockquote{border-left:4px solid var(--aqua);padding-left:18px;color:#475569;margin:28px 0}
+.article hr{border:0;border-top:1px solid var(--border);margin:38px 0}
+.article code{background:#EEF6F8;padding:2px 5px;border-radius:4px}
+.back{display:inline-block;margin-bottom:20px;text-decoration:none;font-weight:700}
+.draft{background:#FFF6CE;border:1px solid #E7C85D;border-radius:10px;padding:12px 15px;margin:20px 0;font-weight:750;color:#5B4814}
+footer{background:var(--deep-navy);color:rgba(255,255,255,.86);padding:32px 22px;font-size:.88rem}
+footer .inner{max-width:1120px;margin:auto}
+footer a{color:var(--aqua)}
+footer p{margin:5px 0}
+.disclaimer{color:rgba(255,255,255,.7);margin-top:16px!important;max-width:880px}
+@media(max-width:800px){
+  .hero-inner{grid-template-columns:1fr}
+  .archive-item{grid-template-columns:1fr;gap:4px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="https://openwaterhealth.github.io/openwater-community/"><img src="https://openwaterhealth.github.io/openwater-community/OpenwaterLogo.png" alt="Openwater"></a>
+    <div class="nav-links">
+      <a href="https://openwaterhealth.github.io/openwater-community/">Home</a>
+      <a href="https://openwaterhealth.github.io/openwater-community/developers.html">Developers</a>
+      <a href="https://openwaterhealth.github.io/openwater-community/get-started.html">Get Started</a>
+
+      <details class="community-menu">
+        <summary>Community</summary>
+        <div class="community-dropdown">
+          <a href="https://openwaterhealth.github.io/openwater-community/community.html">Community Hub</a>
+          <a class="active" href="https://openwaterhealth.github.io/openwater-community/chronicle/">Chronicle</a>
+          <a href="https://openwaterhealth.github.io/openwater-community/licensing.html">
+            Licensing
+            <small>AGPL core · Apache extensions</small>
+          </a>
+        </div>
+      </details>
+
+      <a href="https://openwaterhealth.github.io/openwater-community/model-commons.html">Model Commons</a>
+      <a href="https://docs.openwater.health/">Docs</a>
+    </div>
+  </nav>
+</header>
+
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow">Openwater Community</span>
+      <h1>Community Garden Chronicle</h1>
+      <p><strong>What took root. What grew. What needs tending.</strong></p>
+      <p>A weekly field note from the people cultivating open-source medical technology.</p>
+    </div>
+    <img src="https://openwaterhealth.github.io/openwater-community/assets/chronicle/community-garden-chronicle.png" alt="Community Garden Chronicle illustration">
+  </div>
+</section>
+<main class="container">
+  
+<section class="empty">
+  <span class="eyebrow">Coming Soon</span>
+  <h2>The first issue is being cultivated.</h2>
+  <p>The Chronicle will share what changed, what we learned, and where the community can participate.</p>
+</section>
+  <span class="eyebrow">Archive</span>
+  <h2>From the Garden</h2>
+  <div class="archive"><p>No published issues yet.</p></div>
+</main>
+
+<footer>
+  <div class="inner">
+    <p><strong>Openwater</strong></p>
+    <p>Open Source. Always.</p>
+    <p>733 Front Street, Suite C1A, San Francisco, CA 94111</p>
+    <p><a href="mailto:community@openwater.health">community@openwater.health</a></p>
+    <p>© 2026 Openwater Health. AGPL 3.0 Licensed.</p>
+    <p class="disclaimer">Openwater's platform is exclusively intended for research purposes and is not cleared or approved by the FDA for clinical use.</p>
+  </div>
+</footer>
+
+</body>
+</html>
