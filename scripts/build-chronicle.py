@@ -37,8 +37,23 @@ a:hover{color:var(--ocean-blue)}
 header{border-bottom:1px solid var(--border);background:rgba(255,255,255,.97)}
 .nav{max-width:1120px;margin:auto;padding:14px 22px;display:flex;align-items:center;gap:22px}
 .nav img{height:30px;display:block}
-.nav-links{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap;font-size:.92rem}
-.nav-links a{text-decoration:none;font-weight:650;color:var(--deep-navy)}
+.nav-links{margin-left:auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap;font-size:.92rem}
+.nav-links>a,.community-menu>summary{text-decoration:none;font-weight:650;color:var(--deep-navy);cursor:pointer}
+.community-menu{position:relative}
+.community-menu summary{list-style:none}
+.community-menu summary::-webkit-details-marker{display:none}
+.community-menu summary::after{content:" ▾";font-size:.72em}
+.community-menu[open] .community-dropdown{
+  position:absolute;top:30px;left:-12px;z-index:100;min-width:260px;
+  background:#fff;border:1px solid var(--border);border-radius:10px;
+  box-shadow:0 14px 40px rgba(10,37,64,.14);padding:8px
+}
+.community-dropdown a{
+  display:block;padding:10px 12px;border-radius:7px;text-decoration:none;
+  color:var(--deep-navy);font-weight:600
+}
+.community-dropdown a:hover,.community-dropdown a.active{background:var(--light);color:var(--teal)}
+.community-dropdown small{display:block;color:var(--muted);font-weight:500;margin-top:2px}
 .hero{background:linear-gradient(180deg,var(--garden),#fff)}
 .hero-inner{max-width:1120px;margin:auto;padding:56px 22px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
 .hero h1,.article h1{color:var(--deep-navy);line-height:1.05;letter-spacing:-.03em}
@@ -240,33 +255,45 @@ def markdown_to_html(markdown: str) -> str:
 def navigation() -> str:
     return f"""
 <header>
-  <nav class="nav">
+  <nav class="nav" aria-label="Main navigation">
     <a href="{BASE_URL}/"><img src="{BASE_URL}/OpenwaterLogo.png" alt="Openwater"></a>
     <div class="nav-links">
       <a href="{BASE_URL}/">Home</a>
       <a href="{BASE_URL}/developers.html">Developers</a>
       <a href="{BASE_URL}/get-started.html">Get Started</a>
-      <a href="{BASE_URL}/community.html">Community</a>
-      <a href="{BASE_URL}/chronicle/">Chronicle</a>
-      <a href="{BASE_URL}/licensing.html">Licensing</a>
+
+      <details class="community-menu">
+        <summary>Community</summary>
+        <div class="community-dropdown">
+          <a href="{BASE_URL}/community.html">Community Hub</a>
+          <a class="active" href="{BASE_URL}/chronicle/">Chronicle</a>
+          <a href="{BASE_URL}/licensing.html">
+            Licensing
+            <small>AGPL core · Apache extensions</small>
+          </a>
+        </div>
+      </details>
+
+      <a href="{BASE_URL}/model-commons.html">Model Commons</a>
+      <a href="https://docs.openwater.health/">Docs</a>
     </div>
   </nav>
 </header>
 """
 
-
 def footer() -> str:
     return """
 <footer>
   <div class="inner">
-    <p><strong>Openwater</strong> — Open Source. Always.</p>
-    <p><a href="mailto:community@openwater.cc">community@openwater.cc</a></p>
-    <p>© 2026 Openwater Health.</p>
+    <p><strong>Openwater</strong></p>
+    <p>Open Source. Always.</p>
+    <p>733 Front Street, Suite C1A, San Francisco, CA 94111</p>
+    <p><a href="mailto:community@openwater.health">community@openwater.health</a></p>
+    <p>© 2026 Openwater Health. AGPL 3.0 Licensed.</p>
     <p class="disclaimer">Openwater's platform is exclusively intended for research purposes and is not cleared or approved by the FDA for clinical use.</p>
   </div>
 </footer>
 """
-
 
 def shell(title: str, description: str, content: str, extra_head: str = "") -> str:
     return f"""<!doctype html>
