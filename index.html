@@ -322,6 +322,15 @@
             box-shadow: 0 6px 16px rgba(8, 145, 178, 0.2);
         }
 
+        .lane-research-library {
+            margin-top: 12px;
+            background: var(--light-bg);
+            color: var(--ocean-blue);
+            border: 1px solid var(--primary-teal);
+        }
+
+        #research-lane { scroll-margin-top: 110px; }
+
         .lane-contact {
             font-size: 0.8rem;
             color: var(--text-muted);
@@ -859,7 +868,7 @@
             <!-- LANE: RESEARCH -->
             <div class="lane-card">
                 <span class="lane-best-for">Best for: Researchers</span>
-                <h3>Research</h3>
+                <h3 id="research-lane">Research</h3>
                 <p class="lane-pitch">Build the shared knowledge base future trials will rely on. Literature synthesis, schemas, methodology.</p>
                 <div class="lane-issues-label">Good-first-issues</div>
                 <ul class="lane-issues">
@@ -868,6 +877,7 @@
                 </ul>
                 <div class="lane-contact"><strong>Contact:</strong> <a href="mailto:community@openwater.health">community@openwater.health</a></div>
                 <a href="https://github.com/OpenwaterHealth/openlifu-python/issues?q=is%3Aopen+is%3Aissue+label%3A%22contribute-without-a-unit%22+label%3A%22lane%3Aresearch%22" class="lane-all-issues">Open Research issues</a>
+                <a href="https://docs.openwater.health/research/" class="lane-all-issues lane-research-library">Browse research and white papers</a>
             </div>
 
             <!-- LANE: CLINICAL -->
