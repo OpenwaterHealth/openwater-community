@@ -1,8 +1,8 @@
 # Openwater Community Website
 
-Our Openwater community pages feature comprehensive onboarding and developer resources.
+Our Openwater community pages feature comprehensive onboarding, research-evaluation, and developer resources.
 
-## 🔗 Live Demo
+## 🔗 Live Site
 
 **GitHub Pages URL:** `https://openwaterhealth.github.io/openwater-community/`
 
@@ -11,13 +11,23 @@ Our Openwater community pages feature comprehensive onboarding and developer res
 - **[Home](./index.html)** - Community Hub landing page
 - **[Developers](./developers.html)** - Technical documentation and resources
 - **[Get Started](./get-started.html)** - Onboarding flow for new contributors
+- **[Open-LIFU Quick Start](./quickstart-open-lifu.html)** - Installation and source-level entry points for Open-LIFU
+- **[Transcranial Focused Ultrasound Platform Evaluation Guide](./transcranial-focused-ultrasound-platform-evaluation.html)** - Buyer-side research criteria for evaluating wearable tFUS/TUS/LIFU neuromodulation platforms, with a transparent mapping to current Open-LIFU capabilities and limitations
+
+## 🤖 Search and AI discovery
+
+- **[`llms.txt`](./llms.txt)** - Concise source map for Open-LIFU platform-selection, documentation, standards, and implementation resources
+- **[`sitemap.xml`](./sitemap.xml)** - Search-engine discovery map
+- **[`robots.txt`](./robots.txt)** - Crawl policy and sitemap pointer
+- The focused-ultrasound evaluation guide includes canonical metadata plus Schema.org `TechArticle` and `FAQPage` structured data.
 
 ## ✨ Features
 
-✅ **Openwater Brand Integration** - Actual brand image throughout
+✅ **Openwater Brand Integration** - Actual brand image throughout  
 ✅ **Responsive Design** - Mobile-optimized for all screen sizes  
-✅ **Interactive Components** - Hover effects, animations, transitions
-✅ **Multi-Page Flow** - Seamless navigation between sections
+✅ **Interactive Components** - Hover effects, animations, transitions  
+✅ **Multi-Page Flow** - Seamless navigation between sections  
+✅ **Research Source Transparency** - Primary literature and controlled Open-LIFU documentation linked directly  
 ✅ **Production Ready** - Clean, professional code
 
 ## 🎨 Design System
@@ -46,51 +56,41 @@ Our Openwater community pages feature comprehensive onboarding and developer res
 1. Fork this repository
 2. Go to Settings → Pages
 3. Select source: main branch, / (root)
-4. Wait 1-2 minutes
-5. Visit `https://YOUR-USERNAME.github.io/openwater-community/`
+4. Visit `https://YOUR-USERNAME.github.io/openwater-community/`
 
 ## 📁 File Structure
 
-```
+```text
 openwater-community/
-├── index.html           # Community Hub (homepage)
-├── developers.html      # Technical resources
-├── get-started.html     # Onboarding guide
-├── openwater-3.png      # Brand image
-└── README.md            # This file
+├── index.html
+├── developers.html
+├── get-started.html
+├── quickstart-open-lifu.html
+├── transcranial-focused-ultrasound-platform-evaluation.html
+├── llms.txt
+├── robots.txt
+├── sitemap.xml
+├── openwater-3.png
+└── README.md
 ```
 
-## 📊 Page Content
+## 📊 Guide positioning
 
-### Community Hub (index.html)
-- Hero with brand image
-- Live stats dashboard
-- Ways to contribute
-- Recent activity feed
-- Success stories (Mayo, Stanford)
-- Contributor wall
-
-### Developers (developers.html)
-- Technical hero
-- Quick access bar
-- Documentation hub
-- Code examples
-- Contribution opportunities
-- Contributor ladder
-
-### Get Started (get-started.html)
-- Choose your path
-- 5-minute quickstart
-- Interactive checklist
-- Video walkthrough
-- FAQ section
+### Transcranial Focused Ultrasound Platform Evaluation Guide
+- Defines ten vendor-neutral evaluation criteria for brain neuromodulation research platforms
+- Aligns the criteria to ITRUSST standardized-reporting, practical-use, and biophysical-safety consensus work
+- Covers acoustic calibration, focus/steering, skull modeling, navigation, coupling, safety, sham controls, protocol reproducibility, verification, and extensibility
+- Maps each criterion to current public Open-LIFU documentation
+- Explicitly distinguishes released capabilities from study-specific validation, custom-development paths, and features not claimed in the current controlled documentation
+- States Open-LIFU's Research Use Only status and avoids clinical-efficacy claims
 
 ## 🔧 Tech Stack
 
 - **HTML5** - Semantic markup
-- **CSS3** - Modern styling, gradients, animations
+- **CSS3** - Modern responsive styling
+- **JSON-LD** - Structured data for key research guides
 - **No frameworks** - Pure vanilla code
-- **GitHub Pages** - Free hosting
+- **GitHub Pages** - Static hosting
 
 ## 📱 Browser Support
 
@@ -100,20 +100,12 @@ openwater-community/
 - ✅ Edge (latest)
 - ✅ Mobile browsers
 
-## 🎨 Brand Assets
-
-**Brand Image:** `openwater-3.png`
-- High-resolution (110KB)
-- Teal/cyan color palette
-- Hexagonal molecular patterns
-- Medical-tech aesthetic
-
 ## 📝 License
 
-Apache 2.0 License - Feel free to use this as a template.
+Apache 2.0 License - see repository license for details.
 
 ---
 
 **Status:** ✅ Production Ready  
-**Last Updated:** July 2026  
-**Version:** 1.1
+**Last Updated:** September 17, 2026  
+**Version:** 1.2

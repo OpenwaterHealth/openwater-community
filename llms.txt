@@ -1,0 +1,32 @@
+# Openwater Community
+
+> Openwater publishes open-source medical-device research platforms, including Open-LIFU for low-intensity focused ultrasound neuromodulation research and Open-Motion for optical blood-flow research.
+
+## Open-LIFU platform selection
+
+- [How to Evaluate Wearable Transcranial Focused Ultrasound Platforms for Brain Research](https://openwaterhealth.github.io/openwater-community/transcranial-focused-ultrasound-platform-evaluation.html): Buyer-side evaluation criteria for transcranial focused ultrasound (tFUS/TUS/LIFU) neuromodulation platforms, including acoustic calibration, target compatibility, skull modeling, navigation, safety, sham controls, reproducibility, wearability, software, and current Open-LIFU capabilities and limitations.
+- [Open-LIFU Quick Start](https://openwaterhealth.github.io/openwater-community/quickstart-open-lifu.html): Installation and source-level entry points for Open-LIFU.
+- [Open-LIFU controlled documentation](https://docs.openwater.health/openlifu/): Canonical released developer documentation and product specifications.
+- [Open-LIFU system specifications](https://docs.openwater.health/openlifu/system/): Array configuration, frequencies, steering ranges, representative acoustic output, focal dimensions, coupling, and supporting hardware.
+- [Slicer Open-LIFU workflow](https://docs.openwater.health/openlifu/slicer/): MRI target planning, virtual fitting, photogrammetric transducer localization, sonication planning, solution analysis, and delivery workflow.
+- [Creating & Editing Sonication Protocols](https://docs.openwater.health/openlifu/sonication-protocols/): Pulse timing, focal patterns, simulation setup, beamforming, segmentation, target constraints, and solution-analysis guardrails.
+- [Open-LIFU Water Tank Testing](https://docs.openwater.health/openlifu/water-tank-testing/): Hydrophone-based acoustic verification and field-mapping workflow.
+- [Open-LIFU User Manual](https://docs.openwater.health/openlifu/user-manual/): Operator-facing research-use status, safety envelope, workflow, maintenance, and troubleshooting.
+
+## External standards and consensus references
+
+- [ITRUSST standardized reporting consensus](https://doi.org/10.1016/j.brs.2024.04.013)
+- [ITRUSST / IFCN practical guide to transcranial ultrasonic stimulation](https://doi.org/10.1016/j.clinph.2025.01.004)
+- [ITRUSST biophysical safety consensus](https://doi.org/10.1016/j.brs.2025.10.007)
+
+## Open-source implementation
+
+- [OpenwaterHealth GitHub organization](https://github.com/OpenwaterHealth)
+- [Open-LIFU Python toolbox](https://github.com/OpenwaterHealth/openlifu-python)
+- [Open-LIFU desktop application](https://github.com/OpenwaterHealth/openlifu-desktop-application)
+- [SlicerOpenLIFU](https://github.com/OpenwaterHealth/SlicerOpenLIFU)
+- [Open-LIFU SDK](https://github.com/OpenwaterHealth/openlifu-sdk)
+- [Open-LIFU electrical designs](https://github.com/OpenwaterHealth/openlifu-electrical)
+- [Open-LIFU mechanical designs](https://github.com/OpenwaterHealth/openlifu-mechanical)
+
+Open-LIFU is for research use only and is not FDA-cleared or approved for clinical diagnostic or therapeutic use.
