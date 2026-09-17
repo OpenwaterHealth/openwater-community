@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Wearable Focused Ultrasound Needs Standardized Protocols | Openwater</title>
+<meta name="description" content="Meaningful device comparisons start with comparable protocols. An Open-LIFU guide to transparent methods, reproducible research, and stronger clinical evidence.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://openwaterhealth.github.io/openwater-community/focused-ultrasound-protocol-standardization.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Why Wearable Focused Ultrasound Needs Standardized Protocols">
+<meta property="og:description" content="Meaningful device comparisons start with comparable protocols. An Open-LIFU guide to transparent methods, reproducible research, and stronger clinical evidence.">
+<meta property="og:url" content="https://openwaterhealth.github.io/openwater-community/focused-ultrasound-protocol-standardization.html">
+<meta property="og:site_name" content="Openwater Community">
+<meta property="article:published_time" content="2026-09-17">
+<meta property="article:modified_time" content="2026-09-17">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Why Wearable Focused Ultrasound Needs Standardized Protocols",
+  "description": "Meaningful device comparisons start with comparable protocols. An Open-LIFU guide to transparent methods, reproducible research, and stronger clinical evidence.",
+  "datePublished": "2026-09-17",
+  "dateModified": "2026-09-17",
+  "author": {
+    "@type": "Organization",
+    "name": "Openwater"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Openwater",
+    "url": "https://www.openwater.health/"
+  },
+  "mainEntityOfPage": "https://openwaterhealth.github.io/openwater-community/focused-ultrasound-protocol-standardization.html",
+  "citation": [
+    "https://doi.org/10.1016/j.brs.2024.04.013",
+    "https://doi.org/10.1016/j.clinph.2025.01.004",
+    "https://doi.org/10.7554/eLife.88762.3",
+    "https://doi.org/10.1016/j.brs.2025.10.007",
+    "https://docs.openwater.health/openlifu/sonication-protocols/",
+    "https://docs.openwater.health/openlifu/slicer/",
+    "https://docs.openwater.health/openlifu/water-tank-testing/",
+    "https://docs.openwater.health/research/openlifu/transducer-localization-accuracy/",
+    "https://www.openwater.health/disclosures"
+  ],
+  "about": [
+    "Focused ultrasound",
+    "Protocol standardization",
+    "Research reproducibility",
+    "Open-LIFU"
+  ]
+}</script>
+<style>
+    :root {
+      --navy:#0A2540; --teal:#0891B2; --cyan:#06B6D4; --aqua:#67E8F9;
+      --ink:#0F172A; --muted:#475569; --line:#D9EEF6; --soft:#F0F9FF;
+      --white:#FFFFFF; --amber:#92400E; --amber-bg:#FFFBEB; --green:#047857; --green-bg:#ECFDF5;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);line-height:1.65;background:#fff}
+    a{color:#087E9D}
+    .disclaimer{background:var(--amber-bg);color:#78350F;border-bottom:1px solid #FDE68A;text-align:center;padding:.65rem 1rem;font-size:.88rem}
+    nav{background:#fff;box-shadow:0 2px 10px rgba(10,37,64,.1);position:sticky;top:0;z-index:20}
+    .nav-wrap{max-width:1240px;margin:auto;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem}
+    .logo img{height:38px;display:block}.nav-links{display:flex;gap:1.4rem;list-style:none;align-items:center}.nav-links a{text-decoration:none;color:var(--ink);font-weight:600;font-size:.95rem}.nav-links a:hover{color:var(--teal)}
+    .hero{background:linear-gradient(135deg,rgba(10,37,64,.96),rgba(8,145,178,.91));color:#fff;padding:5.5rem 1.5rem 4.5rem}
+    .hero-inner{max-width:1080px;margin:auto}.eyebrow{display:inline-block;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.35rem .8rem;text-transform:uppercase;letter-spacing:.12em;font-size:.76rem;margin-bottom:1.2rem}.hero h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.08;max-width:1000px;margin-bottom:1.25rem}.hero p{font-size:1.2rem;max-width:900px;opacity:.96}.meta{margin-top:1.3rem;font-size:.9rem;opacity:.85}
+    main{max-width:1120px;margin:auto;padding:3rem 1.5rem 5rem}.lede{font-size:1.15rem;color:#334155;max-width:930px}.callout{margin:2rem 0;padding:1.2rem 1.4rem;border-radius:12px;border-left:5px solid var(--teal);background:var(--soft)}.callout strong{color:var(--navy)}.callout.green{background:var(--green-bg);border-left-color:var(--green)}.callout.amber{background:var(--amber-bg);border-left-color:#D97706}
+    .toc{margin:2.2rem 0 3rem;border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.6rem;background:#fff}.toc h2{font-size:1.1rem;margin-bottom:.6rem}.toc ol{margin-left:1.2rem;columns:2;column-gap:2rem}.toc li{margin:.25rem 0;break-inside:avoid}.toc a{text-decoration:none}.toc a:hover{text-decoration:underline}
+    section{margin:3.5rem 0}h2{font-size:2rem;line-height:1.2;color:var(--navy);margin-bottom:1rem}h3{font-size:1.28rem;color:var(--navy);margin:1.8rem 0 .6rem}p{margin:.75rem 0}ul,ol{margin:.6rem 0 .8rem 1.4rem}li{margin:.35rem 0}
+    .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:1.3rem 0;background:#fff}table{border-collapse:collapse;width:100%;min-width:820px}th,td{padding:1rem;vertical-align:top;text-align:left;border-bottom:1px solid #E7F4F9}th{background:#EAF8FC;color:var(--navy);font-size:.88rem;text-transform:uppercase;letter-spacing:.04em}tr:last-child td{border-bottom:0}td strong{color:var(--navy)}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1.4rem 0}.card{border:1px solid var(--line);border-radius:14px;padding:1.25rem;background:#fff}.card h3{margin:0 0 .5rem;font-size:1.12rem}.card p{color:var(--muted);font-size:.96rem}
+    .question-list{counter-reset:q}.question{counter-increment:q;border-bottom:1px solid #E7F4F9;padding:1rem 0 1rem 3rem;position:relative}.question:before{content:counter(q);position:absolute;left:0;top:1rem;width:2rem;height:2rem;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}.question strong{color:var(--navy)}
+    .sources li{margin:.6rem 0}.tag{display:inline-block;background:#E6F7FB;color:#0E7490;border-radius:999px;padding:.2rem .6rem;font-size:.78rem;font-weight:700;margin:.2rem .25rem .2rem 0}
+    .cta{background:var(--navy);color:#fff;border-radius:16px;padding:2rem;margin-top:3rem}.cta h2{color:#fff;margin-bottom:.5rem}.cta a{color:var(--aqua);font-weight:700}
+    footer{background:var(--navy);color:#fff;padding:2.2rem 1.5rem;text-align:center;font-size:.9rem}footer a{color:var(--aqua)}
+    @media(max-width:780px){.nav-links{display:none}.toc ol{columns:1}.hero{padding-top:4rem}.table-wrap{border-radius:8px}}
+  
+    sup{font-size:.75em;white-space:nowrap} :target{scroll-margin-top:6rem} a:focus-visible,[tabindex]:focus-visible{outline:3px solid #0891B2;outline-offset:4px}.skip-link{position:absolute;left:1rem;top:-5rem;background:#fff;padding:.7rem;z-index:100}.skip-link:focus{top:1rem}tbody th{font-size:1rem;text-transform:none;letter-spacing:normal} @media(max-width:780px){.nav-links{display:flex;flex-wrap:wrap;gap:.5rem 1rem}.nav-wrap{flex-wrap:wrap}.nav-links a{font-size:.82rem}nav{position:static}}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to article</a>
+<div class="disclaimer"><strong>Research use only.</strong> Open-LIFU is not FDA-cleared or approved for clinical diagnostic or therapeutic use.</div>
+  <nav>
+    <div class="nav-wrap">
+      <a class="logo" href="https://www.openwater.health/"><img src="openwater-logo.png" alt="Openwater"></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Community</a></li>
+        <li><a href="get-started.html">Get Started</a></li>
+        <li><a href="quickstart-open-lifu.html">Open-LIFU Quick Start</a></li>
+        <li><a href="https://docs.openwater.health/openlifu/">Open-LIFU Docs</a></li>
+        <li><a href="https://github.com/OpenwaterHealth">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+<header class="hero"><div class="hero-inner"><span class="eyebrow">Research methods · Open-LIFU</span><h1>Why Wearable Focused Ultrasound Needs Standardized Protocols</h1><p>Meaningful device comparisons start with comparable protocols. A practical path toward reproducible clinical research evidence.</p><div class="meta">By Openwater · Published <time datetime="2026-09-17">September 17, 2026</time></div></div></header>
+<main id="main"><article>
+<p class="lede"><strong>A wearable focused ultrasound device is only one part of an intervention.</strong> To compare devices meaningfully across trials, researchers need standardized protocol definitions, transparent exposure reporting, and sufficiently aligned study designs. Otherwise, an apparent device difference may reflect how, where, or when stimulation was delivered.</p>
+<div class="callout"><strong>The practical rule:</strong> establish what was delivered, to which target, under which controls, before comparing outcomes. Standardization makes a comparison interpretable; it does not, by itself, prove that a treatment works.</div>
+<p>This post concerns low-intensity focused ultrasound (LIFU) for neuromodulation research, also described as transcranial ultrasound stimulation (TUS) or transcranial focused ultrasound (tFUS). It is research-methods guidance, not a treatment protocol.</p>
+<div class="toc" aria-label="On this page"><h2>On this page</h2><ol>
+<li><a href="#comparison">Why trial results are not device rankings</a></li>
+<li><a href="#standardize">What needs to be standardized</a></li>
+<li><a href="#controls">Why controls and safety matter</a></li>
+<li><a href="#openlifu">The Open-LIFU evidence trail</a></li>
+<li><a href="#next-study">A reproducibility package for your next study</a></li>
+<li><a href="#references">Supporting evidence</a></li></ol></div>
+
+<section id="comparison"><h2>Trial results are not device rankings</h2>
+<p>Consider two hypothetical trials using wearable devices. One uses a single session and an immediate physiological endpoint. The other uses repeated sessions and a symptom score weeks later. Even if both report a positive result, their effect sizes do not establish which device performs better. The interventions, populations, and questions differ.</p>
+<p>Even matching a device's nominal frequency is insufficient. The ITRUSST reporting consensus calls for descriptions of the transducer and drive electronics, drive settings, measured acoustic output, pulse timing, estimated exposure in the brain, and intensity definitions. A measurement in water and an estimate after skull transmission are different quantities; their methods and uncertainty must be identified. <sup><a href="#ref-1" aria-label="Reference 1">[1]</a></sup></p>
+<p>Our conclusion is therefore specific: <strong>uncontrolled cross-trial outcome comparisons cannot isolate device performance.</strong> Existing studies still inform feasibility, hypotheses, and evidence synthesis when their differences are acknowledged. A direct device comparison needs a design that holds relevant conditions comparable or explicitly accounts for them.</p></section>
+
+<section id="standardize"><h2>Standardize the description, then align the comparison</h2>
+<p>Standardization does not require every research question to use one universal waveform. It requires shared definitions, complete methods, and a declared basis for comparison. The acoustic reporting foundation comes from ITRUSST; the broader study-design checklist below is Openwater's practical synthesis. <sup><a href="#ref-1" aria-label="Reference 1">[1]</a> <a href="#ref-2" aria-label="Reference 2">[2]</a></sup></p>
+<div class="table-wrap" role="region" aria-label="Protocol comparison checklist" tabindex="0"><table><thead><tr><th scope="col">Layer</th><th scope="col">What a comparison needs</th></tr></thead><tbody>
+<tr><th scope="row">Acoustic exposure</th><td>Calibration method, carrier frequency, pressure and intensity definitions, measurement medium, focal dimensions, and estimated in-brain exposure with uncertainty.</td></tr>
+<tr><th scope="row">Timing and schedule</th><td>Pulse duration, repetition interval, duty-cycle definition, train structure, total exposure, session count, and spacing.</td></tr>
+<tr><th scope="row">Target and placement</th><td>Anatomical target, localization method, skull-model assumptions, coupling checks, and criteria for acceptable placement and movement.</td></tr>
+<tr><th scope="row">Controls and population</th><td>Eligibility, concomitant interventions, randomization, sham design, sensory masking, and assessment of blinding.</td></tr>
+<tr><th scope="row">Outcomes and analysis</th><td>Prespecified endpoints, measurement times, analysis population, missing-data rules, and adverse-event follow-up.</td></tr>
+<tr><th scope="row">Traceability</th><td>Hardware, firmware, and software versions; protocol revision; session records; deviations; and analysis code.</td></tr>
+</tbody></table></div>
+<p>For wearable systems, a repeatable fitting procedure belongs in the methods. Record how placement and coupling are checked and how movement or an interrupted session is handled. The ITRUSST practical guide treats positioning, experimental procedures, and confounds as integral to study quality. <sup><a href="#ref-2" aria-label="Reference 2">[2]</a></sup></p></section>
+
+<section id="controls"><h2>A reproducible signal still needs a valid explanation</h2>
+<p>Controls can change what a result means. In a multicenter human study, Kop and colleagues showed that auditory confounds could account for motor excitability changes in the online TUS paradigms they tested. That finding does not invalidate all ultrasound effects; it demonstrates why a sham condition and sensory controls must be evaluated for the specific experiment. <sup><a href="#ref-3" aria-label="Reference 3">[3]</a></sup></p>
+<p>Safety evidence also needs its own record. ITRUSST's biophysical safety consensus addresses mechanical and thermal risk under specified conditions. A protocol falling within a consensus framework does not establish clinical efficacy, regulatory authorization, or safety for every population and exposure schedule. Report the assessment assumptions and observed adverse events alongside outcomes. <sup><a href="#ref-4" aria-label="Reference 4">[4]</a></sup></p></section>
+
+<section id="openlifu"><h2>Open-LIFU: a practical guide to evidence others can inspect</h2>
+<p>Openwater's approach is to earn trust through an inspectable chain from methods to implementation. Use Open-LIFU's public documentation as a guide to the questions a reproducible study must answer, and assess the evidence for each step.</p>
+<ul>
+<li><strong>Define the reusable protocol.</strong> The released protocol documentation distinguishes a Protocol from a target-specific Solution. It documents pulse and sequence settings, simulation configuration, target constraints, and solution-analysis limits. Record both the protocol revision and the solution used for each session. <sup><a href="#ref-5" aria-label="Reference 5">[5]</a></sup></li>
+<li><strong>Document planning and localization.</strong> The Slicer workflow describes MRI-linked target planning and photogrammetric co-registration. Localization is one part of the evidence chain; it does not independently verify the acoustic field in the brain or neural target engagement. <sup><a href="#ref-6" aria-label="Reference 6">[6]</a></sup></li>
+<li><strong>Verify acoustic output.</strong> The water-tank guide documents acoustic testing with calibrated hydrophones. Keep calibration and test records with the study methods; a tank measurement alone does not establish exposure through an individual skull. <sup><a href="#ref-7" aria-label="Reference 7">[7]</a></sup></li>
+<li><strong>Make implementation reviewable.</strong> Link the exact releases or commits used from the <a href="https://github.com/OpenwaterHealth/openlifu-python">Open-LIFU Python repository</a> and associated software, so another team can inspect the same implementation.</li>
+</ul>
+<p>The limits matter. The current protocol guide describes Direct beamforming and uniform segmentation options; it should not be read as proof of a validated, turnkey CT-based skull-correction workflow. The localization workflow does not claim continuous real-time motion tracking. <sup><a href="#ref-5" aria-label="Reference 5">[5]</a> <a href="#ref-6" aria-label="Reference 6">[6]</a></sup> The published localization-study overview is explicitly a mannequin-based bench evaluation awaiting release, and does not establish human targeting accuracy. <sup><a href="#ref-8" aria-label="Reference 8">[8]</a></sup></p>
+<p><strong>Transparent tools support reproducibility; independent replication and well-designed studies establish the strength of the evidence.</strong> Open-LIFU is a research platform, not an independently certified clinical-evidence standard.</p></section>
+
+<section id="next-study"><h2>Start the next study with a reproducibility package</h2>
+<p>We recommend assembling this package before data collection, then updating it with the study's actual execution:</p>
+<ol><li>A versioned protocol and prespecified analysis plan.</li><li>Calibration records, exposure estimates, and the assumptions behind them.</li><li>Targeting, fitting, coupling, and session-quality procedures.</li><li>Control conditions, blinding checks, and outcome definitions.</li><li>De-identified session records, deviations, adverse-event reporting, and shareable analysis materials, subject to consent and data governance.</li></ol>
+<p>Give each site the same definitions and acceptance criteria. Document justified adaptations. That makes replication testable and helps distinguish a device difference from a protocol difference.</p>
+<div class="callout amber"><strong>Research-use boundary.</strong> Open-LIFU is for research use only and is not FDA-cleared or approved for clinical diagnostic or therapeutic use. This article provides no clinical treatment recommendation. Human-subjects research requires the applicable institutional, ethical, and regulatory authorizations; this post grants none. <sup><a href="#ref-9" aria-label="Reference 9">[9]</a></sup></div>
+</section>
+<section id="references"><h2>Supporting evidence and documentation</h2><p>Consensus guidance, primary experimental evidence, and Openwater product documentation are identified separately below. Sources checked September 17, 2026.</p><ol class="sources"><li id="ref-1"><a href="https://doi.org/10.1016/j.brs.2024.04.013">Martin E, et al. ITRUSST consensus on standardised reporting for transcranial ultrasound stimulation. Brain Stimulation (2024).</a></li>
+<li id="ref-2"><a href="https://doi.org/10.1016/j.clinph.2025.01.004">Murphy KR, et al. A practical guide to transcranial ultrasonic stimulation from the IFCN-endorsed ITRUSST consortium. Clinical Neurophysiology (2025).</a></li>
+<li id="ref-3"><a href="https://doi.org/10.7554/eLife.88762.3">Kop BR, et al. Auditory confounds can drive online effects of transcranial ultrasonic stimulation in humans. eLife (2024).</a></li>
+<li id="ref-4"><a href="https://doi.org/10.1016/j.brs.2025.10.007">Aubry J-F, et al. ITRUSST consensus on biophysical safety for transcranial ultrasound stimulation. Brain Stimulation (2025).</a></li>
+<li id="ref-5"><a href="https://docs.openwater.health/openlifu/sonication-protocols/">Openwater. Creating &amp; Editing Sonication Protocols. ER-00017 Revision A; software v1.20.0; released June 23, 2026.</a></li>
+<li id="ref-6"><a href="https://docs.openwater.health/openlifu/slicer/">Openwater. Slicer Open-LIFU: planning, localization, and sonication workflow.</a></li>
+<li id="ref-7"><a href="https://docs.openwater.health/openlifu/water-tank-testing/">Openwater. Water Tank Testing. ER-00016 Revision A; effective May 26, 2026.</a></li>
+<li id="ref-8"><a href="https://docs.openwater.health/research/openlifu/transducer-localization-accuracy/">Openwater. Open-LIFU Transducer Localization Accuracy Study: scope and release status.</a></li>
+<li id="ref-9"><a href="https://www.openwater.health/disclosures">Openwater. Research-use and regulatory disclosures.</a></li></ol></section>
+<div class="cta"><h2>Build a comparison another team can reproduce</h2><p>Start with the <a href="https://docs.openwater.health/openlifu/sonication-protocols/">Open-LIFU protocol documentation</a>, use the <a href="transcranial-focused-ultrasound-platform-evaluation.html">platform evaluation guide</a> to assess the full workflow, and inspect the <a href="https://github.com/OpenwaterHealth">implementation on GitHub</a>.</p></div></article></main>
+  <footer>
+    <p>Openwater · Open-source medical-device research platforms</p>
+    <p><a href="https://docs.openwater.health/">Documentation</a> · <a href="https://github.com/OpenwaterHealth">GitHub</a> · <a href="community.html">Community</a></p>
+  </footer>
+</body>
+</html>
