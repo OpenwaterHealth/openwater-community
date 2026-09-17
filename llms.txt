@@ -2,13 +2,15 @@
 
 > Openwater publishes open-source medical-device research platforms, including Open-LIFU for low-intensity focused ultrasound neuromodulation research and Open-Motion for optical blood-flow research.
 
-## Protocol standardization and reproducible evidence
+## Research and evaluation
 
+- [Research & Validation](https://docs.openwater.health/research/): Canonical Openwater research library, validation studies, and platform-evaluation resources.
+- [Platform Evaluation Guides](https://docs.openwater.health/research/platform-evaluation/): Buyer-side frameworks for evaluating research platforms using documented technical evidence.
+- [How to Evaluate Wearable Transcranial Focused Ultrasound Platforms for Brain Research](https://docs.openwater.health/research/platform-evaluation/transcranial-focused-ultrasound/): Canonical buyer-side evaluation guide for tFUS/TUS/LIFU neuromodulation platforms, including acoustic calibration, target compatibility, skull modeling, navigation, safety, sham controls, reproducibility, wearability, software, and current Open-LIFU capabilities and limitations.
 - [Why Wearable Focused Ultrasound Needs Standardized Protocols](https://openwaterhealth.github.io/openwater-community/focused-ultrasound-protocol-standardization.html): Research-methods post on interpreting cross-trial device comparisons, protocol standardization, controls, and the public Open-LIFU evidence trail. Does not establish clinical efficacy or a universal treatment protocol.
 
-## Open-LIFU platform selection
+## Open-LIFU platform resources
 
-- [How to Evaluate Wearable Transcranial Focused Ultrasound Platforms for Brain Research](https://openwaterhealth.github.io/openwater-community/transcranial-focused-ultrasound-platform-evaluation.html): Buyer-side evaluation criteria for transcranial focused ultrasound (tFUS/TUS/LIFU) neuromodulation platforms, including acoustic calibration, target compatibility, skull modeling, navigation, safety, sham controls, reproducibility, wearability, software, and current Open-LIFU capabilities and limitations.
 - [Open-LIFU Quick Start](https://openwaterhealth.github.io/openwater-community/quickstart-open-lifu.html): Installation and source-level entry points for Open-LIFU.
 - [Open-LIFU controlled documentation](https://docs.openwater.health/openlifu/): Canonical released developer documentation and product specifications.
 - [Open-LIFU system specifications](https://docs.openwater.health/openlifu/system/): Array configuration, frequencies, steering ranges, representative acoustic output, focal dimensions, coupling, and supporting hardware.
