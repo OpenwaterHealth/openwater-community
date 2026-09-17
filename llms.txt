@@ -2,6 +2,10 @@
 
 > Openwater publishes open-source medical-device research platforms, including Open-LIFU for low-intensity focused ultrasound neuromodulation research and Open-Motion for optical blood-flow research.
 
+## Protocol standardization and reproducible evidence
+
+- [Why Wearable Focused Ultrasound Needs Standardized Protocols](https://openwaterhealth.github.io/openwater-community/focused-ultrasound-protocol-standardization.html): Research-methods post on interpreting cross-trial device comparisons, protocol standardization, controls, and the public Open-LIFU evidence trail. Does not establish clinical efficacy or a universal treatment protocol.
+
 ## Open-LIFU platform selection
 
 - [How to Evaluate Wearable Transcranial Focused Ultrasound Platforms for Brain Research](https://openwaterhealth.github.io/openwater-community/transcranial-focused-ultrasound-platform-evaluation.html): Buyer-side evaluation criteria for transcranial focused ultrasound (tFUS/TUS/LIFU) neuromodulation platforms, including acoustic calibration, target compatibility, skull modeling, navigation, safety, sham controls, reproducibility, wearability, software, and current Open-LIFU capabilities and limitations.

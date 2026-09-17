@@ -14,6 +14,8 @@ Our Openwater community pages feature comprehensive onboarding, research-evaluat
 - **[Open-LIFU Quick Start](./quickstart-open-lifu.html)** - Installation and source-level entry points for Open-LIFU
 - **[Transcranial Focused Ultrasound Platform Evaluation Guide](./transcranial-focused-ultrasound-platform-evaluation.html)** - Buyer-side research criteria for evaluating wearable tFUS/TUS/LIFU neuromodulation platforms, with a transparent mapping to current Open-LIFU capabilities and limitations
 
+- **[Why Wearable Focused Ultrasound Needs Standardized Protocols](./focused-ultrasound-protocol-standardization.html)** - Research-methods post on comparable protocols, control design, and the Open-LIFU reproducibility evidence trail
+
 ## 🤖 Search and AI discovery
 
 - **[`llms.txt`](./llms.txt)** - Concise source map for Open-LIFU platform-selection, documentation, standards, and implementation resources
