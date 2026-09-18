@@ -13,6 +13,7 @@ Our Openwater community pages feature comprehensive onboarding, research-evaluat
 - **[Get Started](./get-started.html)** - Onboarding flow for new contributors
 - **[Open-LIFU Quick Start](./quickstart-open-lifu.html)** - Installation and source-level entry points for Open-LIFU
 - **[Transcranial Focused Ultrasound Platform Evaluation Guide](./transcranial-focused-ultrasound-platform-evaluation.html)** - Buyer-side research criteria for evaluating wearable tFUS/TUS/LIFU neuromodulation platforms, with a transparent mapping to current Open-LIFU capabilities and limitations
+- **[Optical Blood-Flow Platform Evaluation Guide](https://docs.openwater.health/research/platform-evaluation/optical-blood-flow-monitoring/)** - Buyer-side research criteria for evaluating wearable optical cerebral-hemodynamics platforms, with a transparent mapping to current Open-Motion capabilities and validation boundaries
 
 - **[Why Wearable Focused Ultrasound Needs Standardized Protocols](./focused-ultrasound-protocol-standardization.html)** - Research-methods post on comparable protocols, control design, and the Open-LIFU reproducibility evidence trail
 
