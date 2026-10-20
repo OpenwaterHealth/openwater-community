@@ -15,7 +15,8 @@ Our Openwater community pages feature comprehensive onboarding, research-evaluat
 - **[Home](./index.html)** - Community Hub landing page
 - **[Developers](./developers.html)** - Technical documentation and resources
 - **[Get Started](./get-started.html)** - Onboarding flow for new contributors
-- **[Open-LIFU Quick Start](./quickstart-open-lifu.html)** - Installation and source-level entry points for Open-LIFU
+- **[Open-LIFU Quick Start](https://docs.openwater.health/openlifu/developer-quickstart/)** - Installation and source-level entry points for Open-LIFU (hosted in the docs)
+- **[Open-Motion Quick Start](https://docs.openwater.health/openmotion/developer-quickstart/)** - Driver, app, and firmware entry points for Open-Motion (hosted in the docs)
 - **[Transcranial Focused Ultrasound Platform Evaluation Guide](./transcranial-focused-ultrasound-platform-evaluation.html)** - Buyer-side research criteria for evaluating wearable tFUS/TUS/LIFU neuromodulation platforms, with a transparent mapping to current Open-LIFU capabilities and limitations
 - **[Optical Blood-Flow Platform Evaluation Guide](https://docs.openwater.health/research/platform-evaluation/optical-blood-flow-monitoring/)** - Buyer-side research criteria for evaluating wearable optical cerebral-hemodynamics platforms, with a transparent mapping to current Open-Motion capabilities and validation boundaries
 
@@ -72,7 +73,8 @@ openwater-community/
 ├── index.html
 ├── developers.html
 ├── get-started.html
-├── quickstart-open-lifu.html
+├── quickstart-open-lifu.html     # redirect to docs.openwater.health
+├── quickstart-open-motion.html   # redirect to docs.openwater.health
 ├── transcranial-focused-ultrasound-platform-evaluation.html
 ├── llms.txt
 ├── robots.txt
