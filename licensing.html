@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Licensing & the Open Commons - Openwater Health</title>
-    <meta name="description" content="How Openwater licenses its open-source platform: the core stays AGPL 3.0 to protect the commons, while extensions move to Apache 2.0 for broad academic and commercial adoption.">
+    <meta name="description" content="Openwater's four license layers for software, hardware reference designs, documentation and data.">
     <style>
         :root {
             --deep-navy: #0A2540;
@@ -376,7 +376,7 @@
                     <a href="community.html">Community</a>
                     <ul class="ow-dropdown-menu">
                         <li><a href="community.html">Community Hub</a></li>
-                        <li><a href="licensing.html" class="active">Licensing <small>AGPL core · Apache extensions</small></a></li>
+                        <li><a href="licensing.html" class="active">Licensing <small>AGPL · Apache · CERN · CC BY</small></a></li>
                     </ul>
                 </li>
                 <li><a href="model-commons.html">Model Commons</a></li>
@@ -389,254 +389,35 @@
     <section class="hero">
         <div class="hero-content">
             <p class="eyebrow">Licensing &amp; the Open Commons</p>
-            <h1>License Transition &amp; Framework</h1>
-            <p>Today, our entire codebase is licensed under AGPL. We're changing that: extensions move to the permissive Apache&nbsp;2.0 license, while the core stays AGPL. Here's what each part is, why we're making the change, and why it takes a few deliberate steps rather than a single switch.</p>
+            <h1>Licensing Framework</h1>
+            <p>Openwater uses four license layers for different kinds of software, hardware and documentation. Check the LICENSE file in the repository you use for its current terms.</p>
         </div>
     </section>
 
-    <!-- TL;DR -->
     <div class="tldr">
-        <div class="tldr-badge">In one line</div>
-        <p><strong>The core stays AGPL 3.0</strong> to keep the foundation open and un-closable. <strong>Extensions move to Apache 2.0</strong> so anyone — researchers, clinicians, and companies — can freely build on and adopt them. Same open commons, more room to build.</p>
+        <div class="tldr-badge">Current model</div>
+        <p>AGPL-3.0-or-later covers the reciprocal software core; Apache-2.0 covers permissive software and integrations; CERN-OHL-S-2.0 covers hardware reference designs; and CC-BY-4.0 covers documentation and sample data.</p>
     </div>
 
-    <!-- Framework two-column -->
     <section class="section">
         <div class="section-header">
-            <h2 class="section-title">What each part is</h2>
-            <p class="section-subtitle">Openwater is built in two layers. Each layer has a license chosen for what it needs to do.</p>
+            <h2 class="section-title">What each license covers</h2>
+            <p class="section-subtitle">These are the approved classifications. A repository's current LICENSE governs its published contents until any rights-reviewed change is merged.</p>
         </div>
-        <div class="framework-grid">
-            <div class="lic-card core">
-                <span class="lic-tag">Core</span>
-                <h3>The foundational platform</h3>
-                <div class="lic-license">Stays under AGPL 3.0</div>
-                <h4>What it is</h4>
-                <p>Open-LIFU and Open-Motion — the engine everything else is built on.</p>
-                <h4>The thinking</h4>
-                <p>Keeping the core AGPL protects the open commons. No one can take our foundation, make it proprietary, and close it off. This is what keeps Openwater "the Linux of medical devices."</p>
-                <p class="examples"><strong>Includes:</strong> Open-LIFU firmware &amp; planning software, Open-Motion acquisition &amp; imaging stack, the shared platform libraries.</p>
-            </div>
-            <div class="lic-card ext">
-                <span class="lic-tag">Extensions</span>
-                <h3>Integrations &amp; plugins</h3>
-                <div class="lic-license">Move to Apache 2.0</div>
-                <h4>What they are</h4>
-                <p>Integrations and plugins that connect Openwater to other tools — e.g. the SlicerOpenLIFU extension for the 3D Slicer imaging platform.</p>
-                <h4>The thinking</h4>
-                <p>Apache 2.0 is permissive, so researchers, clinicians, and companies can freely adopt and build on our extensions for both academic and commercial use.</p>
-                <p class="examples"><strong>Includes:</strong> SlicerOpenLIFU, tool integrations, SDK adapters, sample plugins, and reference connectors.</p>
-            </div>
-        </div>
+        <table>
+            <thead><tr><th>Layer</th><th>License</th><th>Examples</th></tr></thead>
+            <tbody>
+                <tr><td>Reciprocal software core</td><td>AGPL-3.0-or-later</td><td>OpenLIFU console and transmitter firmware; OpenMOTION FPGA/HDL; sensing, beamforming, reconstruction, signal-processing and calibration core</td></tr>
+                <tr><td>Permissive software and integration</td><td>Apache-2.0</td><td>OpenMOTION firmware; all bootloaders; 3D Slicer extensions; applications, tooling, SDKs, language bindings and scripts</td></tr>
+                <tr><td>Hardware reference designs</td><td>CERN-OHL-S-2.0</td><td>Mechanical CAD, schematics, PCB layouts and related design sources</td></tr>
+                <tr><td>Documentation and data</td><td>CC-BY-4.0</td><td>Guides, tutorials, templates and sample data</td></tr>
+            </tbody>
+        </table>
+        <p class="section-subtitle">The SlicerOpenLIFU extension and four active hardware repositories still carry AGPL license files. Their approved destination takes effect only after contributor rights are confirmed and the repository license is changed. Third-party components retain their own terms.</p>
+        <p><a href="https://github.com/OpenwaterHealth/.github/blob/main/CONTRIBUTING.md">Read the organization contribution policy</a> for the full boundaries and SPDX guidance.</p>
     </section>
 
-    <!-- Why change -->
-    <section class="section alt-bg full-alt" style="max-width: none;">
-        <div class="section" style="padding: 0;">
-            <div class="section-header">
-                <h2 class="section-title">Why we're making this change</h2>
-                <p class="section-subtitle">A single license can't do two jobs at once. Splitting the layers lets each one serve its purpose.</p>
-            </div>
-            <div class="aud-grid">
-                <div class="aud-card">
-                    <div class="aud-icon">🛡️</div>
-                    <h3>Protect the commons</h3>
-                    <p>AGPL's copyleft on the core guarantees the foundation stays open. Improvements flow back, and the platform can never be quietly forked into a closed product.</p>
-                </div>
-                <div class="aud-card">
-                    <div class="aud-icon">🚀</div>
-                    <h3>Lower the barrier to build</h3>
-                    <p>AGPL's obligations can deter companies and some institutions from building on top. Apache 2.0 on extensions removes that friction, so the ecosystem around the platform can grow.</p>
-                </div>
-                <div class="aud-card">
-                    <div class="aud-icon">🤝</div>
-                    <h3>Enable the service model</h3>
-                    <p>Like Red Hat with Linux, Openwater keeps the platform open and builds sustainable revenue through services. Permissive extensions are what make commercial adoption — and that model — viable.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why steps -->
-    <section class="section">
-        <div class="section-header">
-            <h2 class="section-title">Why it takes deliberate steps</h2>
-            <p class="section-subtitle">Changing a license isn't a single switch. Doing it right protects contributors and keeps the project on solid legal footing.</p>
-        </div>
-        <div class="steps">
-            <div class="step">
-                <div class="step-num">1</div>
-                <div>
-                    <h3>Separate core from extensions</h3>
-                    <p>Before anything can be relicensed, we clearly delineate what is foundational platform (stays AGPL) and what is an extension (moves to Apache 2.0) — repository by repository.</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-num">2</div>
-                <div>
-                    <h3>Put a Contributor License Agreement in place</h3>
-                    <p>A CLA gives the project the rights it needs to relicense extension code cleanly. It's straightforward and standard, and it protects both the contributor and the project through the transition.</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-num">3</div>
-                <div>
-                    <h3>Clear existing contributions</h3>
-                    <p>Code already contributed under AGPL needs contributor sign-off before it can move to Apache 2.0. We work through this history deliberately rather than assuming consent.</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-num">4</div>
-                <div>
-                    <h3>Relicense extensions &amp; document clearly</h3>
-                    <p>Once the groundwork is done, extension repositories are relicensed to Apache 2.0 with clear headers and NOTICE files, so everyone can see exactly what applies where.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- What applies where -->
-    <section class="section alt-bg full-alt" style="max-width: none;">
-        <div class="section" style="padding: 0;">
-            <div class="section-header">
-                <h2 class="section-title">What license applies to what</h2>
-                <p class="section-subtitle">The target model once the transition completes. Extensions are moving from AGPL to Apache 2.0 as the manifest and relicensing land — so while the switch is underway, always check the LICENSE file in the specific repository. It is the source of truth today.</p>
-            </div>
-            <div class="table-wrap">
-                <table class="lic-table">
-                    <thead>
-                        <tr><th>Component</th><th>Layer</th><th>License</th><th>What you can do</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Open-LIFU platform</td><td>Core</td><td><span class="pill pill-agpl">AGPL 3.0</span></td><td>Use, modify, and share — derivative works and network use stay open.</td></tr>
-                        <tr><td>Open-Motion platform</td><td>Core</td><td><span class="pill pill-agpl">AGPL 3.0</span></td><td>Use, modify, and share — derivative works and network use stay open.</td></tr>
-                        <tr><td>SlicerOpenLIFU extension</td><td>Extension</td><td><span class="pill pill-apache">Apache 2.0</span></td><td>Adopt and build on it freely, including in commercial products.</td></tr>
-                        <tr><td>Tool integrations &amp; plugins</td><td>Extension</td><td><span class="pill pill-apache">Apache 2.0</span></td><td>Adopt and build on it freely, including in commercial products.</td></tr>
-                        <tr><td>Hardware designs &amp; docs</td><td>Reference</td><td><span class="pill pill-agpl">Open hardware / docs</span></td><td>See each repository's LICENSE; designs and documentation are shared openly.</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- What it means for you -->
-    <section class="section">
-        <div class="section-header">
-            <h2 class="section-title">What this means for you</h2>
-            <p class="section-subtitle">The short version, by how you work with the platform.</p>
-        </div>
-        <div class="aud-grid">
-            <div class="aud-card">
-                <div class="aud-icon">🔬</div>
-                <h3>Researchers &amp; academics</h3>
-                <p>Nothing you rely on disappears. The core stays open under AGPL, and extensions become easier to adopt and integrate into your own tooling and pipelines.</p>
-            </div>
-            <div class="aud-card">
-                <div class="aud-icon">💻</div>
-                <h3>Developers &amp; contributors</h3>
-                <p>You'll be asked to sign a simple CLA. It's standard, it protects your work, and it's what lets us relicense extensions cleanly. Core contributions remain AGPL.</p>
-            </div>
-            <div class="aud-card">
-                <div class="aud-icon">🏢</div>
-                <h3>Companies &amp; integrators</h3>
-                <p>Apache 2.0 extensions give you a permissive, commercially-friendly path to build on Openwater. The AGPL core keeps the shared foundation trustworthy and open.</p>
-            </div>
-            <div class="aud-card">
-                <div class="aud-icon">🩺</div>
-                <h3>Clinicians</h3>
-                <p>The technology stays transparent and inspectable end to end. Open licensing is part of why you can trust what the device does and how it does it.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Timeline -->
-    <section class="section alt-bg full-alt" style="max-width: none;">
-        <div class="section" style="padding: 0;">
-            <div class="section-header">
-                <h2 class="section-title">How the transition unfolds</h2>
-                <p class="section-subtitle">We're moving from "everything AGPL" to a two-layer model — one deliberate step at a time, not a single overnight switch.</p>
-            </div>
-            <div class="timeline" style="max-width: 800px; margin-left: auto; margin-right: auto;">
-                <div class="tl-item done">
-                    <div class="tl-phase">Where we started</div>
-                    <h3>Everything was AGPL — core <em>and</em> extensions</h3>
-                    <p>Until now, the entire codebase — both the core platform and the extensions built around it — has been licensed under AGPL 3.0.</p>
-                </div>
-                <div class="tl-item current">
-                    <div class="tl-phase">Step 1 · In progress <span class="tl-here">We are here</span></div>
-                    <h3>Draw the core / extension boundary &amp; adopt the CLA</h3>
-                    <p>The work happening now: building the manifest that defines what counts as <strong>core</strong> (stays AGPL 3.0) versus an <strong>extension</strong> (moving to Apache 2.0), and putting the Contributor License Agreement in place. Until that manifest exists, everything remains AGPL.</p>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-phase">Step 2 · Next</div>
-                    <h3>Clear contributions &amp; relicense extensions</h3>
-                    <p>Once the boundary is set, existing extension contributions are cleared and the extension repositories move from AGPL to Apache 2.0 with clear license headers.</p>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-phase">Steady state · Where we're headed</div>
-                    <h3>Core AGPL 3.0 · Extensions Apache 2.0</h3>
-                    <p>A two-layer commons: an un-closable AGPL foundation with a permissive, build-friendly Apache 2.0 extension ecosystem around it.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section">
-        <div class="section-header">
-            <h2 class="section-title">Frequently asked questions</h2>
-        </div>
-        <div class="faq">
-            <details>
-                <summary>Is the platform becoming less open?</summary>
-                <p>No. The core stays under AGPL — the strongest guarantee of openness — and the extensions become <em>more</em> accessible by moving to a permissive license. Both layers remain open source.</p>
-            </details>
-            <details>
-                <summary>Why not just use one license for everything?</summary>
-                <p>The two layers have different jobs. AGPL's copyleft is ideal for protecting a shared foundation, but it can deter others from building on top. Apache 2.0 is ideal for encouraging broad adoption but wouldn't protect the core from being closed off. Using each where it fits gives us the best of both.</p>
-            </details>
-            <details>
-                <summary>What's the difference between AGPL 3.0 and Apache 2.0?</summary>
-                <p>AGPL 3.0 is a strong copyleft license: derivative works — including software offered over a network — must also be shared under AGPL. Apache 2.0 is permissive: you can use, modify, and redistribute the code, including in proprietary and commercial products, with minimal obligations (mainly attribution).</p>
-            </details>
-            <details>
-                <summary>I've contributed code. Do I need to do anything?</summary>
-                <p>For extension code that's moving to Apache 2.0, we'll ask you to sign a Contributor License Agreement and, where needed, confirm sign-off on your existing contributions. It's a standard, lightweight step that protects both you and the project. Core (AGPL) contributions are unaffected.</p>
-            </details>
-            <details>
-                <summary>Can I build a commercial product on Openwater?</summary>
-                <p>Yes — that's part of the point. Apache 2.0 extensions give you a clean, commercially-friendly path. If you build on or modify the AGPL core, the copyleft obligations of AGPL apply to that work. As always, review the LICENSE in the specific repository and consult your own counsel for your situation.</p>
-            </details>
-            <details>
-                <summary>How do I know which license covers a given repo?</summary>
-                <p>Check the LICENSE file at the root of that repository — it is the authoritative answer. The table above is a guide, but individual repos are the source of truth.</p>
-            </details>
-        </div>
-    </section>
-
-    <!-- Callout -->
-    <section class="section tight">
-        <div class="callout">
-            <div>
-                <h3>Questions about licensing or contributing?</h3>
-                <p>Reach the community team, or jump into the discussion on Discord — we're happy to walk through what applies to your project.</p>
-            </div>
-            <a href="mailto:community@openwater.health" class="btn btn-light">Email the team</a>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <div class="cta-section">
-        <h2>Build on the open commons</h2>
-        <p>Explore the repositories, see the licenses for yourself, and start contributing.</p>
-        <div class="cta-buttons">
-            <a href="https://github.com/OpenwaterHealth" class="btn btn-light">Explore the repos →</a>
-            <a href="community.html" class="btn btn-outline-light">Back to Community</a>
-            <a href="https://discord.gg/Sy9uj3j4Ub" class="btn btn-outline-light">Join Discord</a>
-        </div>
-    </div>
-
-    <p class="disclaimer">This page is a plain-language overview of Openwater's licensing approach and is provided for general information. It is not legal advice. The LICENSE file in each repository is the authoritative and binding statement of the license that applies to that code.</p>
+    <p class="disclaimer">This page summarizes the policy. Read the LICENSE file and file-level notices in the particular repository for the license that applies to its published contents.</p>
 
     <!-- Footer -->
     <footer>
@@ -645,7 +426,7 @@
             <p>Open Source. Always.</p>
             <p>733 Front Street, Suite C1A, San Francisco, CA 94111</p>
             <p><a href="mailto:community@openwater.health">community@openwater.health</a></p>
-            <p class="footer-note">© 2026 Openwater Health. Core: AGPL 3.0 · Extensions: Apache 2.0.</p>
+            <p class="footer-note">© 2026 Openwater Health. See each repository's LICENSE.</p>
         </div>
     </footer>
 </body>

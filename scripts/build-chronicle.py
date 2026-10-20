@@ -269,7 +269,7 @@ def navigation() -> str:
           <a class="active" href="{BASE_URL}/chronicle/">Chronicle</a>
           <a href="{BASE_URL}/licensing.html">
             Licensing
-            <small>AGPL core · Apache extensions</small>
+            <small>AGPL · Apache · CERN · CC BY</small>
           </a>
         </div>
       </details>
@@ -289,7 +289,7 @@ def footer() -> str:
     <p>Open Source. Always.</p>
     <p>733 Front Street, Suite C1A, San Francisco, CA 94111</p>
     <p><a href="mailto:community@openwater.health">community@openwater.health</a></p>
-    <p>© 2026 Openwater Health. AGPL 3.0 Licensed.</p>
+    <p>© 2026 Openwater Health. See each repository's LICENSE.</p>
     <p class="disclaimer">Openwater's platform is exclusively intended for research purposes and is not cleared or approved by the FDA for clinical use.</p>
   </div>
 </footer>
