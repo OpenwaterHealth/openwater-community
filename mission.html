@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Openwater's mission: make medical device research more accessible through open hardware, software, documentation, and collaboration.">
+  <title>Our Mission - Openwater Community</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    :root { --navy:#0A2540; --teal:#0891B2; --cyan:#06B6D4; --light:#F0F9FF; --text:#0F172A; --muted:#475569; --line:#D8EEF5; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--text); line-height:1.6; }
+    a { color:#087494; }
+    a:focus-visible { outline:3px solid var(--cyan); outline-offset:3px; }
+    .skip-link { position:absolute; left:-9999px; top:0; background:#fff; padding:.6rem 1rem; z-index:20; }
+    .skip-link:focus { left:1rem; }
+    nav { background:#fff; border-bottom:2px solid var(--light); }
+    .nav-container { max-width:1200px; margin:auto; padding:1rem 1.25rem; display:flex; align-items:center; justify-content:space-between; gap:1.5rem; }
+    .logo img { display:block; height:40px; width:auto; }
+    .nav-links { display:flex; flex-wrap:wrap; align-items:center; gap:1.35rem; list-style:none; margin:0; padding:0; }
+    .nav-links a { color:var(--navy); font-weight:600; text-decoration:none; }
+    .nav-links a:hover, .nav-links a.active { color:var(--teal); }
+    .ow-dropdown { position:relative; }
+    .ow-dropdown > a::after { content:" ▾"; font-size:.75em; }
+    .ow-dropdown-menu { display:none; position:absolute; top:100%; left:0; z-index:10; min-width:215px; padding:.5rem; margin:0; background:#fff; border:1px solid var(--line); border-radius:9px; box-shadow:0 10px 24px rgba(10,37,64,.15); list-style:none; }
+    .ow-dropdown:hover .ow-dropdown-menu, .ow-dropdown:focus-within .ow-dropdown-menu { display:block; }
+    .ow-dropdown-menu a { display:block; padding:.4rem .55rem; }
+    .ow-dropdown-menu small { display:block; color:var(--muted); font-weight:400; }
+    .hero { background:linear-gradient(135deg,var(--navy),#164E63); color:#fff; padding:5rem 1.25rem; }
+    .wrap { max-width:1080px; margin:auto; }
+    .eyebrow { color:#67E8F9; font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
+    h1 { max-width:850px; margin:.5rem 0 1rem; font-size:clamp(2.5rem,6vw,4.5rem); line-height:1.12; }
+    .hero p { max-width:760px; font-size:1.25rem; }
+    .section { padding:4rem 1.25rem; }
+    .section.alt { background:var(--light); }
+    h2 { margin:0 0 1rem; color:var(--navy); font-size:2rem; }
+    .lead { max-width:760px; font-size:1.15rem; color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.25rem; margin-top:2rem; }
+    .card { padding:1.6rem; background:#fff; border:1px solid var(--line); border-radius:14px; }
+    .card h3 { margin:0 0 .5rem; color:var(--navy); }
+    .card p { margin:0; color:var(--muted); }
+    .platforms { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.25rem; margin-top:1.5rem; }
+    .notice { padding:1.25rem 1.5rem; margin-top:1.75rem; border-left:4px solid var(--teal); background:#fff; }
+    .actions { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.5rem; }
+    .button { display:inline-block; padding:.75rem 1rem; border-radius:9px; background:var(--cyan); color:var(--navy); font-weight:700; text-decoration:none; }
+    .button.secondary { background:#fff; border:1px solid var(--line); }
+    footer { background:var(--navy); color:#fff; padding:2rem 1.25rem; }
+    footer p { margin:.3rem 0; }
+    footer a { color:#67E8F9; }
+    @media(max-width:760px) { .nav-container { align-items:flex-start; flex-direction:column; } .nav-links { gap:.8rem 1rem; } .ow-dropdown-menu { position:static; box-shadow:none; margin-top:.4rem; } .grid,.platforms { grid-template-columns:1fr; } .hero { padding:3.5rem 1.25rem; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <nav aria-label="Main navigation">
+    <div class="nav-container">
+      <a class="logo" href="https://www.openwater.health" aria-label="Openwater main website"><img src="openwater-logo.png" alt="Openwater"></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mission.html" class="active" aria-current="page">Mission</a></li>
+        <li><a href="developers.html">Developers</a></li>
+        <li><a href="get-started.html">Get Started</a></li>
+        <li class="ow-dropdown"><a href="community.html">Community</a>
+          <ul class="ow-dropdown-menu">
+            <li><a href="community.html">Community Hub</a></li>
+            <li><a href="licensing.html">Licensing <small>AGPL · Apache · CERN · CC BY</small></a></li>
+          </ul>
+        </li>
+        <li><a href="https://docs.openwater.health/">Docs</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main id="main">
+    <header class="hero">
+      <div class="wrap">
+        <span class="eyebrow">Our mission</span>
+        <h1>Make medical device research more open and accessible.</h1>
+        <p>Openwater brings researchers, developers, and clinicians together around shared hardware designs, software, documentation, and research methods.</p>
+      </div>
+    </header>
+    <section class="section">
+      <div class="wrap">
+        <h2>Why we build in the open</h2>
+        <p class="lead">When tools and methods can be inspected, adapted, and tested by others, more teams can contribute to reproducible medical device research.</p>
+        <div class="grid">
+          <div class="card"><h3>Access</h3><p>Publish designs and code so research teams can study the platform and build on it.</p></div>
+          <div class="card"><h3>Reproducibility</h3><p>Document protocols, measurements, and software versions so results can be checked and repeated.</p></div>
+          <div class="card"><h3>Collaboration</h3><p>Welcome contributions to engineering, documentation, quality, and research methods.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="wrap">
+        <h2>What the community is working on</h2>
+        <div class="platforms">
+          <div class="card"><h3>Open-LIFU</h3><p>An open-source focused ultrasound platform for neuromodulation research and development.</p></div>
+          <div class="card"><h3>Open-Motion</h3><p>An open-source optical platform for research into blood flow and blood volume measurement.</p></div>
+        </div>
+        <p class="notice"><strong>Research use only.</strong> Open-LIFU and Open-Motion are not cleared or approved by the FDA for clinical diagnostic or therapeutic use. Human-subjects research requires appropriate institutional and regulatory authorization.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap">
+        <h2>Take part</h2>
+        <p class="lead">You can contribute without a device: improve code, review documentation, strengthen testing, or help make research methods clearer.</p>
+        <div class="actions">
+          <a class="button" href="get-started.html">Get started</a>
+          <a class="button secondary" href="developers.html">Developer resources</a>
+          <a class="button secondary" href="community.html">Meet the community</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">
+      <p>Openwater Community · Open Source. Always.</p>
+      <p><a href="https://github.com/OpenwaterHealth">GitHub</a> · <a href="https://docs.openwater.health/">Documentation</a> · <a href="mailto:community@openwater.health">Contact</a></p>
+    </div>
+  </footer>
+</body>
+</html>
