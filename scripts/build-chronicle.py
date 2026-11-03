@@ -274,7 +274,7 @@ def navigation() -> str:
         </div>
       </details>
 
-      <a href="{BASE_URL}/model-commons.html">Model Commons</a>
+      <a href="{BASE_URL}/mission.html">Mission</a>
       <a href="https://docs.openwater.health/">Docs</a>
     </div>
   </nav>
