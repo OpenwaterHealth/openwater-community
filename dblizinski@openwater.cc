@@ -618,11 +618,11 @@
             </div>
             <ul>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="mission.html">Mission</a></li>
                 <li><a href="developers.html">Developers</a></li>
                 <li><a href="get-started.html">Get Started</a></li>
                 <li><a href="community.html" class="active">Community</a></li>
-                <li><a href="model-commons.html">Model Commons</a></li>
-            </ul>
+                </ul>
         </div>
     </nav>
 
